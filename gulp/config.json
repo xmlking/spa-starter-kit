@@ -1,0 +1,98 @@
+{
+    "paths": {
+        "scripts": [
+            "app/scripts/**/*.js",
+            "!app/compiled/**/*.js"
+        ],
+        "images": "app/images/**/*",
+        "sass": [
+            "app/styles/**/*.scss",
+            "!app/styles/**/_*.scss"
+        ],
+        "temp": ".tmp",
+        "dest": "dist"
+    },
+    "traceur": {
+        "modules": "amd",
+        "types": true,
+        "typeAssertions": true,
+        "annotations": true,
+        "typeAssertionModule": "assert",
+        "experimental": true,
+        "sourceMap": true
+    },
+    "buildProfile": {
+        "mainConfigFile": "app/config.js",
+        "appDir": ".tmp",
+        "baseUrl": "scripts",
+        "removeCombined": true,
+        "findNestedDependencies": true,
+        "dir": "dist",
+        "optimizeCss": "none",
+        "optimize": "none",
+        "modules": [
+            {
+                "name": "vendor",
+                "exclude": ["angular"]
+            },
+            {
+                "name": "bootstrap",
+                "include": ["requireLib"],
+                "exclude": ["vendor"],
+                "excludeShallow": ["test.env", "dev.env"]
+            },
+            {
+                "name": "common/index"
+            },
+            {
+                "name": "home/index"
+            },
+            {
+                "name": "drug/index"
+            },
+            {
+                "name": "provider/index"
+            },
+            {
+                "name": "experiments/index"
+            }
+        ]
+    },
+    "karmaCommonConf": {
+        "frameworks": ["jasmine", "requirejs", "traceur"],
+        "files": [
+            "test/test-main.js",
+            {"pattern": "app/scripts/**/*.js", "included": false},
+            {"pattern": "test/unit/**/*.js", "included": false},
+            {"pattern": ".tmp/scripts/di/*.js", "included": false},
+            {"pattern": ".tmp/scripts/assert.js", "included": false},
+            {"pattern": ".tmp/scripts/diary/diary.js", "included": false}
+        ],
+        "exclude": [
+            "app/scripts/bootstrap.js"
+        ],
+        "proxies":  {
+            "/base/di/": "/base/.tmp/scripts/di/",
+            "/base/assert.js": "/base/.tmp/scripts/assert.js",
+            "/base/diary/diary.js": "/base/.tmp/scripts/diary/diary.js"
+        },
+        "reporters": ["progress"],
+        "preprocessors": {
+            "app/scripts/**/*.js": ["traceur"],
+            "test/unit/**/*.js": ["traceur"]
+        },
+        "browsers": ["Chrome"],
+        "traceurPreprocessor": {
+            "options": {
+                "modules": "amd",
+                "types": true,
+                "typeAssertions": false,
+                "annotations": true,
+                "typeAssertionModule": "assert",
+                "experimental": true,
+                "sourceMap": false
+            }
+        }
+    }
+}
+

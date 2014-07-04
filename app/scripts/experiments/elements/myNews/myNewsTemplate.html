@@ -1,0 +1,32 @@
+<!-- #news' shadow -->
+<template id="t">
+    <content select="h3">Today's top headlines</content>
+    <div id="ticker">
+        <content id="stories">
+            No news
+            <button onclick="window.location.reload(true);">Reload</button>
+        </content>
+    </div>
+</template>
+
+<!-- #ticker's shadow -->
+<template id="u">
+    <style>
+        @host {
+            :scope {
+                white-space: nowrap;
+                overflow-style: marquee-line;
+                overflow-x: marquee;
+            }
+        }
+        content::distributed(*) {
+            display: inline-block;
+        }
+        *::distributed(.breaking) {
+            text-shadow: 0 0 0.2em var(highlight-accent, maroon);
+            color: var(highlight-primary, orange);
+        }
+    </style>
+    <content class="highlight" select=".breaking"></content>
+    <content></content>
+</template>

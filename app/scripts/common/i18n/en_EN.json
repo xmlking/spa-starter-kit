@@ -1,0 +1,19 @@
+{
+	"HEADLINE": "What an awesome module!",
+	"PARAGRAPH": "Srsly!",
+	"PASSED_AS_TEXT": "Hey there! I'm passed as text value!",
+	"PASSED_AS_ATTRIBUTE": "I'm passed as attribute value, cool ha?",
+	"PASSED_AS_INTERPOLATION": "Beginners! I'm interpolated!",
+	"VARIABLE_REPLACEMENT": "Hi {{name}}",
+	"BUTTON_LANG_DE": "german",
+	"BUTTON_LANG_EN": "english",
+	"LOGIN_REQUIRED": "Login Required!",
+	"SESSION_TIMEOUT": "Session Expired",
+	"LOGIN_SUCCESS": "You are Logged in!",
+	"LOGOUT_SUCCESS": "You are Logged Out!",
+	"LOGIN_CANCELLED": "login Cancelled!",
+	"PERMISSION_DEL_SUC": "permission deleted successfully",
+	"PERMISSION_DEL_FAI": "delete permission failed",
+	"PERMISSION_ADD_SUC": "permission added successfully",
+	"OOPS_ACTION_FAILED": "Oops! {{action}} {{subject}} failed. \nReason: {{reason}}"
+}

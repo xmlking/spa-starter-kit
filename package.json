@@ -1,0 +1,67 @@
+{
+  "name": "SPA-Starter-Kit",
+  "version": "0.0.0",
+  "description": "Angular Starter Project",
+  "main": "gulpfile.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "browser-sync": "^1.1.2",
+    "del": "^0.1.1",
+    "gulp": "^3.8.5",
+    "gulp-autoprefixer": "^0.0.8",
+    "gulp-bower-files": "^0.2.5",
+    "gulp-cache": "^0.2.0",
+    "gulp-csso": "^0.2.9",
+    "gulp-flatten": "^0.0.2",
+    "gulp-grep-stream": "^0.0.2",
+    "gulp-if": "^1.2.1",
+    "gulp-imagemin": "^0.6.1",
+    "gulp-jshint": "^1.6.4",
+    "gulp-load-plugins": "^0.5.3",
+    "gulp-plumber": "^0.6.3",
+    "gulp-protractor": "^0.0.11",
+    "gulp-replace": "^0.3.0",
+    "gulp-ruby-sass": "^0.5.0",
+    "gulp-size": "^0.4.0",
+    "gulp-traceur": "^0.7.0",
+    "gulp-uglify": "^0.3.1",
+    "gulp-useref": "^0.5.0",
+    "http-proxy": "^1.1.4",
+    "jshint-stylish": "^0.2.0",
+    "karma": "^0.12.16",
+    "karma-traceur-preprocessor": "~0.2.2",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-jasmine": "^0.2.2",
+    "karma-requirejs": "^0.2.2",
+    "lazypipe": "^0.2.1",
+    "opn": "^0.1.2",
+    "protractor": "^1.0.0",
+    "require-dir": "^0.1.0",
+    "requirejs": "^2.1.14",
+    "run-sequence": "^0.3.6",
+    "streamqueue": "^0.1.1",
+    "wiredep": "^1.8.1"
+  },
+  "scripts": {
+    "serve": "gulp serve",
+    "test": "gulp test",
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xmlking/spa-starter-kit.git"
+  },
+  "keywords": [
+    "SPA",
+    "Angular",
+    "ES6",
+    "AMD"
+  ],
+  "author": "Sumanth Chinthagunta",
+  "license": "MIT"
+}

@@ -1,0 +1,94 @@
+@import "variables";
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+@import "function";
+
+// bower:scss
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
+@import "../../bower_components/bourbon/dist/_bourbon.scss";
+@import "../../bower_components/compass-mixins/lib/_compass.scss";
+@import "../../bower_components/css-spinners/sass/spinner/spinner.scss";
+// endbower
+
+@import "animations";
+
+/* angular scope debug  : enable it when needed
+-------------------------------------------------- */
+.ng-scope {
+  /*   border: 1px dashed red; */
+}
+
+/* Browse Happy prompt
+-------------------------------------------------- */
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.container .text-muted {
+  margin: 20px 0;
+}
+
+body > ui-view> .container {
+  padding: 80px 15px 0;
+}
+
+#footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+/*  LOGIN
+-------------------------------------------------- */
+
+.modal-login .modal-dialog {
+  width: 450px;
+}
+
+/* center spinner
+-------------------------------------------------- */
+.center {
+  position:fixed !important;
+  top: 30%;
+  left: 50%;
+  z-index: 50;
+}
+
+/* growl-top-right custom
+-------------------------------------------------- */
+.growl-container.growl-fixed.top-right {
+  top: 60px;
+  right: 15px;
+  width: 250px;
+}
+
+/*# sourceMappingURL=main.css.map */
