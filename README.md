@@ -25,8 +25,8 @@ bower install # run 'bower install && bower prune' whenever you upgraded version
 # Install Sass (assume you already have ruby)
 [sudo] gem install sass  
 
-# Transpile 3rd party ES6
-gulp transpile-deps # also run when you update bower.json with 3rd party ES6 modules di.js, Diary.js etc.  
+# Transpile app and 3rd party ES6 files
+gulp transpile transpile-deps # also run when you add 3rd party ES6 modules e.g., di.js, Diary.js to bower.json.  
 
 # Build project: creates  `dist` directory for deployment to Web Servers. 
 NODE_ENV=PROD gulp  # `set NODE_ENV=PROD` and `gulp` for windows
@@ -64,6 +64,7 @@ if ( test ) {
     mainModule.requires.push(testEnvModule);
 }
 ```
+comment-out them before running production build.  
 
 ### Tips
 If you are behind firewall and want to force **Bower** to get files from `https://` instead of `git://`

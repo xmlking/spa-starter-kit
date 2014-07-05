@@ -1,4 +1,5 @@
 'use strict';
+/* global env */
 
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
@@ -6,11 +7,10 @@ var rjs = require('requirejs');
 var runSequence = require('run-sequence');
 
 var config = require('./config');
-// set env default to DEV. override it to 'PROD' in build step.
-var env = process.env.NODE_ENV  || 'DEV';
+console.log('Building with Env:',env);
 
 // only use types during development/testing. when deploying, you use typeAssertions: false.
-var  traceurOptions = config.traceur
+var  traceurOptions = config.traceur;
 traceurOptions.typeAssertions = (env === 'DEV');
 traceurOptions.sourceMap = (env === 'DEV');
 
