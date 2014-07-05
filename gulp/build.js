@@ -1,13 +1,12 @@
 'use strict';
-/* global env */
+/* global config, env */
 
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var rjs = require('requirejs');
 var runSequence = require('run-sequence');
 
-var config = require('./config');
-console.log('Building with Env:',env);
+console.log('Using Env:',env);
 
 // only use types during development/testing. when deploying, you use typeAssertions: false.
 var  traceurOptions = config.traceur;

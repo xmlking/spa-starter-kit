@@ -1,9 +1,10 @@
 'use strict';
+/* global config */
 
 var gulp = require('gulp');
 var karma = require('karma').server;
 
-var karmaCommonConf = require('./config').karmaCommonConf;
+var karmaCommonConf = config.karmaCommonConf;
 
 /**
  * Run test once and exit
