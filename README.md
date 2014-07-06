@@ -64,7 +64,6 @@ if ( test ) {
     mainModule.requires.push(testEnvModule);
 }
 ```
-comment-out them before running production build.  
 
 ### Tips
 If you are behind firewall and want to force **Bower** to get files from `https://` instead of `git://`

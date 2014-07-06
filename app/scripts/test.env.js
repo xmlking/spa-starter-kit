@@ -3,27 +3,27 @@
  */
 import 'angular-mocks';
 
-import 'text!/test/fixtures/drugs_1.json';
-import 'text!/test/fixtures/drugs_2.json';
-import 'text!/test/fixtures/drug_1.json';
-import 'text!/test/fixtures/drug_2.json';
-import 'text!/test/fixtures/drug_3.json';
+import 'text!../../test/fixtures/drugs_1.json';
+import 'text!../../test/fixtures/drugs_2.json';
+import 'text!../../test/fixtures/drug_1.json';
+import 'text!../../test/fixtures/drug_2.json';
+import 'text!../../test/fixtures/drug_3.json';
 
-import 'text!/test/fixtures/providers_11.json';
-import 'text!/test/fixtures/providers_12.json';
-import 'text!/test/fixtures/providers_2.json';
+import 'text!../../test/fixtures/providers_11.json';
+import 'text!../../test/fixtures/providers_12.json';
+import 'text!../../test/fixtures/providers_2.json';
 
-import 'text!/test/fixtures/specialties_A.json';
-import 'text!/test/fixtures/specialties_B.json';
-import 'text!/test/fixtures/specialties_C.json';
-import 'text!/test/fixtures/specialties_D.json';
-import 'text!/test/fixtures/specialties_E.json';
-import 'text!/test/fixtures/specialties_F.json';
-import 'text!/test/fixtures/specialties_S.json';
+import 'text!../../test/fixtures/specialties_A.json';
+import 'text!../../test/fixtures/specialties_B.json';
+import 'text!../../test/fixtures/specialties_C.json';
+import 'text!../../test/fixtures/specialties_D.json';
+import 'text!../../test/fixtures/specialties_E.json';
+import 'text!../../test/fixtures/specialties_F.json';
+import 'text!../../test/fixtures/specialties_S.json';
 
-import 'text!/test/fixtures/sumo_profile.json';
-import 'text!/test/fixtures/businessadmin_profile.json';
-import 'text!/test/fixtures/itadmin_profile.json';
+import 'text!../../test/fixtures/sumo_profile.json';
+import 'text!../../test/fixtures/businessadmin_profile.json';
+import 'text!../../test/fixtures/itadmin_profile.json';
 
 let moduleName = 'spaApp.test.env';
 let testEnvModule = angular.module(moduleName, ['ngMockE2E']);
@@ -52,11 +52,11 @@ testEnvModule.run( ($httpBackend) => {
             console.log('window.username',window.username);
 
             if(window.username=== 'sumo') {
-                return [200, require('text!/test/fixtures/sumo_profile.json')];
+                return [200, require('text!../../test/fixtures/sumo_profile.json')];
             } else if(window.username=== 'businessadmin') {
-                return [200, require('text!/test/fixtures/businessadmin_profile.json')];
+                return [200, require('text!../../test/fixtures/businessadmin_profile.json')];
             } else if(window.username=== 'itadmin') {
-                return [200, require('text!/test/fixtures/itadmin_profile.json')];
+                return [200, require('text!../../test/fixtures/itadmin_profile.json')];
             } else {
                 return [200, {error: 'Sorry, we were not able to find a user with that username and password.'}];
             }
@@ -71,11 +71,11 @@ testEnvModule.run( ($httpBackend) => {
         .respond( (method, url) => {
             console.log('url',url);
             if(url.contains('offset=0')) {
-                return [200, require('text!/test/fixtures/drugs_1.json')];
+                return [200, require('text!../../test/fixtures/drugs_1.json')];
             } else if(url.contains('offset=100')) {
-                return [200, require('text!/test/fixtures/drugs_2.json')];
+                return [200, require('text!./test/fixtures/drugs_2.json')];
             } else {
-                return [200, require('text!/test/fixtures/drugs_1.json')];
+                return [200, require('text!../../test/fixtures/drugs_1.json')];
             }
         });
 
@@ -83,13 +83,13 @@ testEnvModule.run( ($httpBackend) => {
         .respond( (method, url) => {
             console.log('url',url);
             if(url.contains('drugs/1')) {
-                return [200, require('text!/test/fixtures/drug_1.json')];
+                return [200, require('text!../../test/fixtures/drug_1.json')];
             } else if(url.contains('drugs/2')) {
-                return [200, require('text!/test/fixtures/drug_2.json')];
+                return [200, require('text!../../test/fixtures/drug_2.json')];
             } else if(url.contains('drugs/3')) {
-                return [200, require('text!/test/fixtures/drug_3.json')];
+                return [200, require('text!../../test/fixtures/drug_3.json')];
             } else {
-                return [200, require('text!/test/fixtures/drug_1.json')];
+                return [200, require('text!../../test/fixtures/drug_1.json')];
             }
         });
 
@@ -97,11 +97,11 @@ testEnvModule.run( ($httpBackend) => {
         .respond( (method, url) => {
             console.log('url',url);
             if(url.contains('offset=0')) {
-                return [200, require('text!/test/fixtures/providers_11.json')];
+                return [200, require('text!../../test/fixtures/providers_11.json')];
             } else if(url.contains('offset=100')) {
-                return [200, require('text!/test/fixtures/providers_12.json')];
+                return [200, require('text!../../test/fixtures/providers_12.json')];
             } else {
-                return [200, require('text!/test/fixtures/providers_2.json')];
+                return [200, require('text!../../test/fixtures/providers_2.json')];
             }
         });
 
@@ -109,19 +109,19 @@ testEnvModule.run( ($httpBackend) => {
         .respond( (method, url) => {
             console.log('url',url);
             if(url.contains('prefix=A')) {
-                return [200, require('text!/test/fixtures/specialties_A.json')];
+                return [200, require('text!../../test/fixtures/specialties_A.json')];
             } else if(url.contains('prefix=B')) {
-                return [200, require('text!/test/fixtures/specialties_B.json')];
+                return [200, require('text!../../test/fixtures/specialties_B.json')];
             } else if(url.contains('prefix=C')) {
-                return [200, require('text!/test/fixtures/specialties_C.json')];
+                return [200, require('text!../../test/fixtures/specialties_C.json')];
             } else if(url.contains('prefix=D')) {
-                return [200, require('text!/test/fixtures/specialties_D.json')];
+                return [200, require('text!../../test/fixtures/specialties_D.json')];
             } else if(url.contains('prefix=E')) {
-                return [200, require('text!/test/fixtures/specialties_E.json')];
+                return [200, require('text!../../test/fixtures/specialties_E.json')];
             } else if(url.contains('prefix=F')) {
-                return [200, require('text!/test/fixtures/specialties_F.json')];
+                return [200, require('text!../../test/fixtures/specialties_F.json')];
             } else {
-                return [200, require('text!/test/fixtures/specialties_S.json')];
+                return [200, require('text!../../test/fixtures/specialties_S.json')];
             }
         });
 

@@ -15,7 +15,7 @@ import drugModule from './drug/index';
 import providerModule from './provider/index';
 import experimentsModule from './experiments/index';
 
-//import testEnvModule from './test.env';
+import testEnvModule from './test.env';
 //import devEnvModule from './dev.env';
 
 let mainModule = angular.module('spaApp',
@@ -170,10 +170,10 @@ mainModule.requires.push(experimentsModule);
 /**
  * TODO: Conditionally inject testEnvModule for protractor to mock a server call for backend-less testing
  */
-//var test = true;
-//if ( test ) {
-//    mainModule.requires.push(testEnvModule);
-//}
+var test = true;
+if ( test ) {
+    mainModule.requires.push(testEnvModule);
+}
 
 // uncomment for local backend testing
 //mainModule.requires.push(devEnvModule);
