@@ -5,7 +5,7 @@ export default function routes($stateProvider) {
     return $stateProvider
         .state('slow', {
             url: '/slow',
-            templateUrl: '../views/experiments/experiment.html',
+            templateUrl: 'views/experiments/experiment.html',
             controller: 'ExperimentController',
             resolve: {
                 dummy: ['$stateParams', '$timeout', function ($stateParams, $timeout) {
@@ -31,12 +31,12 @@ export default function routes($stateProvider) {
         })
         .state('experiments', {
             url: '/experiments',
-            templateUrl: '../views/experiments/experiment.html',
+            templateUrl: 'views/experiments/experiment.html',
             controller: 'ExperimentController'
         })
         .state('translations', {
             url: '/translations',
-            templateUrl: '../views/experiments/growlTranslate.html',
+            templateUrl: 'views/experiments/growlTranslate.html',
             controller: 'GrowlTranslateDemoController',
             resolve: {
                 myTranslations: function ($translatePartialLoader, $translate) {
@@ -48,12 +48,12 @@ export default function routes($stateProvider) {
         })
         .state('elements', {
             url: '/elements',
-            templateUrl: '../views/experiments/elements.html',
+            templateUrl: 'views/experiments/elements.html',
             controller: 'ElementsController'
         })
         .state('todoMVC', {
             url: '/todo',
-            templateUrl: '../views/experiments/todo.html',
+            templateUrl: 'views/experiments/todo.html',
             controller: 'TodoController as tc'
         });
 }

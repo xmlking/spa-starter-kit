@@ -176,7 +176,6 @@ gulp.task('build', function(cb) {
 });
 
 gulp.task('deploy', function () {
-    gulp.src('dist/**/*')
-//        .pipe(deploy({push:false}));
+    return gulp.src('./dist/**/*')
         .pipe(deploy());
 });

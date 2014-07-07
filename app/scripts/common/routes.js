@@ -12,7 +12,7 @@ export default function routes($urlRouterProvider, $stateProvider) {
         .state('testAuth', {
             url: '/testAuth',
             access: {allowAnonymous: false},
-            templateUrl: '../views/experiments/testAuth.html',
+            templateUrl: 'views/experiments/testAuth.html',
             controller: 'LoginController as lc'
         });
 }
