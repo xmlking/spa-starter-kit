@@ -1,10 +1,11 @@
 'use strict';
 /* global config, env */
 
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
-var rjs = require('requirejs');
-var runSequence = require('run-sequence');
+var gulp = require('gulp'),
+  $ = require('gulp-load-plugins')(),
+  rjs = require('requirejs'),
+  deploy = require('gulp-gh-pages'),
+  runSequence = require('run-sequence');
 
 console.log('Using Env:',env);
 
@@ -172,4 +173,10 @@ gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
  */
 gulp.task('build', function(cb) {
     runSequence('optimize', 'html', ['images', 'fonts', 'extras'], cb);
+});
+
+gulp.task('deploy', function () {
+    gulp.src('dist/**/*')
+//        .pipe(deploy({push:false}));
+        .pipe(deploy());
 });
