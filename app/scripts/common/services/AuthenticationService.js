@@ -52,16 +52,17 @@ export class AuthenticationService {
 		let _login = this.$http.post(AUTH_CONFIG.LOGIN_URL, this._sanitizeCredentials(credentials), {timeout: 10000, headers: headers, transformRequest: transformRequest});
 
 		var promise = new Promise((resolve, reject) => {
-			_login.success((data, status, headers, config) => {// jshint unused: false
+			_login.success((data, status, headers, config) => { // jshint unused: false
 				/*data: {success: true, username: 'admin'} or
 				 {error: 'Sorry, we were not able to find a user with that username and password.'}*/
 				if (data.hasOwnProperty('error')) {
 					reject(new Error(data.error));
-				}
-                window.username = data.username; //TODO: Remove for prod. just for test.enb only
-				this.UserService.currentUser().then( (user) => {
-					resolve(true);
-				});
+				} else {
+                    // no error , lets set auth status and pre-populate userProfile.
+                    this.UserService.currentUser().then( (user) => {
+                        resolve(true);
+                    });
+                }
 			}).error((data, status, headers, config) => {// jshint unused: false
 				reject(new Error(data));
 			});

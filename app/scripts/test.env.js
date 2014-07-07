@@ -24,6 +24,7 @@ import 'text!../../test/fixtures/specialties_S.json';
 import 'text!../../test/fixtures/sumo_profile.json';
 import 'text!../../test/fixtures/businessadmin_profile.json';
 import 'text!../../test/fixtures/itadmin_profile.json';
+import 'text!../../test/fixtures/dataadmin_profile.json';
 
 let moduleName = 'spaApp.test.env';
 let testEnvModule = angular.module(moduleName, ['ngMockE2E']);
@@ -36,11 +37,17 @@ testEnvModule.run( ($httpBackend) => {
         .respond( (method, url, data, headers) => {
             console.log('Received data',method, url, data, headers);
             if(data.contains('j_username=sumo&j_password=demo')) {
+                window.username = 'sumo'; // use ngCookies and   $cookies.sessionId = "1234567";?
                 return [200, {success: true, username: 'sumo'}];
             } else if(data.contains('j_username=businessadmin&j_password=businessadmin')) {
+                window.username = 'businessadmin';
                 return [200, {success: true, username: 'businessadmin'}];
             } else if(data.contains('j_username=itadmin&j_password=itadmin')) {
+                window.username = 'itadmin';
                 return [200, {success: true, username: 'itadmin'}];
+            } else if(data.contains('j_username=dataadmin&j_password=dataadmin')) {
+                window.username = 'dataadmin';
+                return [200, {success: true, username: 'dataadmin'}];
             } else {
                 return [200, {error: 'Sorry, we were not able to find a user with that username and password.'}];
             }
@@ -51,12 +58,14 @@ testEnvModule.run( ($httpBackend) => {
             console.log('Received URL',url);
             console.log('window.username',window.username);
 
-            if(window.username=== 'sumo') {
+            if(window.username === 'sumo') {
                 return [200, require('text!../../test/fixtures/sumo_profile.json')];
-            } else if(window.username=== 'businessadmin') {
+            } else if(window.username === 'businessadmin') {
                 return [200, require('text!../../test/fixtures/businessadmin_profile.json')];
-            } else if(window.username=== 'itadmin') {
+            } else if(window.username === 'itadmin') {
                 return [200, require('text!../../test/fixtures/itadmin_profile.json')];
+            } else if(window.username === 'dataadmin') {
+                return [200, require('text!../../test/fixtures/dataadmin_profile.json')];
             } else {
                 return [200, {error: 'Sorry, we were not able to find a user with that username and password.'}];
             }
@@ -64,12 +73,16 @@ testEnvModule.run( ($httpBackend) => {
 
     $httpBackend.whenPOST(/\http:\/\/ve7d00000010:8080\/apiApp\/logout/)
         .respond( () => {
+            window.username = undefined;
             return [200, {}];
         });
 
     $httpBackend.whenGET(/\http:\/\/ve7d00000010:8080\/apiApp\/drugs\?fields*/)
         .respond( (method, url) => {
             console.log('url',url);
+            if(!window.username) {
+                return [401, {message: 'authentication required'}];
+            }
             if(url.contains('offset=0')) {
                 return [200, require('text!../../test/fixtures/drugs_1.json')];
             } else if(url.contains('offset=100')) {

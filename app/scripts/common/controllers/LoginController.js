@@ -124,6 +124,7 @@ class LoginModalController {
     constructor($scope, growl, AuthenticationService) {
         this.$scope = $scope;
         this.growl = growl;
+        this.logger = Diary.logger('LoginModalController');
         this.AuthenticationService = AuthenticationService;
         // Define the initial form data.
         this.$scope.credentials = { //TODO: formAutofillFix for angular forms!

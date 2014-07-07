@@ -53,7 +53,6 @@ export default function routes($stateProvider) {
         })
         .state('todoMVC', {
             url: '/todo',
-            access: {allowAnonymous: false},
             templateUrl: '../views/experiments/todo.html',
             controller: 'TodoController as tc'
         });

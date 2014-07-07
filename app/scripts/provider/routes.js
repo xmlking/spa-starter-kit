@@ -15,6 +15,7 @@ export default function routes($stateProvider) {
         })
         .state('providers.search', {
             url: '', // Set up `providers.search` as default child state for `providers`
+            access: {allowAnonymous: false, roles: ['ROLE_DATA_ADMIN']},
             resolve: {
                 providers: ['ProviderService', 'angulargmUtils', 'geolocation', function (ProviderService, angulargmUtils , geolocation) {
                     if(angulargmUtils.hasNaN(PROVIDER_SEARCH_GEOLOCATION.latLng)) {
