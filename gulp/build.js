@@ -160,7 +160,7 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('extras', function () {
-    return gulp.src(['app/*.*', '!app/*.html', 'app/views**/**', 'app/scripts**/**/*.json'], {dot: true})
+    return gulp.src(['app/*.*', '!app/*.html', 'app/views**/**', 'app/scripts**/**/*.json', 'app/scripts**/**/*.html'], {dot: true})
         .pipe(gulp.dest('dist'));
 });
 
