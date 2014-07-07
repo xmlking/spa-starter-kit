@@ -86,7 +86,7 @@ testEnvModule.run( ($httpBackend) => {
             if(url.contains('offset=0')) {
                 return [200, require('text!../../test/fixtures/drugs_1.json')];
             } else if(url.contains('offset=100')) {
-                return [200, require('text!./test/fixtures/drugs_2.json')];
+                return [200, require('text!../../test/fixtures/drugs_2.json')];
             } else {
                 return [200, require('text!../../test/fixtures/drugs_1.json')];
             }

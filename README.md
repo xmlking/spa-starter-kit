@@ -42,6 +42,7 @@ gulp wiredep            # to fill bower dependencies in your .html file(s)
 gulp test               # to launch your unit tests with Karma
 gulp protractor         # to launch your e2e tests with Protractor
 gulp protractor:dist    # to launch your e2e tests with Protractor on the dist files
+gulp deploy             # to deploy dist folder to gh-pages
 ```
 
 ### Running the [tests](./test/)
