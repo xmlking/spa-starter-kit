@@ -91,7 +91,6 @@ function serialize(data) {
     return( source );
 }
 
-
 export {
 	loadDOMFromString,
 	loadDOMFromString1,

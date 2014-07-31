@@ -48,11 +48,20 @@ export default class ProviderMapController {
 
     }
 
+    //TODO
+//    getBounds (providers) {
+//        var bounds = new gMaps.LatLngBounds();
+//        providers.forEach( (provider) =>{
+//            bounds.extend(new gMaps.LatLng(provider.location.lat,provider.location.lng));
+//        });
+//        return bounds;
+//    }
     getBounds (providers) {
         var bounds = new gMaps.LatLngBounds();
-        providers.forEach( (provider) =>{
-            bounds.extend(new gMaps.LatLng(provider.location.lat,provider.location.lng));
-        });
+
+        for ( let {location: {lat: latX},location: {lng: lngX}}  of providers ) {
+            bounds.extend(new gMaps.LatLng(latX, lngX));
+        }
         return bounds;
     }
 

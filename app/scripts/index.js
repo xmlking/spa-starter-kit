@@ -8,15 +8,21 @@ import './vendor';
 import {Diary} from 'diary/diary';
 import {ConsoleReporter} from 'diary/reporters/console';
 
-
 import commonModule from './common/index';
 import homeModule from './home/index';
 import drugModule from './drug/index';
 import providerModule from './provider/index';
 import experimentsModule from './experiments/index';
-
+// @if env='TEST'
 import testEnvModule from './test.env';
-//import devEnvModule from './dev.env';
+// @endif
+// @if env='DEV'
+import devEnvModule from './dev.env';
+// @endif
+// @if env='PROD'
+import templateModule from './templates';
+// @endif
+
 
 let mainModule = angular.module('spaApp',
     [
@@ -164,18 +170,15 @@ mainModule.requires.push(drugModule);
 mainModule.requires.push(providerModule);
 mainModule.requires.push(experimentsModule);
 
+// @if env='TEST'
+mainModule.requires.push(testEnvModule);
+// @endif
+// @if env='DEV'
+mainModule.requires.push(devEnvModule);
+// @endif
+// @if env='PROD'
+mainModule.requires.push('templates');
+// @endif
 
-
-//Overwrite with environment specific config [dev, test]
-/**
- * TODO: Conditionally inject testEnvModule for protractor to mock a server call for backend-less testing
- */
-var test = true;
-if ( test ) {
-    mainModule.requires.push(testEnvModule);
-}
-
-// uncomment for local backend testing
-//mainModule.requires.push(devEnvModule);
 
 export default mainModule;

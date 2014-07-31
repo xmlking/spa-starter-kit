@@ -1,12 +1,12 @@
 import {Injector} from 'di/index';
 import TodoList from '../models/TodoList';
-import {keyGenerator} from '../../common/utils/generators';
+import {Generators} from '../../common/utils/generators';
 
 export default class TodoController {
 
 	constructor($scope, growl) {
 
-        let injector = new Injector([keyGenerator]);
+        let injector = new Injector([Generators.keyGenerator]);
         this.todos = injector.get(TodoList);
         this.todos.add('learn AngularJS', true);
         this.todos.add('build an AngularJS app');

@@ -58,8 +58,8 @@ export class AuthorizationService {
 
 		let  currentUser = this.UserService.currentUserFromCache();
 
-		let authorities = currentUser.authorities.map( (x) => { return x.authority; });
-		let expandedAuthorities = _.flatten(authorities.map( (x) => { return USER_ROLE_HIERARCHIE[x]; }));
+		let authorities = currentUser.authorities.map( x =>  x.authority );
+		let expandedAuthorities = _.flatten(authorities.map( x => USER_ROLE_HIERARCHIE[x] ));
 
 		var intersection = _.intersection(expandedAuthorities , authorizedRoles);//Match any of the authorized Roles
 

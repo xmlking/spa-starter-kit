@@ -6,7 +6,7 @@ export default class EmailService {
         this.logger = Diary.logger('EmailService');
         this.logger.info('in EmailService....');
 
-		this.content_ = '';
+		this.content = '';
 	}
 
 	async send(recipient) {

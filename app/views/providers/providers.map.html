@@ -1,28 +1,3 @@
-
-<style>
-    .map {
-        height: 650px;
-
-        /*box-shadow:0 3px 25px black;"*/
-
-        border:10px #fff solid;
-        box-shadow:0 0 5px #ccc
-    }
-    /*
-    Fixes Bootstrap issues with Google Maps
-    see http://stackoverflow.com/a/9170756
-    */
-    .map img {
-        max-width: none;
-    }
-    #over2_map {
-        position: absolute;
-        top: 40px;
-        right: 30px;
-        z-index: 99;
-    }
-</style>
-
 <section class="row">
     <div class="col-md-12">
         <gm-map  gm-map-id="'simpleMap'" gm-map-options="pmc.mapInitOptions" gm-center="pmc.center.latLng" gm-zoom="pmc.zoom" gm-bounds="pmc.bounds" class="map">
@@ -57,7 +32,7 @@
             <div>{{pmc.selectedProvider.facilityType}}</div>
         </div>
         <ui-view name="results" autoscroll="false"></ui-view>
-        <aside id="over2_map">
+        <aside class="search_btn_over_map">
             <a class="btn btn-default pull-right" ng-click="doSearch()" > <span class="glyphicon glyphicon-record"></span> Search</a>
         </aside>
     </div>
@@ -66,6 +41,5 @@
 <div class="text-info text-right">
     <span class="glyphicon glyphicon-screenshot"></span>  {{pmc.center.latLng}}
     <span class="glyphicon glyphicon-zoom-in"></span> {{pmc.zoom}}
-
 </div>
 

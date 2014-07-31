@@ -1,7 +1,10 @@
 <span ng-controller="LoginModalController as lmc">
 <div class="modal-header">
     <button type="button" class="close" ng-click="lmc.cancel()">&times;</button>
-    <h3>Use [sumo:demo], itadmin ...</h3>
+    <h3>Login</h3>
+    <div class="text-info"><small>
+        Log in as <strong>sumo/demo</strong> or <strong>itadmin/itadmin</strong>
+        See <code>/app/test.env.js</code></small></div>
 </div>
 <form name="loginForm" role="form" ng-submit="lmc.submit(credentials)" novalidate>
 <div class="modal-body">

@@ -5,16 +5,28 @@ SPA Starter Kit
 **SPA Starter Kit** is a Single Page Application (SPA) Starter project build with **AngularJS** , **AMD** and **ES6**
 Demonstrate AngularJS Design Patterns and Best Practices.   
 
+### Features
+
+* ES6 and RequireJS everywhere to build a modular application
+* CSS Autoprefixing
+
+
 ### Getting Started
 
 ```bash
 # Clone this repo
 git clone https://github.com/xmlking/spa-starter-kit
 
-# Install development tools at global location(one-time) :(assume you already have Node/NPM installed)
+# Install Node/NPM (one-time - if it is not already installed)
+
+
+# Install development tools at global location(one-time)
+brew install node   # `node -v && npm -v` verify node installation. 
+brew install ruby   # only install if it not installed already. Mac may already have it at `/usr/bin/ruby` 
+
 npm install -g bower
+npm install -g gulp
 npm install -g karma-cli
-brew install ruby
 
 # Install the dev dependencies for project, such as Karma, Traceur, etc.
 npm install   # run  'npm install && npm prune' whenever you upgraded versions in package.json.
@@ -22,8 +34,8 @@ npm install   # run  'npm install && npm prune' whenever you upgraded versions i
 # Install runtime dependencies for project with bower.
 bower install # run 'bower install && bower prune' whenever you upgraded versions in bower.json.
 
-# Install Sass (assume you already have ruby)
-[sudo] gem install sass  
+# Install SASS
+[sudo] gem install sass # verify  ` sass --version` > 3.3.0
 
 # Transpile app and 3rd party ES6 files
 gulp transpile transpile-deps # also run when you add 3rd party ES6 modules e.g., di.js, Diary.js to bower.json.  
@@ -32,7 +44,7 @@ gulp transpile transpile-deps # also run when you add 3rd party ES6 modules e.g.
 NODE_ENV=PROD gulp  # `set NODE_ENV=PROD` and `gulp` for windows
  
 # Start the server and watch for file changes to transpile ES6 files, live reload pages etc. 
-gulp serve
+gulp serve  # gulp --fatal=off serve # no errors should kill the build
 
 # Other Gulp Commands
 gulp or `gulp build`    # to build an optimized version of your application in /dist
@@ -43,6 +55,12 @@ gulp test               # to launch your unit tests with Karma
 gulp protractor         # to launch your e2e tests with Protractor
 gulp protractor:dist    # to launch your e2e tests with Protractor on the dist files
 gulp deploy             # to deploy dist folder to gh-pages
+
+# Maintenance 
+npm update -g           #update all outdated global packages
+npm update --save-dev   #update all outdated local packages (run from project directory) 
+brew upgrade && brew doctor
+brew upgrade node       #update to latest node version
 ```
 
 ### Running the [tests](./test/)
@@ -64,6 +82,20 @@ var test = true;
 if ( test ) {
     mainModule.requires.push(testEnvModule);
 }
+```
+
+### Options
+By default, plugin errors will cause Gulp to halt. Errors and warnings are fatal. 
+If you want to keep Gulp running, use the --fatal=off flag. 
+```bash
+gulp                  # defaults to fatal=error
+gulp --fatal=error
+gulp --fatal=warning
+gulp --fatal=off      # no errors should kill the build
+```
+Passing build environment hint for CI for environment-specific activities 
+```bash
+gulp --env=PROD # or NODE_ENV=PROD gulp
 ```
 
 ### Tips
@@ -95,5 +127,5 @@ robocopy junk node_modules /MIR
 [ocLazyLoad](http://blog.getelementsbyidea.com/load-a-module-on-demand-with-angularjs/)
  
 ### Credits
-@nateabele @sindresorhus @silvenon @vojtajina @digisfera  @jonkemp 
+@nateabele @sindresorhus @silvenon @vojtajina @digisfera  @jonkemp @domenic @addyosmani @tvcutsem
 

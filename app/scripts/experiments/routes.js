@@ -51,6 +51,19 @@ export default function routes($stateProvider) {
             templateUrl: 'views/experiments/elements.html',
             controller: 'ElementsController'
         })
+        .state('messaging', {
+            url: '/messaging',
+            templateUrl: 'views/experiments/messaging.html',
+            controller: 'MessagingController as mc'
+        })
+        .state('terminal', {
+            url: '/terminal/:containerId',
+            templateUrl: 'views/experiments/terminal.html',
+            controller: 'TerminalController as tc',
+            onExit: function(){
+                console.log('exit terminal');
+            }
+        })
         .state('todoMVC', {
             url: '/todo',
             templateUrl: 'views/experiments/todo.html',

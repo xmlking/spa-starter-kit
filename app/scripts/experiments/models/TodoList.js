@@ -1,5 +1,6 @@
 import Todo  from './TodoItem';
-import {values, keys} from '../../common/utils/Generators';
+//import {values, keys} from '../../common/utils/Generators';
+import {Generators} from '../../common/utils/Generators';
 import {Inject} from 'di/index';
 import {Diary} from 'diary/diary';
 
@@ -31,7 +32,7 @@ class TodoList {
 
 	archiveCompleted() {
 		// Not saving completed todos in this version.
-		for (let todo of values(this.todos)) {
+		for (let todo of Generators.values(this.todos)) {
 			if (todo.done) {
 				//this.remove(todo);
 				console.log('removing...', todo);
@@ -49,7 +50,7 @@ class TodoList {
 		// AngularJS changes the done property in the Todo objects when checkboxes are checked.
 		// If Traceur supported proxies, we could track changes to the done properties.
 		let count = 0;
-		for (let todo of values(this.todos)) {
+		for (let todo of Generators.values(this.todos)) {
 			if (!todo.done) {
 				count++;
 			}
@@ -68,7 +69,7 @@ class TodoList {
 	}
 
 	clearAll() {
-		for (let todo of keys(this.todos)) {
+		for (let todo of Generators.keys(this.todos)) {
 			this.remove(todo);
 		}
 		this.logger.info(`Reseting keyGen to : ${this.keyGen.next(true).value}`);

@@ -62,7 +62,8 @@ export class ProviderService {
         });
     }
 
-    _sanitizeParams(geoLoc, params) {
+    _sanitizeParams(geoLoc, params) { //TODO use improved ES6 literals?
+        // sanitizedParams = angular.extend({}, PROVIDER_SEARCH_PARAMS, params);
         let sanitizedParams = {
             psize: params.psize,
             offset: params.offset,

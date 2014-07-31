@@ -11,6 +11,7 @@ var require = {
         'text': '../../bower_components/requirejs-text/text',
         'async': '../../bower_components/requirejs-plugins/src/async',
         'es6-shim': '../../bower_components/es6-shim/es6-shim',
+        'reflect': '../../bower_components/harmony-reflect/reflect',
         'angular': '../../bower_components/angular/angular',
         'lodash.compat': '../../bower_components/lodash/dist/lodash.compat',
         'restangular': '../../bower_components/restangular/dist/restangular',
@@ -28,7 +29,10 @@ var require = {
         'xeditable': '../../bower_components/angular-xeditable/dist/js/xeditable',
         'angular-cache': '../../bower_components/angular-cache/dist/angular-cache',
         'ng-table': '../../bower_components/ng-table/ng-table',
-        'traceur-runtime': '../../bower_components/traceur-runtime/traceur-runtime'
+        'sockjs': '../../bower_components/bower-sockjs-client/sockjs',
+        'stomp': '../../bower_components/stomp-websocket/lib/stomp',
+        'term': '../../bower_components/term/src/term',
+        'traceur-runtime': '../../node_modules/traceur/bin/traceur-runtime'
     },
     // endbower
 
@@ -52,6 +56,7 @@ var require = {
         'angular-truncate': {deps: ['angular']},
         'xeditable': {deps: ['angular']},
         'ng-table': {deps: ['angular']},
-        'AngularGM': {deps: ['angular']}
+        'AngularGM': {deps: ['angular']},
+        'reflect': {deps: ['es6-shim'],exports: 'Reflect'}
     }
 }
