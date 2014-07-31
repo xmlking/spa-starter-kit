@@ -7,7 +7,7 @@ Demonstrate AngularJS Design Patterns and Best Practices.
 
 ### Features
 
-* ES6 and RequireJS everywhere to build a modular application
+* ES6 and RequireJS everywhere to build a modular application.
 * CSS Autoprefixing
 
 
@@ -16,9 +16,6 @@ Demonstrate AngularJS Design Patterns and Best Practices.
 ```bash
 # Clone this repo
 git clone https://github.com/xmlking/spa-starter-kit
-
-# Install Node/NPM (one-time - if it is not already installed)
-
 
 # Install development tools at global location(one-time)
 brew install node   # `node -v && npm -v` verify node installation. 
@@ -35,13 +32,13 @@ npm install   # run  'npm install && npm prune' whenever you upgraded versions i
 bower install # run 'bower install && bower prune' whenever you upgraded versions in bower.json.
 
 # Install SASS
-[sudo] gem install sass # verify  ` sass --version` > 3.3.0
+[sudo] gem install sass # verify  `sass --version` > 3.3.0
 
 # Transpile app and 3rd party ES6 files
 gulp transpile transpile-deps # also run when you add 3rd party ES6 modules e.g., di.js, Diary.js to bower.json.  
 
 # Build project: creates  `dist` directory for deployment to Web Servers. 
-NODE_ENV=PROD gulp  # `set NODE_ENV=PROD` and `gulp` for windows
+gulp --env=PROD # or NODE_ENV=PROD gulp  # `set NODE_ENV=PROD` and `gulp` for windows
  
 # Start the server and watch for file changes to transpile ES6 files, live reload pages etc. 
 gulp serve  # gulp --fatal=off serve # no errors should kill the build
@@ -74,13 +71,8 @@ gulp tdd
 ```
 
 ### Backend-less frontend testing/development 
-Uncomment following lines in main module [index.js](./app/scripts/index.js)
-```js
-import testEnvModule from './test.env';
-
-var test = true;
-if ( test ) {
-    mainModule.requires.push(testEnvModule);
+```bash
+gulp --env=TEST serve
 }
 ```
 
@@ -95,7 +87,9 @@ gulp --fatal=off      # no errors should kill the build
 ```
 Passing build environment hint for CI for environment-specific activities 
 ```bash
-gulp --env=PROD # or NODE_ENV=PROD gulp
+gulp --env=PROD task   # or NODE_ENV=PROD gulp
+gulp --env=TEST task   # TEST mode for backend-less testing in CI env. data from [fixtures](./test/fixtures) will be served.
+gulp --env=DEV  task   # DEV mode points to local backend URLs, generate Sourcemaps for CSS & JS
 ```
 
 ### Tips
