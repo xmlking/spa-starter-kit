@@ -41,7 +41,7 @@ gulp transpile transpile-deps # also run when you add 3rd party ES6 modules e.g.
 gulp --env=PROD # or NODE_ENV=PROD gulp  # `set NODE_ENV=PROD` and `gulp` for windows
  
 # Start the server and watch for file changes to transpile ES6 files, live reload pages etc. 
-gulp serve  # gulp --fatal=off serve # no errors should kill the build
+gulp serve  # gulp --fatal=off serve # no errors should kill the live server.
 
 # Other Gulp Commands
 gulp or `gulp build`    # to build an optimized version of your application in /dist
@@ -73,7 +73,6 @@ gulp tdd
 ### Backend-less frontend testing/development 
 ```bash
 gulp --env=TEST serve
-}
 ```
 
 ### Options
