@@ -1,12 +1,7 @@
 'use strict';
+require('traceur').require.makeDefault(function(filename) {
+    // don't transpile our dependencies, just our app
+    return filename.indexOf('node_modules') === -1;
+}, { experimental:true});
 
-var gulp = require('gulp');
-// set env default to DEV. override it to 'PROD' in build step.
-global.env  = process.env.NODE_ENV  || 'DEV';
-global.config = require('./gulp/config');
-require('require-dir')('./gulp');
-
-gulp.task('default', ['clean'], function () {
-    global.env = 'PROD';
-    gulp.start('build');
-});
+require('./tasks/index');
