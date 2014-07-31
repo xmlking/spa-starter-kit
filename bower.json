@@ -7,12 +7,13 @@
     "bootstrap-sass-official": "~3.2.0",
     "bourbon": "~4.0.1",
     "compass-mixins": "1.0.0",
-    "animate.css": "~3.1.0",
+    "animate.css": "~3.2.0",
     "css-spinners": "jlong/css-spinners",
 
     "jquery": "jquery/jquery",
     "angular": "1.3.0-beta.6",
     "es6-shim": "0.13.0",
+    "harmony-reflect": "~1.0.0",
     "restangular": "~1.4.0",
     "lodash": ">=1.3.0 <2.5.0",
     "angular-growl-v2": ">=0.6.0",
@@ -24,15 +25,17 @@
     "angular-translate": ">=2.2.0",
     "angular-translate-loader-partial": "~0.4.0",
     "angular-xeditable": ">=0.1.8",
-    "angular-cache": "~3.0.1",
+    "angular-cache": "~3.1.0",
     "ng-table": "~0.3.3",
     "AngularGM": "~1.0.0",
     "angular-truncate": "sparkalow/angular-truncate",
     "requirejs": "~2.1.14",
     "requirejs-text": "~2.0.12",
     "requirejs-plugins": "~1.0.2",
-    "traceur-runtime": "0.0.43",
-    "angular-assert": "angular/assert",
+    "bower-sockjs-client":"~0.3.4",
+    "stomp-websocket":"~2.3.3",
+    "term":  "chjj/term.js",
+    "angular-assert": "xmlking/assert",
     "angular-di": "angular/di.js",
     "angular-diary": "xmlking/diary.js"
   },
@@ -57,6 +60,12 @@
     },
     "angular-diary": {
       "main": "dist/amd/diary.js"
+    },
+    "term": {
+      "main": "src/term.js"
+    },
+    "harmony-reflect": {
+      "main": "reflect.js"
     }
   }
 }

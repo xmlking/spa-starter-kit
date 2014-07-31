@@ -24,6 +24,7 @@
     "globals": {
         "_":false,
         "Symbol":false,
+        "Reflect":false,
         "google":false,
         "angular":false
     }
