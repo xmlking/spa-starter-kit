@@ -24,15 +24,14 @@ export default function scripts(gulp, cfg, args) {
     // only use types during development/testing. when deploying, you use typeAssertions: false.
     let traceurOptions = cfg.traceur;
     traceurOptions.typeAssertions = (env === 'DEV');
-    traceurOptions.sourceMap = (env === 'DEV');
 
     gulp.task('transpile', () => {
         return gulp.src('app/scripts/**/*.js')
             .pipe(gif(/app\/scripts\/index.js/, preprocess({context: {env}})))
             .pipe(gif(env === 'DEV', sourcemaps.init()))
-            .pipe(traceur(traceurOptions))
-            .on('error', ErrorHandler.onError)
-            .pipe(gif(env === 'DEV', sourcemaps.write('.', {addComment: false, includeContent: false, sourceRoot: '/app/scripts'})))
+                .pipe(traceur(traceurOptions))
+                .on('error', ErrorHandler.onError)
+            .pipe(gif(env === 'DEV', sourcemaps.write('.', {includeContent: false, sourceRoot: '/app/scripts'})))
             .pipe(gulp.dest('.tmp/scripts'));
     });
 

@@ -1,6 +1,7 @@
-let mainBowerFiles = require('main-bower-files'),
-    filter      = require('gulp-grep-stream'),
-    flatten     = require('gulp-flatten');
+let mainBowerFiles  = require('main-bower-files'),
+//    filter          = require('gulp-filter'), //not working for '**/*.{eot,svg,ttf,woff}
+    filter          = require('gulp-grep-stream'),
+    flatten         = require('gulp-flatten');
 
 export default function fonts(gulp, cfg, args) {
     'use strict';

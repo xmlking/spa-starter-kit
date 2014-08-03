@@ -7,7 +7,7 @@
     "bootstrap-sass-official": "~3.2.0",
     "bourbon": "~4.0.1",
     "compass-mixins": "1.0.0",
-    "animate.css": "~3.2.0",
+    "animate.scss": "xmlking/animate.scss",
     "css-spinners": "jlong/css-spinners",
 
     "jquery": "jquery/jquery",
@@ -32,9 +32,9 @@
     "requirejs": "~2.1.14",
     "requirejs-text": "~2.0.12",
     "requirejs-plugins": "~1.0.2",
-    "bower-sockjs-client":"~0.3.4",
-    "stomp-websocket":"~2.3.3",
-    "term":  "chjj/term.js",
+    "bower-sockjs-client": "~0.3.4",
+    "stomp-websocket": "~2.3.3",
+    "term": "chjj/term.js",
     "angular-assert": "xmlking/assert",
     "angular-di": "angular/di.js",
     "angular-diary": "xmlking/diary.js"
@@ -44,10 +44,10 @@
   },
   "overrides": {
     "requirejs-text": {
-        "main": "text.js"
+      "main": "text.js"
     },
     "requirejs-plugins": {
-        "main": "src/async.js"
+      "main": "src/async.js"
     },
     "css-spinners": {
       "main": "sass/spinner/spinner.scss"

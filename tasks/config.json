@@ -29,8 +29,7 @@
         "typeAssertions": true,
         "annotations": true,
         "typeAssertionModule": "assert",
-        "experimental": true,
-        "sourceMap": true
+        "experimental": true
     },
     "buildProfile": {
         "mainConfigFile": "app/config.js",

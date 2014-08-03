@@ -51,10 +51,8 @@ export default function build(gulp, cfg, args) {
         runSequence('bundle', 'html', ['images', 'fonts', 'extras'], cb);
     });
 
-
-    gulp.task('default', ['clean'], function () {
-        global.env = 'PROD';
-        gulp.start('build');
+    gulp.task('default',  (cb) => {
+        runSequence('clean','build', cb);
     });
 
 }
