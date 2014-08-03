@@ -57,6 +57,7 @@ var require = {
         'xeditable': {deps: ['angular']},
         'ng-table': {deps: ['angular']},
         'AngularGM': {deps: ['angular']},
-        'reflect': {deps: ['es6-shim'],exports: 'Reflect'}
+        'reflect': {deps: ['es6-shim'],exports: 'Reflect'},
+        'templates': {deps: ['angular']}
     }
 }
