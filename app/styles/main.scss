@@ -5,10 +5,12 @@
 @import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
 @import "../../bower_components/bourbon/dist/_bourbon.scss";
 @import "../../bower_components/compass-mixins/lib/_compass.scss";
+@import "../../bower_components/animate.scss/animate.scss";
 @import "../../bower_components/css-spinners/sass/spinner/spinner.scss";
 // endbower
 
 @import "animations";
+@import "led";
 
 /* angular scope debug  : enable it when needed
 -------------------------------------------------- */

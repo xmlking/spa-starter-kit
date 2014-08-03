@@ -1,0 +1,26 @@
+@include keyframes(glowing) {
+  0% { background-color: #004A7F; box-shadow: 0 0 3px #004A7F; }
+  50% { background-color: #0094FF; box-shadow: 0 0 10px #0094FF; }
+  100% { background-color: #004A7F; box-shadow: 0 0 3px #004A7F; }
+}
+
+.glow {
+  @include animation(glowing 1500ms infinite);
+}
+
+@keyframes glowing1 {
+  0% { background-color: #7F006E; box-shadow: 0 0 3px #7F006E; }
+  50% { background-color: #FF00DC; box-shadow: 0 0 10px #FF00DC; }
+  100% { background-color: #7F006E; box-shadow: 0 0 3px #7F006E; }
+}
+
+.glow1 {
+  animation: glowing1 500ms infinite;
+}
+
+.sumo1 {
+  @include bounceOut($duration: 1s);
+}
+.sumo2{
+  @include bounceOut($duration: 2s);
+}

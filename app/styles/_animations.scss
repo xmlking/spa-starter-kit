@@ -153,10 +153,12 @@
   display: block;
 }
 .todo-item.ng-enter {
-  @include animation(fadeInLeft 1s);
+  //@include animation(fadeInLeft 1s);
+  @include fadeInLeft($duration: 1s);
 }
 .todo-item.ng-leave {
-  @include animation(bounceOut 1s);
+  //@include animation(bounceOut 1s);
+  @include bounceOut($duration: 1s);
 }
 .todo-complete {
   background: #f3f3f3;
