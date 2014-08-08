@@ -26,8 +26,16 @@ import 'text!../../test/fixtures/businessadmin_profile.json';
 import 'text!../../test/fixtures/itadmin_profile.json';
 import 'text!../../test/fixtures/dataadmin_profile.json';
 
+import {EBUS_CONFIG} from './common/services/EventBus';
+
 let moduleName = 'spaApp.test.env';
 let testEnvModule = angular.module(moduleName, ['ngMockE2E']);
+
+testEnvModule.config( () => {
+    'use strict';
+    console.log('in testEnvModule... ');
+    EBUS_CONFIG.BASE_URL = 'http://localhost:8080/apiApp/stomp';
+});
 
 testEnvModule.run( ($httpBackend) => {
     'use strict';

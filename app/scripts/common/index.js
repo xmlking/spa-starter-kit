@@ -43,14 +43,19 @@ commonModule.config( ($httpProvider) => {
     EBUS_CONFIG.BASE_URL = 'http://ve7d00000010:8080/apiApp/stomp';
 });
 
-var log = console.log.bind(console);
-
 commonModule.run(($rootScope, $eventBus) => {
     'use strict';
 
-    // var eventBus =  $eventBus;
-    // retryableEventBus // monkeypatch with Reflect API
+//    var eventBus =  $eventBus;
+    // retryableEventBus with Reflect API
     var eventBus = Retry.proxify($eventBus);
+
+
+    if (typeof Object.observe === 'function') {
+        Object.observe(eventBus, (changes)=> {
+            $rootScope.$apply();  //notify readyState watchers
+        }, ['update']);
+    }
 
     let onDisconnectListener = error => {
         console.log('in onDisconnectListener - Error: ',error);
@@ -60,12 +65,10 @@ commonModule.run(($rootScope, $eventBus) => {
     };
 
     let openConnection  = () =>
-        eventBus.open(true,onDisconnectListener)
-            .catch( (error) => {
-                console.error( 'Error: ', error);
-            });
+            eventBus.open(true,onDisconnectListener)
+                    .catch( (error) => { console.error( 'Error: ', error); });
 
-    // reconnect STOMP client after loginSuccess
+    // reconnect STOMP client after loginSuccess, to get new authenticated connection.
     $rootScope.$on(AUTH_EVENTS.loginSuccess , () => {
         eventBus.close()
             .then((msg) => {console.log('reconnection STOMP after loginSuccess');})
@@ -80,9 +83,7 @@ commonModule.run(($rootScope, $eventBus) => {
     });
 
     // auto open
-    openConnection();
-
-
+        openConnection();
 
 
 });

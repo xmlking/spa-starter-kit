@@ -58,6 +58,7 @@ export default function routes($stateProvider) {
         })
         .state('terminal', {
             url: '/terminal/:containerId',
+            access: {allowAnonymous: false},
             templateUrl: 'views/experiments/terminal.html',
             controller: 'TerminalController as tc',
             onExit: function(){

@@ -2,7 +2,6 @@
 import routes from './routes';
 import EmailService from './services/EmailService';
 
-
 import TodoController from './controllers/TodoController';
 import MessagingController from './controllers/MessagingController';
 import TerminalController from './controllers/TerminalController';
@@ -13,11 +12,14 @@ import GrowlTranslateDemoController from './controllers/GrowlTranslateDemoContro
 import MyElement from './elements/myElement/MyElement';
 import CustomButton from './elements/customButton/CustomButton';
 import MyNews from './elements/myNews/MyNews';
+import highlighter from './elements/highlighter';
 
 let moduleName = 'spaApp.experiments';
 let experimentsModule = angular.module(moduleName, []);
 
 experimentsModule.service('EmailService', EmailService);
+
+experimentsModule.directive('highlighter',highlighter);
 
 experimentsModule.controller('TodoController', TodoController);
 experimentsModule.controller('MessagingController', MessagingController);

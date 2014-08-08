@@ -112,7 +112,6 @@ class LoginController {
             })
             .catch((err)  => {
                 this.logger.error(err);
-                this.logger.log(err);
                 this.growl.error(`${err.config.url} not accessible`, {ttl: 8000});
             });
     }

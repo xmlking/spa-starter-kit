@@ -88,10 +88,10 @@ gulp --fatal=warning
 gulp --fatal=off      # no errors should kill the build
 alias g='gulp --fatal=off --env=DEV' // tip for smooth development.
 ```
-##Setting build environment variable for environment-specific gulp tasks: 
+####Setting build environment variable for environment-specific gulp tasks: 
 Application is by default set with production environment specific settings which can be overridden 
 by adding environment specific angular modules (dev.env.js , test.env.js) to [index.js](./app/scripts/index.js) via Gulp command-line arguments.  
-By default templateCache is disabled and SourceMaps, type assertions are enabled.  
+By default `templateCache` is disabled and `SourceMaps`, `type assertions` are enabled.  
 ```bash
 gulp --env=PROD task   # or `NODE_ENV=PROD gulp task` : set `global.optimize = true`. This will disable SourceMaps,type assertions  and enable templateCache    
 gulp --env=TEST task   # TEST mode for backend-less testing in CI env. data from [fixtures](./test/fixtures) will be served.
