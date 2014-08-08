@@ -15,7 +15,7 @@ export default function styles(gulp, cfg, args) {
             .pipe(sass({
                 style: 'expanded',
                 precision: 10,
-                sourcemap: (env === 'DEV'),
+                sourcemap: (!optimize),
                 sourcemapPath: '.',
                 loadPath: ['bower_components/bourbon/dist', 'bower_components/compass-mixins/lib']
             }))

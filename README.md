@@ -9,6 +9,9 @@ Demonstrate AngularJS Design Patterns and Best Practices.
 
 * ES6 and RequireJS everywhere to build a modular application.
 * CSS Autoprefixing
+* Authentication and Fine-grained Authorization
+* Web Sockets, EventBus, Real-time REST API
+* Resiliency - Retry, Fallback, Circuit-breaker
 
 
 ### Getting Started
@@ -83,12 +86,16 @@ gulp                  # defaults to fatal=error
 gulp --fatal=error
 gulp --fatal=warning
 gulp --fatal=off      # no errors should kill the build
+alias g='gulp --fatal=off --env=DEV' // tip for smooth development.
 ```
-Passing build environment hint for CI for environment-specific activities 
+##Setting build environment variable for environment-specific gulp tasks: 
+Application is by default set with production environment specific settings which can be overridden 
+by adding environment specific angular modules (dev.env.js , test.env.js) to [index.js](./app/scripts/index.js) via Gulp command-line arguments.  
+By default templateCache is disabled and SourceMaps, type assertions are enabled.  
 ```bash
-gulp --env=PROD task   # or NODE_ENV=PROD gulp
+gulp --env=PROD task   # or `NODE_ENV=PROD gulp task` : set `global.optimize = true`. This will disable SourceMaps,type assertions  and enable templateCache    
 gulp --env=TEST task   # TEST mode for backend-less testing in CI env. data from [fixtures](./test/fixtures) will be served.
-gulp --env=DEV  task   # DEV mode points to local backend URLs, generate Sourcemaps for CSS & JS
+gulp --env=DEV  task   # DEV mode points to local backend URLs.
 ```
 
 ### Tips
@@ -118,6 +125,7 @@ robocopy junk node_modules /MIR
 - [ ] Lazy Load Modules 
 [Pending Proposal](https://groups.google.com/forum/#!topic/angular/w0ZEBz02l8s)
 [ocLazyLoad](http://blog.getelementsbyidea.com/load-a-module-on-demand-with-angularjs/)
+- [ ] offline-first pattern with Service Worker
  
 ### Credits
 @nateabele @sindresorhus @silvenon @vojtajina @digisfera  @jonkemp @domenic @addyosmani @tvcutsem

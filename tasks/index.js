@@ -17,7 +17,8 @@ let config = require('./config');
 let args = require('yargs').argv;
 
 // Get environment, for environment-specific activities
-global.env  = require('yargs').argv.env || process.env.NODE_ENV  || 'DEV';
+global.env  = require('yargs').argv.env || process.env.NODE_ENV;
+global.optimize = (env === 'PROD');
 console.log('Using Env:', env);
 
 styles(gulp, config, args);

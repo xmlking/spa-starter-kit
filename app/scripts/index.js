@@ -19,7 +19,7 @@ import testEnvModule from './test.env';
 // @if env='DEV'
 import devEnvModule from './dev.env';
 // @endif
-// @if env='PROD'
+// @if optimize
 import templateModule from './templates';
 // @endif
 
@@ -176,7 +176,7 @@ mainModule.requires.push(testEnvModule);
 // @if env='DEV'
 mainModule.requires.push(devEnvModule);
 // @endif
-// @if env='PROD'
+// @if optimize
 mainModule.requires.push('templates');
 // @endif
 
