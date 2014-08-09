@@ -11,7 +11,7 @@ Demonstrate AngularJS Design Patterns and Best Practices.
 * CSS Autoprefixing
 * Authentication and Fine-grained Authorization
 * Web Sockets, EventBus, Real-time REST API
-* Resiliency - Retry, Fallback, Circuit-breaker
+* Resiliency - Retry, Fallback, Circuit-breaker(WIP)
 
 
 ### Getting Started
@@ -37,14 +37,11 @@ bower install # run 'bower install && bower prune' whenever you upgraded version
 # Install SASS
 [sudo] gem install sass # verify  `sass --version` > 3.3.0
 
-# Transpile app and 3rd party ES6 files
-gulp transpile transpile-deps # also run when you add 3rd party ES6 modules e.g., di.js, Diary.js to bower.json.  
+# Start the server and watch for file changes to transpile ES6 files, live reload pages etc. 
+gulp serve  # gulp --fatal=off serve # no errors should kill the live server.
 
 # Build project: creates  `dist` directory for deployment to Web Servers. 
 gulp --env=PROD # or NODE_ENV=PROD gulp  # `set NODE_ENV=PROD` and `gulp` for windows
- 
-# Start the server and watch for file changes to transpile ES6 files, live reload pages etc. 
-gulp serve  # gulp --fatal=off serve # no errors should kill the live server.
 
 # Other Gulp Commands
 gulp or `gulp build`    # to build an optimized version of your application in /dist

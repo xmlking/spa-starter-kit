@@ -27,6 +27,7 @@ export default function scripts(gulp, cfg, args) {
 
     gulp.task('transpile', () => {
         return gulp.src('app/scripts/**/*.js')
+            .pipe(gif(/app\\scripts\\index.js/, preprocess({context: {env}}))) //for Windows
             .pipe(gif(/app\/scripts\/index.js/, preprocess({context: {env}})))
             .pipe(gif(!optimize, sourcemaps.init()))
                 .pipe(traceur(traceurOptions))

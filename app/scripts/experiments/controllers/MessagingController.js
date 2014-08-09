@@ -62,10 +62,7 @@ export default class MessagingController {
                     this.AAPL = JSON.parse(message.body);
                     break;
                 case '/topic/price.stock.GOOG' :
-                    let random = (Math.floor((Math.random()*15)+1));
-                    let plusOrMinus = Math.random() < 0.5 ? -1 : 1;
-                    random = random * plusOrMinus;
-                    this.GOOG = random; //JSON.parse(message.body);
+                    this.GOOG = JSON.parse(message.body);
                     break;
                 case '/topic/price.stock.YHOO' :
                     this.YHOO = JSON.parse(message.body);
@@ -96,11 +93,6 @@ export default class MessagingController {
             $eventBus.unregisterHandler('/user/queue/errors');
             $eventBus.unregisterHandler('/topic/price.stock.*');
         });
-
-
-
-
-
 
     }
 
