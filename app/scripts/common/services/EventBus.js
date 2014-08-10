@@ -66,7 +66,6 @@ export class EventBus {
     // 1, 2, 3, 4,...10, 10, 10,...
     @Retry({maxTries: 20, maxDelay: 5, backoffStrategy: BackoffStrategy.INCREMENTAL, intermediate: retryIntermediateCallback})
     open(force = false , onDisconnect: Function = this[onDisconnectDefaultListener]): Promise {
-        console.log('force: ',force);
 
         return new Promise((resolve, reject) => {
 

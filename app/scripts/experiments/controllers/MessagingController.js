@@ -130,6 +130,7 @@ export default class MessagingController {
         if(this.selectedUser === 'All') {
             this[_eventBus].publish('/app/chat/messages', newMessage);
         } else {
+            this.messages.push({message:`[${this[_eventBus].getUser()} => ${this.selectedUser}]: ${newMessage}`, private:true});
             this[_eventBus].publish(`/user/${this.selectedUser}/queue/chat/messages`, `[${this[_eventBus].getUser()}]: ${newMessage}`);
         }
         this.newMessage ='';

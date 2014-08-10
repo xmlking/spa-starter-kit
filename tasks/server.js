@@ -31,6 +31,7 @@ let browserSyncInit = (baseDir, files, browser) => {
       },
       middleware: proxyMiddleware
     },
+    //ghostMode: false,
     browser: browser
   });
 
