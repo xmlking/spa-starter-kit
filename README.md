@@ -74,6 +74,7 @@ gulp tdd
 ```bash
 gulp --env=TEST serve
 ```
+####You can also use this pre-build Grails App [apiApp.war](https://github.com/xmlking/grails-batch-rest/releases) as backend for this SPA App. 
 
 ### Options
 By default, plugin errors will cause Gulp to halt. Errors and warnings are fatal. 
