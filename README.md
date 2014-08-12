@@ -96,6 +96,12 @@ gulp --env=TEST task   # TEST mode for backend-less testing in CI env. data from
 gulp --env=DEV  task   # DEV mode points to local backend URLs.
 ```
 
+###Compatibility
+The app was tested on:
+ 
+  * Firefox (>= v31)
+  * Chrome (>= v36), with the following flag enabled: `chrome://flags/#enable-javascript-harmony` (copy/paste into your address-bar)
+  
 ### Tips
 If you are behind firewall and want to force **Bower** to get files from `https://` instead of `git://`
 ```bash
