@@ -48,8 +48,7 @@
             {
                 "name": "bootstrap",
                 "include": ["requireLib"],
-                "exclude": ["vendor"],
-                "excludeShallow": ["test.env", "dev.env"]
+                "exclude": ["vendor"]
             },
             {
                 "name": "common/index"
