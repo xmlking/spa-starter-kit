@@ -23,13 +23,13 @@ export const ReadyState = new Enum({
     RECONNECT_ABORTED: {value: 5, description: 'Reconnect Aborted'}
 });
 
-const user = Symbol('user', true);
-const handlers = Symbol('handlers', true);
-const subscriptions = Symbol('subscriptions', true);
-const cBaseUrl = Symbol('cBaseUrl', true);
-const cOptions = Symbol('cOptions', true);
-const readyState = Symbol('readyState', true);
-const onDisconnectDefaultListener = Symbol('onDisconnect', true);
+let user = Symbol('user', true);
+let handlers = Symbol('handlers', true);
+let subscriptions = Symbol('subscriptions', true);
+let cBaseUrl = Symbol('cBaseUrl', true);
+let cOptions = Symbol('cOptions', true);
+let readyState = Symbol('readyState', true);
+let onDisconnectDefaultListener = Symbol('onDisconnect', true);
 
 const retryIntermediateCallback   = (error, remainingTries, delay) => {
     console.error(`Previous error: [${error}]`);
@@ -128,9 +128,13 @@ export class EventBus {
     }
 
     _resubscribe() {
-        for(let [address, callback] of this[handlers]) {
+//        for(let [address, callback] of this[handlers]) { //FIXME: bug in traceur
+//            this[subscriptions].set(address, this.stompClient.subscribe(address,callback));
+//        }
+        let myHandlers = this[handlers];
+        myHandlers.forEach((callback, address, myHandlers) => {
             this[subscriptions].set(address, this.stompClient.subscribe(address,callback));
-        }
+        });
     }
 
     //aliases: on, addListener
