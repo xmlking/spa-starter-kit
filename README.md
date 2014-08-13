@@ -21,7 +21,7 @@ Demonstrate AngularJS Design Patterns and Best Practices.
 
 ### Design Patterns 
 * Authentication and Fine-grained Authorization
-* Web Sockets, EventBus, Real-time REST API
+* WebSockets, EventBus, Real-time REST API
 * Resiliency - Retry, Fallback, Circuit-breaker(W.I.P)
 * Caching as a Cross-Cutting Concern
 * Pagination and querying selective fields from REST API
