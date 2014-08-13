@@ -7,11 +7,26 @@ Demonstrate AngularJS Design Patterns and Best Practices.
 
 ### Features
 
-* ES6 and RequireJS everywhere to build a modular application.
-* CSS Autoprefixing
+* Use ES6 and AMD everywhere to build a modular application.
+* Adopts [AngularJS Style Guide](https://github.com/johnpapa/angularjs-styleguide/)
+* Modular SASS inspired by [SMACSS](http://smacss.com/), CSS Autoprefixing
+* Source Maps for CSS & JS supported with Gulp-SourceMaps
+* Unit (karma) and e2e (protractor) tests works with your AMD/browserifyed code.
+* Cross Browser CSS & HTML Injection with BrowserSync 
+* Build environment (DEV, TEST, CI, PROD) aware gulp tasks. 
+* Continue development and testing even when backend is not available. [gulp --env=TEST serve]
+* Produce optimized, production ready bundles for deployment. 
+* Achieve some of the Angular 2.0 goals while still running Angular 1.3.x
+
+
+### Design Patterns 
 * Authentication and Fine-grained Authorization
 * Web Sockets, EventBus, Real-time REST API
-* Resiliency - Retry, Fallback, Circuit-breaker(WIP)
+* Resiliency - Retry, Fallback, Circuit-breaker(W.I.P)
+* Caching as a Cross-Cutting Concern
+* Pagination and querying selective fields from REST API
+* Use ES6 Proxies and ES6+ annotations for AOP.
+* Animations for rich user experience. 
 
 
 ### Getting Started
