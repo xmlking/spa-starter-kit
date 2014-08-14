@@ -16,7 +16,8 @@ Demonstrate AngularJS Design Patterns and Best Practices.
 * Build environment (DEV, TEST, CI, PROD) aware gulp tasks. 
 * Continue development and testing even when backend is not available. [gulp --env=TEST serve]
 * Produce optimized, production ready bundles for deployment. 
-* Achieve some of the Angular 2.0 goals while still running Angular 1.3.x
+* Achieve some of the Angular 2.0 goals while still running on Angular 1.3.x
+* TypeScript style assertions are enabled in development env for run-time type checking. 
 
 
 ### Design Patterns 
