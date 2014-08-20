@@ -3,7 +3,7 @@ import 'stomp';
 import 'term';
 export default class TerminalController {
 
-    constructor($scope, $eventBus) {
+    constructor($scope,  $stateParams, $eventBus) {
         this.term = new Terminal({
             cols: 150,
             rows: 35,
@@ -21,7 +21,7 @@ export default class TerminalController {
         this.term.write('\x1b[31mWelcome to term.js!\x1b[m\r\n');
 
         this.term.on('data', (data) => {
-            $eventBus.publish('/app/terminal/input',data);
+            $eventBus.publish(`/app/terminal/input/${$stateParams.containerId}`,data);
         });
 
         let onLogMessage = (log) =>{
@@ -38,7 +38,7 @@ export default class TerminalController {
 
         $eventBus.registerHandler('/topic/terminal/log', onLogMessage);
         $eventBus.registerHandler('/topic/terminal/error', onLogError);
-        $eventBus.registerHandler('/user/queue/terminal/input', onKeyStroke);
+        $eventBus.registerHandler(`/user/queue/terminal/input/${$stateParams.containerId}`, onKeyStroke);
 
         // Controller Destructor listener
         $scope.$on('$destroy', () => {
