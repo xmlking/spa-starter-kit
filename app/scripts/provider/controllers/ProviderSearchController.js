@@ -58,12 +58,13 @@ export default class ProviderSearchController {
 
     dbCursorMove(n){
         PROVIDER_SEARCH_PARAMS.offset = PROVIDER_SEARCH_PARAMS.offset + n;
-        //$this[state].reload();
+        //this[state].reload();
         this[state].transitionTo(this[state].current, null , {reload: true, inherit: true, notify: true});
     }
 
-    //TODO with bacon.js
+    //TODO  do RX/bacon.js style
     getLocations(address) {
+        //return rx.Observable.fromPromise(this[geocoderService].getLocations(address)).map(response => response.data[1]);
         return this[geocoderService].getLocations(address);
     }
 

@@ -5,7 +5,6 @@ export default class GeocoderService {
         console.info('in GeocoderService constructor....');
     }
 
-    //TODO  do bacon.js style
     getLocations(address) {
         return  new Promise((resolve, reject) => {
             var geocoder = new gMaps.Geocoder();

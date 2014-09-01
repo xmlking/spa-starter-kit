@@ -67,6 +67,15 @@ code {
   font-size: 80%;
 }
 
+.form-group {
+  &.has-no-label {
+
+    .form-control-feedback {
+      top: 0;
+    }
+  }
+}
+
 /*  LOGIN
 -------------------------------------------------- */
 

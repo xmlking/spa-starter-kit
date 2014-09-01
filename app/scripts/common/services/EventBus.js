@@ -1,4 +1,10 @@
 /*jshint -W064 */ /* global SockJS, Stomp */
+/**
+ * EventBus is intend to provide unified programing interface
+ * to subscribe and emit local and remote events.
+ * TODO: implement 'Enterprise Integration Patterns'
+ * provide functional reactive API (pipes , Observables...)
+ */
 import 'sockjs';
 import 'stomp';
 import {EnumSymbol, Enum} from '../utils/Enum';

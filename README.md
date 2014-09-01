@@ -22,8 +22,10 @@ Demonstrate AngularJS Design Patterns and Best Practices.
 
 ### Design Patterns 
 * Authentication and Fine-grained Authorization
+* App-Wide Notifications: ability for any components consistently display error, warn, info messages to the user.
 * WebSockets, EventBus, Real-time REST API
-* Resiliency - Retry, Fallback, Circuit-breaker(W.I.P)
+* Reactive UX support with RX and Reactive Streams 
+* Resiliency - Retry, Governor, Fallback, Circuit-breaker(W.I.P)
 * Caching as a Cross-Cutting Concern
 * Pagination and querying selective fields from REST API
 * Use ES6 Proxies and ES6+ annotations for AOP.
@@ -116,7 +118,8 @@ gulp --env=DEV  task   # DEV mode points to local backend URLs.
 The app was tested on:
  
   * Firefox (>= v31)
-  * Chrome (>= v36), with the following flag enabled: `chrome://flags/#enable-javascript-harmony` (copy/paste into your address-bar)
+  * Chrome (>= v37)
+  * Chrome (<= v36), with the following flag enabled: `chrome://flags/#enable-javascript-harmony` (copy/paste into your address-bar)
   
 ### Tips
 If you are behind firewall and want to force **Bower** to get files from `https://` instead of `git://`

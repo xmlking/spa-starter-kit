@@ -35,7 +35,6 @@ export const PROVIDER_SEARCH_PARAMS =
     distance: 50
 };
 
-//export var PROVIDER_SEARCH_GEOLOCATION = new GeoLocation();
 export const PROVIDER_SEARCH_GEOLOCATION = new GeoLocation();
 
 // private and unexported so no one else has access to it
@@ -62,8 +61,8 @@ export class ProviderService {
         });
     }
 
-    _sanitizeParams(geoLoc, params) { //TODO use improved ES6 literals?
-        // sanitizedParams = angular.extend({}, PROVIDER_SEARCH_PARAMS, params);
+    _sanitizeParams(geoLoc, params) {
+        //let sanitizedParams = Object.assign({}, PROVIDER_SEARCH_PARAMS, params);
         let sanitizedParams = {
             psize: params.psize,
             offset: params.offset,
