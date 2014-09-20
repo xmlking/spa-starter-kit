@@ -12,7 +12,7 @@ Demonstrate AngularJS Design Patterns and Best Practices.
 * Modular SASS inspired by [SMACSS](http://smacss.com/), CSS Autoprefixing
 * Source Maps for CSS & JS supported with Gulp-SourceMaps
 * Unit (karma) and e2e (protractor) tests works with your AMD/browserifyed code.
-* Cross Browser CSS & HTML Injection with BrowserSync 
+* Cross Browser CSS & HTML Injection with BrowserSync [Action Sync, Code Sync]
 * Build environment (DEV, TEST, CI, PROD) aware gulp tasks. 
 * Continue development and testing even when backend is not available. [gulp --env=TEST serve]
 * Produce optimized, production ready bundles for deployment. 
@@ -23,7 +23,7 @@ Demonstrate AngularJS Design Patterns and Best Practices.
 ### Design Patterns 
 * Authentication and Fine-grained Authorization
 * App-Wide Notifications: ability for any components consistently display error, warn, info messages to the user.
-* WebSockets, EventBus, Real-time REST API
+* WebSockets, EventBus, EventStream for Streaming REST API
 * Reactive UX support with RX and Reactive Streams 
 * Resiliency - Retry, Governor, Fallback, Circuit-breaker(W.I.P)
 * Caching as a Cross-Cutting Concern
@@ -74,7 +74,7 @@ gulp deploy             # to deploy dist folder to gh-pages
 # Maintenance 
 npm update -g           #update all outdated global packages
 npm update --save-dev   #update all outdated local packages (run from project directory) 
-brew upgrade && brew doctor
+brew update && brew doctor
 brew upgrade node       #update to latest node version
 ```
 

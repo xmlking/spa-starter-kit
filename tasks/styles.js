@@ -20,7 +20,7 @@ export default function styles(gulp, cfg, args) {
                 loadPath: ['bower_components/bourbon/dist', 'bower_components/compass-mixins/lib']
             }))
             .on('error', ErrorHandler.onError)
-            .pipe(autoprefixer(cfg.autoprefixer)) //FIXME https://github.com/Metrime/gulp-autoprefixer/issues/21
+            .pipe(autoprefixer(cfg.autoprefixer))
             .pipe(sourcemaps.write('.'))
             .pipe(gulp.dest('.tmp/styles'))
             .pipe(filter('**/*.css'))

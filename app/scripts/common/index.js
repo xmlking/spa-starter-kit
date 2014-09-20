@@ -7,7 +7,7 @@ import {AuthorizationService} from './services/AuthorizationService';
 import UserService from './services/UserService';
 import hasPermission from './elements/hasPermission';
 import AuthInterceptor from './utils/AuthInterceptor';
-import {EBUS_CONFIG, EventBus} from './services/EventBus';
+import {EBUS_CONFIG, EventBus} from '../reactive/EventBus';
 import {BackoffStrategy, Retry} from '../resiliency/Retry';
 
 let moduleName = 'spaApp.common';

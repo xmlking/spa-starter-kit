@@ -2,13 +2,13 @@
 /**
  * EventBus is intend to provide unified programing interface
  * to subscribe and emit local and remote events.
+ * Bridge local EventBus with Server-side EventBus
  * TODO: implement 'Enterprise Integration Patterns'
- * provide functional reactive API (pipes , Observables...)
  */
 import 'sockjs';
 import 'stomp';
 import {EnumSymbol, Enum} from '../utils/Enum';
-import {BackoffStrategy, Retry} from '../../resiliency/Retry';
+import {BackoffStrategy, Retry} from '../resiliency/Retry';
 
 export const EBUS_CONFIG = {
     BASE_URL: 'http://localhost:8080/<YourBaaS>/stomp',

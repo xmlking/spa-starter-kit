@@ -153,4 +153,3 @@ class LoginModalController {
 }
 
 export { LoginController, LoginModalController };
-

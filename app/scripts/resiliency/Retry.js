@@ -1,4 +1,4 @@
-import {EnumSymbol, Enum} from '../common/utils/Enum';
+import {EnumSymbol, Enum} from '../utils/Enum';
 import Reflect from 'reflect'; //FIXME comment this line to unit-test Retry.spec.js
 
 // enum

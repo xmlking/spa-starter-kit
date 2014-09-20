@@ -1,7 +1,7 @@
 import {AUTH_CONFIG} from './common/services/AuthenticationService';
 import {DRUG_SEARCH_CONFIG} from './drug/services/DrugService';
 import {PROVIDER_SEARCH_CONFIG} from './provider/services/ProviderService';
-import {EBUS_CONFIG} from './common/services/EventBus';
+import {EBUS_CONFIG} from './reactive/EventBus';
 
 let moduleName = 'spaApp.dev.env';
 let devEnvModule = angular.module(moduleName, []);
