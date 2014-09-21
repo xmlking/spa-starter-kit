@@ -5,6 +5,11 @@ SPA Starter Kit
 **SPA Starter Kit** is a Single Page Application (SPA) Starter project build with **AngularJS** , **AMD** and **ES6**
 Demonstrate AngularJS Design Patterns and Best Practices.   
 
+** Use node v0.11.12 until this [bug](https://github.com/isaacs/node-graceful-fs/issues/31) is fixed. 
+
+### Demo
+This **[Demo](http://xmlking.github.io/spa-starter-kit/)** is created with [Backend-less](#Backend-less-frontend-testing) static gh-pages. 
+
 ### Features
 
 * Use ES6 and AMD everywhere to build a modular application.
@@ -74,6 +79,7 @@ gulp deploy             # to deploy dist folder to gh-pages
 # Maintenance 
 npm update -g           #update all outdated global packages
 npm update --save-dev   #update all outdated local packages (run from project directory) 
+npm update npm -g       #self npm update
 brew update && brew doctor
 brew upgrade node       #update to latest node version
 ```
@@ -88,7 +94,7 @@ Karma will watch the source code and run the tests anytime you save a change.
 gulp tdd
 ```
 
-### Backend-less frontend testing/development 
+### Backend-less frontend testing 
 ```bash
 gulp --env=TEST serve
 ```
@@ -130,7 +136,11 @@ In case you want to revert that global configuration change
 ```bash
 git config --global --unset url."https://".insteadOf
 ```
-    
+Best way to mange node versions is through [N](https://github.com/visionmedia/n) 
+```bash
+ npm install -g n
+```
+ 
 ### For Windows Users
 >Install [git](http://git-scm.com/downloads) client if needed.
 Install node and above mentioned global node modules, them  
