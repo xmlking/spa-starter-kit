@@ -5,10 +5,10 @@ SPA Starter Kit
 **SPA Starter Kit** is a Single Page Application (SPA) Starter project build with **AngularJS** , **AMD** and **ES6**
 Demonstrate AngularJS Design Patterns and Best Practices.   
 
-***Use node v0.11.12 until this [bug](https://github.com/isaacs/node-graceful-fs/issues/31) is fixed.*** 
+Use node ***v0.11.12*** until this [bug](https://github.com/isaacs/node-graceful-fs/issues/31) is fixed.
 
 ### Demo
-This **[Demo](http://xmlking.github.io/spa-starter-kit/)** is created with [Backend-less](#backend-less-frontend-testing) static gh-pages. 
+This **[Demo](http://xmlking.github.io/spa-starter-kit/)** is created with [backend-less](#backend-less-frontend-testing) static gh-pages. 
 
 ### Features
 
