@@ -1,5 +1,6 @@
 export class EnumSymbol {
     // constructor(name: string, {value} = {}, value: number) { //FIXME https://github.com/google/traceur-compiler/issues/1197
+    // constructor(name: string, {value} : {value: number}) { //traceur recommended, but still not implemented
     constructor(name: string, {value}, value: number) { //workaround with /xmlking/assert
         this.name  = name;
 

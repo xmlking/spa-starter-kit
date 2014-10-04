@@ -60,4 +60,4 @@ var require = {
         'reflect': {deps: ['es6-shim'],exports: 'Reflect'},
         'templates': {deps: ['angular']}
     }
-}
+};
