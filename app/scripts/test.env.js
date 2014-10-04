@@ -26,7 +26,7 @@ import 'text!../../test/fixtures/businessadmin_profile.json';
 import 'text!../../test/fixtures/itadmin_profile.json';
 import 'text!../../test/fixtures/dataadmin_profile.json';
 
-import {EBUS_CONFIG} from './common/services/EventBus';
+import {EBUS_CONFIG} from './reactive/EventBus';
 
 let moduleName = 'spaApp.test.env';
 let testEnvModule = angular.module(moduleName, ['ngMockE2E']);
