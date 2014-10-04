@@ -1,9 +1,15 @@
 ---
-#
 # ===================================================================
-# Build-time Config file
-# ===================================================================
+# BUILD-TIME CONFIG PROPERTIES
 #
+# This is multi-env properties file. Keep sensitive data in external
+# file that SysOps can source at runtime.
+# ===================================================================
+
+
+# ----------------------------------------
+# CORE PROPERTIES
+# ----------------------------------------
 
 # Paths
 paths:
@@ -62,6 +68,10 @@ buildProfile:
     - name: drug/index
     - name: provider/index
     - name: experiments/index
+
+# ----------------------------------------
+# TESTING PROPERTIES
+# ----------------------------------------
 
 # karma unit testing
 karmaCommonConf:
