@@ -1,7 +1,7 @@
 'use strict';
 
 let browserSync = require('browser-sync'),
-    httpProxy = require('http-proxy');
+  httpProxy = require('http-proxy');
 
 /* This configuration allow you to configure browser sync to proxy your backend */
 let proxyTarget = 'http://server/context/'; // The location of your backend
@@ -38,29 +38,29 @@ let browserSyncInit = (baseDir, files, browser) => {
 };
 
 export default function server(gulp, cfg, args) {
-    gulp.task('serve', ['watch'], () => {
-        browserSyncInit([
-            '.tmp',
-            'app',
-            './'
-        ], [
-            'app/*.html',
-            '.tmp/styles/**/*.css',
-            'app/scripts/**/*.js',
-            'app/views/**/*.html',
-            'app/images/**/*'
-        ]);
-    });
+  gulp.task('serve', ['watch'], () => {
+    browserSyncInit([
+      '.tmp',
+      'app',
+      './'
+    ], [
+      'app/*.html',
+      '.tmp/styles/**/*.css',
+      'app/scripts/**/*.js',
+      'app/views/**/*.html',
+      'app/images/**/*'
+    ]);
+  });
 
-    gulp.task('serve:dist', ['default'], () =>  {
-        browserSyncInit('dist');
-    });
+  gulp.task('serve:dist', ['default'], () =>  {
+    browserSyncInit('dist');
+  });
 
-    gulp.task('serve:e2e', () => {
-        browserSyncInit(['.tmp', 'app', './' ], null, []);
-    });
+  gulp.task('serve:e2e', () => {
+    browserSyncInit(['.tmp', 'app', './' ], null, []);
+  });
 
-    gulp.task('serve:e2e-dist', ['watch'], () => {
-        browserSyncInit('dist', null, []);
-    });
+  gulp.task('serve:e2e-dist', ['watch'], () => {
+    browserSyncInit('dist', null, []);
+  });
 }
