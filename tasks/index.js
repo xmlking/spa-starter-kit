@@ -11,7 +11,6 @@ import e2eTests from './e2e';
 import build    from './build';
 import deploy   from './deploy';
 
-require('es6-shim'); //FIXME https://github.com/google/traceur-compiler/issues/1228
 let gulp = require('gulp');
 let config = require('./config');
 let args = require('yargs').argv;
