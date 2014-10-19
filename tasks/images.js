@@ -5,11 +5,12 @@ export default function images(gulp, cfg, args) {
   'use strict';
   gulp.task('images', () => {
     return gulp.src(cfg.paths.images)
-      .pipe(cache(imagemin({
+      //TODO .pipe(cache(imagemin({
+      .pipe(imagemin({
         optimizationLevel: 3,
         progressive: true,
         interlaced: true
-      })))
+      }))
       .pipe(gulp.dest('dist/images'));
   });
 }
