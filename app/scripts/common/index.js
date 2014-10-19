@@ -9,6 +9,7 @@ import hasPermission from './elements/hasPermission';
 import AuthInterceptor from './utils/AuthInterceptor';
 import {EBUS_CONFIG, EventBus} from '../reactive/EventBus';
 import {BackoffStrategy, Retry} from '../resiliency/Retry';
+import {isProxySupported} from './utils/util';
 
 let moduleName = 'spaApp.common';
 let commonModule = angular.module(moduleName,
@@ -48,9 +49,9 @@ commonModule.run(($rootScope, $eventBus) => {
 
   var eventBus =  $eventBus;
 
-  if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+  if(isProxySupported()) {
     // retryableEventBus with Reflect API
-    // ***only works with firefox as of now***
+    // ***only works with firefox & Chrome < v38 as of now***
     eventBus = Retry.proxify($eventBus);
   }
 

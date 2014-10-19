@@ -91,7 +91,17 @@ function serialize(data) {
     return( source );
 }
 
+function isProxySupported() {
+  try {
+    return typeof Proxy !== 'undefined' &&
+      new Proxy({}, { get: function () { return 5; } }).foo === 5;
+  }
+  catch(err) { }
+  return false;
+}
+
 export {
+    isProxySupported,
 	loadDOMFromString,
 	loadDOMFromString1,
 	loadDOMFromLink,
