@@ -12,10 +12,10 @@ import {BackoffStrategy, Retry} from '../resiliency/Retry';
 
 let moduleName = 'spaApp.common';
 let commonModule = angular.module(moduleName,
-	[
-		// 3rd party modules
-		'http-auth-interceptor-buffer'
-	]);
+  [
+    // 3rd party modules
+    'http-auth-interceptor-buffer'
+  ]);
 
 commonModule.service('UserService', UserService);
 commonModule.service('AuthenticationService', AuthenticationService);
@@ -30,62 +30,65 @@ commonModule.controller('SettingsController', SettingsController);
 
 commonModule.config(routes);
 commonModule.config( ($httpProvider) => {
-    'use strict';
+  'use strict';
 
-    $httpProvider.interceptors.push(AuthInterceptor);
-    //$httpProvider.responseInterceptors.push('AuthInterceptor');
+  $httpProvider.interceptors.push(AuthInterceptor);
+  //$httpProvider.responseInterceptors.push('AuthInterceptor');
 
-    AUTH_CONFIG.BASE_URL = 'http://ve7d00000010:8080/apiApp';
-    AUTH_CONFIG.LOGIN_URL = AUTH_CONFIG.BASE_URL + '/j_spring_security_check';
-    AUTH_CONFIG.LOGOUT_URL = AUTH_CONFIG.BASE_URL + '/logout';
-    AUTH_CONFIG.PROFILE_URL = AUTH_CONFIG.BASE_URL + '/login/currentUser';
+  AUTH_CONFIG.BASE_URL = 'http://ve7d00000010:8080/apiApp';
+  AUTH_CONFIG.LOGIN_URL = AUTH_CONFIG.BASE_URL + '/j_spring_security_check';
+  AUTH_CONFIG.LOGOUT_URL = AUTH_CONFIG.BASE_URL + '/logout';
+  AUTH_CONFIG.PROFILE_URL = AUTH_CONFIG.BASE_URL + '/login/currentUser';
 
-    EBUS_CONFIG.BASE_URL = 'http://ve7d00000010:8080/apiApp/stomp';
+  EBUS_CONFIG.BASE_URL = 'http://ve7d00000010:8080/apiApp/stomp';
 });
 
 commonModule.run(($rootScope, $eventBus) => {
-    'use strict';
+  'use strict';
 
-//    var eventBus =  $eventBus;
+  var eventBus =  $eventBus;
+
+  if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
     // retryableEventBus with Reflect API
-    var eventBus = Retry.proxify($eventBus);
+    // ***only works with firefox as of now***
+    eventBus = Retry.proxify($eventBus);
+  }
 
+  if (typeof Object.observe === 'function') {
+    Object.observe(eventBus, (changes)=> {
+      $rootScope.$apply();  //notify readyState watchers
+    }, ['update']);
+  } else {
+    console.warn('O.o() not supported');
+  }
 
-    if (typeof Object.observe === 'function') {
-        Object.observe(eventBus, (changes)=> {
-            $rootScope.$apply();  //notify readyState watchers
-        }, ['update']);
-    } else {
-        console.warn('O.o() not supported');
-    }
+  let onDisconnectListener = error => {
+    console.log('in onDisconnectListener - Error: ',error);
+    console.error(`SockJS closed.........readyState: ${eventBus.readyState.description}` );
+    console.info(`Attempting to reconnect`);
+    eventBus.open(true,onDisconnectListener);
+  };
 
-    let onDisconnectListener = error => {
-        console.log('in onDisconnectListener - Error: ',error);
-        console.error(`SockJS closed.........readyState: ${eventBus.readyState.description}` );
-        console.info(`Attempting to reconnect`);
-        eventBus.open(true,onDisconnectListener);
-    };
+  let openConnection  = () =>
+    eventBus.open(true,onDisconnectListener)
+      .catch( (error) => { console.error( 'Error: ', error); });
 
-    let openConnection  = () =>
-            eventBus.open(true,onDisconnectListener)
-                    .catch( (error) => { console.error( 'Error: ', error); });
+  // reconnect STOMP client after loginSuccess, to get new authenticated connection.
+  $rootScope.$on(AUTH_EVENTS.loginSuccess , () => {
+    eventBus.close()
+      .then((msg) => {console.log('reconnection STOMP after loginSuccess');})
+      .then(openConnection);
+  });
 
-    // reconnect STOMP client after loginSuccess, to get new authenticated connection.
-    $rootScope.$on(AUTH_EVENTS.loginSuccess , () => {
-        eventBus.close()
-            .then((msg) => {console.log('reconnection STOMP after loginSuccess');})
-            .then(openConnection);
-        });
+  // STOMP connection will be closed automatically when user logout.
+  // but when `onDisconnectListener` is used, it reconnect automatically.
+  // Manually closing STOMP connections ensures there will be no tangling WebSocket connections to server.
+  $rootScope.$on(AUTH_EVENTS.logoutSuccess, () => {
+    eventBus.close();
+  });
 
-    // STOMP connection will be closed automatically when user logout.
-    // but when `onDisconnectListener` is used, it reconnect automatically.
-    // Manually closing STOMP connections ensures there will be no tangling WebSocket connections to server.
-    $rootScope.$on(AUTH_EVENTS.logoutSuccess, () => {
-        eventBus.close();
-    });
-
-    // auto open
-        openConnection();
+  // auto open
+  openConnection();
 
 
 });
