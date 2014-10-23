@@ -23,7 +23,7 @@ drugModule.controller('DrugDetailController', DrugDetailController);
 drugModule.config(routes);
 drugModule.config( () => {
     'use strict';
-    DRUG_SEARCH_CONFIG.BASE_API_URL= 'http://ve7d00000010:8080/apiApp';
+    DRUG_SEARCH_CONFIG.BASE_API_URL= 'http://apsrd3850:8080/apiApp';
 });
 
 export default moduleName;

@@ -36,12 +36,12 @@ commonModule.config( ($httpProvider) => {
   $httpProvider.interceptors.push(AuthInterceptor);
   //$httpProvider.responseInterceptors.push('AuthInterceptor');
 
-  AUTH_CONFIG.BASE_URL = 'http://ve7d00000010:8080/apiApp';
+  AUTH_CONFIG.BASE_URL = 'http://apsrd3850:8080/apiApp';
   AUTH_CONFIG.LOGIN_URL = AUTH_CONFIG.BASE_URL + '/j_spring_security_check';
   AUTH_CONFIG.LOGOUT_URL = AUTH_CONFIG.BASE_URL + '/logout';
   AUTH_CONFIG.PROFILE_URL = AUTH_CONFIG.BASE_URL + '/login/currentUser';
 
-  EBUS_CONFIG.BASE_URL = 'http://ve7d00000010:8080/apiApp/stomp';
+  EBUS_CONFIG.BASE_URL = 'http://apsrd3850:8080/apiApp/stomp';
 });
 
 commonModule.run(($rootScope, $eventBus) => {

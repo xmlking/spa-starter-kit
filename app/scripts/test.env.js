@@ -41,7 +41,7 @@ testEnvModule.run( ($httpBackend) => {
     'use strict';
     console.log('in testEnvModule... ');
     // Do your mock
-    $httpBackend.whenPOST(/\http:\/\/ve7d00000010:8080\/apiApp\/j_spring_security_check/)
+    $httpBackend.whenPOST(/\http:\/\/apsrd3850:8080\/apiApp\/j_spring_security_check/)
         .respond( (method, url, data, headers) => {
             console.log('Received data',method, url, data, headers);
             if(data.contains('j_username=sumo&j_password=demo')) {
@@ -61,7 +61,7 @@ testEnvModule.run( ($httpBackend) => {
             }
         });
 
-    $httpBackend.whenGET(/\http:\/\/ve7d00000010:8080\/apiApp\/login\/currentUser/)
+    $httpBackend.whenGET(/\http:\/\/apsrd3850:8080\/apiApp\/login\/currentUser/)
         .respond( (method, url) => {
             console.log('Received URL',url);
             console.log('window.username',window.username);
@@ -79,13 +79,13 @@ testEnvModule.run( ($httpBackend) => {
             }
         });
 
-    $httpBackend.whenPOST(/\http:\/\/ve7d00000010:8080\/apiApp\/logout/)
+    $httpBackend.whenPOST(/\http:\/\/apsrd3850:8080\/apiApp\/logout/)
         .respond( () => {
             window.username = undefined;
             return [200, {}];
         });
 
-    $httpBackend.whenGET(/\http:\/\/ve7d00000010:8080\/apiApp\/drugs\?fields*/)
+    $httpBackend.whenGET(/\http:\/\/apsrd3850:8080\/apiApp\/drugs\?fields*/)
         .respond( (method, url) => {
             console.log('url',url);
             if(!window.username) {
@@ -100,7 +100,7 @@ testEnvModule.run( ($httpBackend) => {
             }
         });
 
-    $httpBackend.whenGET(/\http:\/\/ve7d00000010:8080\/apiApp\/drugs\/[1-9]*/)
+    $httpBackend.whenGET(/\http:\/\/apsrd3850:8080\/apiApp\/drugs\/[1-9]*/)
         .respond( (method, url) => {
             console.log('url',url);
             if(url.contains('drugs/1')) {
