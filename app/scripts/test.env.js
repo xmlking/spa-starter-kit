@@ -40,7 +40,7 @@ testEnvModule.config( () => {
 testEnvModule.run( ($httpBackend) => {
     'use strict';
     console.log('in testEnvModule... ');
-    // Do your mock
+    // Do your mock here
     $httpBackend.whenPOST(/\http:\/\/apsrd3850:8080\/apiApp\/j_spring_security_check/)
         .respond( (method, url, data, headers) => {
             console.log('Received data',method, url, data, headers);
