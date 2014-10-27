@@ -60,7 +60,7 @@ commonModule.run(($rootScope, $eventBus) => {
       $rootScope.$apply();  //notify readyState watchers
     }, ['update']);
   } else {
-    console.warn('O.o() not supported');
+    console.warn('Object.observe() not supported');
   }
 
   let onDisconnectListener = error => {

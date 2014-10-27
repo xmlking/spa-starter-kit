@@ -32,6 +32,7 @@ var require = {
         'sockjs': '../../bower_components/bower-sockjs-client/sockjs',
         'stomp': '../../bower_components/stomp-websocket/lib/stomp',
         'term': '../../bower_components/term/src/term',
+        'observe-polyfill': '../../bower_components/observe-polyfill/Object.observe.poly',
         'traceur-runtime': '../../node_modules/traceur/bin/traceur-runtime'
     },
     // endbower

@@ -12,3 +12,4 @@ import 'restangular';
 import 'xeditable';
 import 'ng-table';
 import 'AngularGM';
+import 'observe-polyfill';
