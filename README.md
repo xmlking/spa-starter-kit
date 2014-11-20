@@ -25,6 +25,7 @@ This **[Demo](http://xmlking.github.io/spa-starter-kit/)** is created with [back
 
 ### Design Patterns 
 * Authentication and Fine-grained Authorization
+* Faceted Search
 * App-Wide Notifications: ability for any components consistently display error, warn, info messages to the user.
 * WebSockets, EventBus, EventStream for Streaming REST API
 * Reactive UX support with RX and Reactive Streams 
