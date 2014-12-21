@@ -18,8 +18,8 @@ This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are p
 * Unit (karma) and e2e (protractor) tests works with your AMD/browserifyed code.
 * Cross Browser CSS & HTML Injection with BrowserSync [Action Sync, Code Sync]
 * Build environment (DEV, TEST, CI, PROD) aware gulp tasks. 
-* Continue development and auto-testing.
-* __Mocked Backend Workflow__ - help with mocking your backend and backend-less development.[gulp --env=TEST serve]
+* Continue development and auto-testing.[gulp --env=TEST serve]
+* _Mocked Backend Workflow_ - help with mocking your backend and backend-less development.
 * Produce optimized, production ready bundles for deployment. 
 * Achieve some of the Angular 2.0 goals while still running on Angular 1.3.x
 * TypeScript style assertions are enabled in development env for run-time type checking. 
@@ -97,12 +97,12 @@ gulp tdd
 
 ### Mocked Backend Workflow 
 
-_Advantages_
+####Advantages####
   * Parallel development with backend
   * Frontend can have a hand in defining API
   * Control over responses
   * Minimal impact on code
-  * Backend-less frontend testing (continues development when Backend not available)
+  * Backend-less frontend testing (continue development even when backend not available)
   * Useful for e2e tests
   
 ```bash
