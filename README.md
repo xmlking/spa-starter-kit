@@ -102,8 +102,9 @@ gulp tdd
   * Frontend can have a hand in defining API
   * Control over responses
   * Minimal impact on code
-  * Backend-less frontend testing (continue development even when backend not available)
+  * Backend-less development (continue development even when backend not available)
   * Useful for e2e tests
+  * Useful for demoing UI work without backend
   
 ```bash
 gulp --env=TEST serve
