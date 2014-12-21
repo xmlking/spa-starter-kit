@@ -6,34 +6,36 @@ SPA Starter Kit
 Demonstrate AngularJS Design Patterns and Best Practices.
 
 ### Demo
-This **[Demo](http://xmlking.github.io/spa-starter-kit/)** is created with [backend-less](#backend-less-frontend-testing) static gh-pages. 
+This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are produced by [Mocked Backend Workflow](#Mocked-Backend-Workflow). 
 
 ### Features
 
 * Use ES6 and AMD everywhere to build a modular application.
 * Adopts [AngularJS Style Guide](https://github.com/johnpapa/angularjs-styleguide/)
 * Modular SASS inspired by [SMACSS](http://smacss.com/), CSS Autoprefixing
+* [Material Design](https://github.com/angular/material) UI Components
 * Source Maps for CSS & JS supported with Gulp-SourceMaps
 * Unit (karma) and e2e (protractor) tests works with your AMD/browserifyed code.
 * Cross Browser CSS & HTML Injection with BrowserSync [Action Sync, Code Sync]
 * Build environment (DEV, TEST, CI, PROD) aware gulp tasks. 
-* Continue development and testing even when backend is not available. [gulp --env=TEST serve]
+* Continue development and auto-testing.
+* __Mocked Backend Workflow__ - help with mocking your backend and backend-less development.[gulp --env=TEST serve]
 * Produce optimized, production ready bundles for deployment. 
 * Achieve some of the Angular 2.0 goals while still running on Angular 1.3.x
 * TypeScript style assertions are enabled in development env for run-time type checking. 
-
+* Animations for rich user experience. 
 
 ### Design Patterns 
 * Authentication and Fine-grained Authorization
-* Faceted Search
 * App-Wide Notifications: ability for any components consistently display error, warn, info messages to the user.
 * WebSockets, EventBus, EventStream for Streaming REST API
 * Reactive UX support with RX and Reactive Streams 
 * Resiliency - Retry, Governor, Fallback, Circuit-breaker(W.I.P)
 * Caching as a Cross-Cutting Concern
+* Faceted Search
 * Pagination and querying selective fields from REST API
 * Use ES6 Proxies and ES6+ annotations for AOP.
-* Animations for rich user experience. 
+
 
 
 ### Getting Started
@@ -93,10 +95,20 @@ Karma will watch the source code and run the tests anytime you save a change.
 gulp tdd
 ```
 
-### Backend-less frontend testing 
+### Mocked Backend Workflow 
+
+_Advantages_
+  * Parallel development with backend
+  * Frontend can have a hand in defining API
+  * Control over responses
+  * Minimal impact on code
+  * Backend-less frontend testing (continues development when Backend not available)
+  * Useful for e2e tests
+  
 ```bash
 gulp --env=TEST serve
 ```
+
 ***however you can also use this pre-build Grails App [apiApp.war](https://github.com/xmlking/grails-batch-rest/releases) as backend for this SPA App.*** 
 
 ### Options
