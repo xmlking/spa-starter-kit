@@ -11,6 +11,7 @@ This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are p
 ### Features
 
 * Use ES6 and AMD everywhere to build a modular application.
+* Flat and modular project structure for parallel development. 
 * Adopts [AngularJS Style Guide](https://github.com/johnpapa/angularjs-styleguide/)
 * Modular SASS inspired by [SMACSS](http://smacss.com/), CSS Autoprefixing
 * [Material Design](https://github.com/angular/material) UI Components
@@ -37,6 +38,93 @@ This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are p
 * Use ES6 Proxies and ES6+ annotations for AOP.
 
 
+### Directory structure
+
+Since a large AngularJS application has many modules and components it's best to structure it in a directory hierarchy.
+ 
+ * Creating high-level divisions by functionality and lower-level divisions by component types.
+
+In this way the directory structure will look like:
+
+```
+.
+├── app
+│   ├── index.html
+│   ├── index.js
+│   ├── index.scss
+│   ├── config.yml
+│   ├── common
+│   │   ├── controllers
+│   │   ├── elements
+│   │   ├── filters
+│   │   ├── services
+│   │   ├── utils
+│   │   ├── views
+│   │   ├── i18n
+│   │   ├── fonts
+│   │   ├── images
+│   │   ├── styles
+│   │   │   ├── components
+│   │   │   ├── mixins
+│   │   │   ├── _variables.scss
+│   │   │   └── _functions.scss
+│   │   ├── index.js
+│   │   └── routes.js
+│   ├── home
+│   │   ├── controllers
+│   │   │   ├── FirstController.js
+│   │   │   └── SecondController.js
+│   │   ├── elements
+│   │   │   ├── FirstElement.js
+│   │   │   └── SecondElement.js
+│   │   ├── filters
+│   │   │   ├── UniqueFilter.js
+│   │   │   └── LimitFilter.js
+│   │   ├── models
+│   │   │   ├── TodoItem.js
+│   │   │   └── TodoList.js
+│   │   ├── services
+│   │   │   ├── FirstService.js
+│   │   │   └── SecondService.js
+│   │   ├── views
+│   │   │   ├── contacts.html
+│   │   │   └── contact.details.html
+│   │   ├── index.js
+│   │   ├── index.scss
+│   │   └── routes.js
+│   ├── about
+│   │   ├── controllers
+│   │   │   └── ThirdController.js
+│   │   ├── services
+│   │   │   └── ThirdService.js
+│   │   ├── i18n
+│   │   │   ├── de_DE.json
+│   │   │   └── en_EN.json
+│   │   ├── views
+│   │   │   ├── about.html
+│   │   │   └── about.map.html
+│   │   ├── index.js
+│   │   ├── index.scss
+│   │   └── routes.js
+├── .tmp
+├── dist
+├── lib
+├── tasks
+└── test
+```
+* When creating directives/CustomElements it may be useful to put all the files associated with the given CustomElement's files (i.e. templates, CSS/SASS files, JavaScript) in a single folder.
+
+```
+ elements
+    ├── element1
+    │   ├── element1.tpl.html
+    │   ├── element1.js
+    │   └── element1.scss
+    └── element2
+        ├── element2.tpl.html
+        ├── element2.js
+        └── element2.scss
+```
 
 ### Getting Started
 
