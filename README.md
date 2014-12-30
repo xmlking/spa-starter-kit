@@ -38,11 +38,11 @@ This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are p
 * Use ES6 Proxies and ES6+ annotations for AOP.
 
 
-### Directory structure
+### Directory Structure
 
 Since a large AngularJS application has many modules and components it's best to structure it in a directory hierarchy.
  
- * Creating high-level divisions by functionality and lower-level divisions by component types.
+_Creating high-level divisions by functionality and lower-level divisions by component types._
 
 In this way the directory structure will look like:
 
@@ -113,7 +113,7 @@ In this way the directory structure will look like:
 └── test
 ```
 
-When creating directives/CustomElements it may be useful to put all the files associated with the given CustomElement's files (i.e. templates, CSS/SASS files, JavaScript) in a single folder.
+_When creating directives/CustomElements it may be useful to put all the files associated with the given CustomElement's files (i.e. templates, CSS/SASS files, JavaScript) in a single folder._
 
 ```
 elements
