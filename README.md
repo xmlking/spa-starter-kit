@@ -6,7 +6,7 @@ SPA Starter Kit
 Demonstrate AngularJS Design Patterns and Best Practices.
 
 ### Demo
-This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are produced by [Mocked Backend Workflow](#Mocked-Backend-Workflow). 
+This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are produced by [Mocked Backend Workflow](#mocked-backend-workflow). 
 
 ### Features
 
