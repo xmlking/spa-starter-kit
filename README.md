@@ -112,18 +112,19 @@ In this way the directory structure will look like:
 ├── tasks
 └── test
 ```
-* When creating directives/CustomElements it may be useful to put all the files associated with the given CustomElement's files (i.e. templates, CSS/SASS files, JavaScript) in a single folder.
+
+When creating directives/CustomElements it may be useful to put all the files associated with the given CustomElement's files (i.e. templates, CSS/SASS files, JavaScript) in a single folder.
 
 ```
- elements
-    ├── element1
-    │   ├── element1.tpl.html
-    │   ├── element1.js
-    │   └── element1.scss
-    └── element2
-        ├── element2.tpl.html
-        ├── element2.js
-        └── element2.scss
+elements
+├── element1
+│   ├── element1.tpl.html
+│   ├── element1.js
+│   └── element1.scss
+└── element2
+│   ├── element2.tpl.html
+│   ├── element2.js
+│   └── element2.scss
 ```
 
 ### Getting Started
