@@ -122,9 +122,9 @@ elements
 │   ├── element1.js
 │   └── element1.scss
 └── element2
-│   ├── element2.tpl.html
-│   ├── element2.js
-│   └── element2.scss
+    ├── element2.tpl.html
+    ├── element2.js
+    └── element2.scss
 ```
 
 ### Getting Started
