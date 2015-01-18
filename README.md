@@ -12,7 +12,7 @@ This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are p
 
 * Use ES6 and AMD everywhere to build a modular application.
 * Flat and modular project structure for parallel development. 
-* Adopts [AngularJS Style Guide](https://github.com/johnpapa/angularjs-styleguide/)
+* Adopts AngularJS Style Guides from [johnpapa](https://github.com/johnpapa/angularjs-styleguide/), [gocardless](https://github.com/gocardless/angularjs-style-guide)
 * Modular SASS inspired by [SMACSS](http://smacss.com/), CSS Autoprefixing
 * [Material Design](https://github.com/angular/material) UI Components
 * Source Maps for CSS & JS supported with Gulp-SourceMaps
@@ -266,3 +266,6 @@ robocopy junk node_modules /MIR
 ### Credits
 @nateabele @sindresorhus @silvenon @vojtajina @digisfera  @jonkemp @domenic @addyosmani @tvcutsem
 
+[![mgechev](http://www.gravatar.com/avatar/82bafb0432ce4ccc9dcc26f94d5fe5bc?s=117)](https://github.com/mgechev) |[![pascalockert](http://www.gravatar.com/avatar/cf3cf69f535e77166c17bc5f586514f5?s=117)](https://github.com/pascalockert) |[![mainyaa](http://www.gravatar.com/avatar/c274adeb5303a1aae51f1e34bd7a3bc3?s=117)](https://github.com/mainyaa) |[![rubystream](http://www.gravatar.com/avatar/04952a6ee948f345e9c3727850d09a1b?s=117)](https://github.com/rubystream) |[![lukaszklis](http://www.gravatar.com/avatar/7a30aca2cf9658558247348b3be8c35e?s=117)](https://github.com/lukaszklis) |
+:---: |:---: |:---: |:---: |:---: |
+[mgechev](https://github.com/mgechev) |[pascalockert](https://github.com/pascalockert) |[mainyaa](https://github.com/mainyaa) |[rubystream](https://github.com/rubystream) |[lukaszklis](https://github.com/lukaszklis) |
