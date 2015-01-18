@@ -172,6 +172,7 @@ npm update --save-dev   #update all outdated local packages (run from project di
 npm update npm -g       #self npm update
 brew update && brew doctor
 brew upgrade node       #update to latest node version
+npm shrinkwrap --dev    #Lock down dependency versions 
 ```
 
 ### Running the [tests](./test/)
@@ -265,7 +266,3 @@ robocopy junk node_modules /MIR
  
 ### Credits
 @nateabele @sindresorhus @silvenon @vojtajina @digisfera  @jonkemp @domenic @addyosmani @tvcutsem
-
-[![mgechev](http://www.gravatar.com/avatar/82bafb0432ce4ccc9dcc26f94d5fe5bc?s=117)](https://github.com/mgechev) |[![pascalockert](http://www.gravatar.com/avatar/cf3cf69f535e77166c17bc5f586514f5?s=117)](https://github.com/pascalockert) |[![mainyaa](http://www.gravatar.com/avatar/c274adeb5303a1aae51f1e34bd7a3bc3?s=117)](https://github.com/mainyaa) |[![rubystream](http://www.gravatar.com/avatar/04952a6ee948f345e9c3727850d09a1b?s=117)](https://github.com/rubystream) |[![lukaszklis](http://www.gravatar.com/avatar/7a30aca2cf9658558247348b3be8c35e?s=117)](https://github.com/lukaszklis) |
-:---: |:---: |:---: |:---: |:---: |
-[mgechev](https://github.com/mgechev) |[pascalockert](https://github.com/pascalockert) |[mainyaa](https://github.com/mainyaa) |[rubystream](https://github.com/rubystream) |[lukaszklis](https://github.com/lukaszklis) |
