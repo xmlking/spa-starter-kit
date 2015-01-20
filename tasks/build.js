@@ -1,8 +1,5 @@
-//import {ErrorHandler} from './error-handler';
-
 let del         = require('del'),
   rjs         = require('requirejs'),
-  runSequence = require('run-sequence'),
   gif         = require('gulp-if'),
   useref      = require('gulp-useref'),
   replace     = require('gulp-replace'),
@@ -11,18 +8,20 @@ let del         = require('del'),
 export default function build(gulp, cfg, args) {
   'use strict';
 
-  gulp.task('bundle', ['views', 'scripts'], () =>  {
+
+
+  gulp.task('bundle',gulp.series(gulp.parallel('views', 'scripts'), () =>  {
     return new Promise((resolve, reject) => {
-      rjs.optimize(cfg.buildProfile, function (buildResponse) {
+      rjs.optimize(cfg.buildProfile, (buildResponse) => {
         //console.log('build response', buildResponse);
         resolve(buildResponse);
       }, function (err) {
         reject(err);
       });
     });
-  });
+  }));
 
-  gulp.task('html', ['styles'], () => {
+  gulp.task('html', gulp.series('styles', () => {
     let assets = useref.assets({searchPath: '{.tmp,app}', types: ['css']});
     return gulp.src('app/*.html')
       .pipe(assets)
@@ -31,12 +30,12 @@ export default function build(gulp, cfg, args) {
       .pipe(gif('*.css', csso()))
       .pipe(assets.restore())
       .pipe(useref())
-      .pipe(replace('bower_components/bootstrap-sass-official/assets/fonts/bootstrap', 'fonts'))
+      .pipe(replace('../bower_components/bootstrap-sass-official/assets/fonts/bootstrap', 'common/fonts'))
       .pipe(gulp.dest('dist'));
-  });
+  }));
 
   gulp.task('extras', () => {
-    return gulp.src(['app/*.*', '!app/*.html', 'app/scripts**/**/*.json', 'app/scripts**/**/*.html'], {dot: true})
+    return gulp.src(cfg.paths.extras, {dot: true})
       .pipe(gulp.dest('dist'));
   });
 
@@ -45,14 +44,10 @@ export default function build(gulp, cfg, args) {
   });
 
   /**
-   * Warning - optimizer task has to be done first, coz it overwrites  :(
+   * Warning - bundle task has to be done first, coz it overwrites  :(
    */
-  gulp.task('build', (cb) => {
-    runSequence('bundle', 'html', ['images', 'fonts', 'extras'], cb);
-  });
+  gulp.task('build',gulp.series('bundle', 'html', gulp.parallel('images', 'fonts', 'extras')));
 
-  gulp.task('default',  (cb) => {
-    runSequence('clean','build', cb);
-  });
+  gulp.task('default', gulp.series('clean', 'build'));
 
 }

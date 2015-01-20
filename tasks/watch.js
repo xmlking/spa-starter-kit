@@ -1,9 +1,9 @@
 export default function watch(gulp, cfg, env) {
   'use strict';
-  gulp.task('watch', ['wiredep', 'styles', 'scripts'], function () {
-    gulp.watch('app/styles/**/*.scss', ['styles']);
-    gulp.watch('app/scripts/**/*.js', ['transpile']);
-    gulp.watch('app/images/**/*', ['images']);
-    gulp.watch('bower.json', ['wiredep']);
-  });
+  gulp.task('watch', gulp.series(gulp.parallel('styles', 'scripts'), function () {
+    gulp.watch('app/**/*.scss', 'styles');
+    gulp.watch(cfg.paths.scripts, 'transpile');
+    gulp.watch(cfg.paths.images, 'images');
+    gulp.watch('bower.json', 'wiredep');
+  }));
 }

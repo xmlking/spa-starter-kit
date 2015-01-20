@@ -13,13 +13,24 @@
 
 # Paths
 paths:
+  src: app
   scripts:
-    - "app/scripts/**/*.js"
-    - "!app/compiled/**/*.js"
-  images: "app/images/**/*"
+    - "app/**/*.js"
+    - "!app/require.config.js"
+  images: "app/*/images/**/*.{png,gif,jpg,cur}"
   sass:
-    - "app/styles/**/*.scss"
-    - "!app/styles/**/_*.scss"
+    - "app/**/*.scss"
+    - "!app/common/styles/**/_*.scss"
+  views: "app/*/views/**/*.html"
+  fonts: "app/common/fonts/**/*"
+  extras:
+    - "app/.htaccess"
+    - "app/config.yml"
+    - "app/favicon.ico"
+    - "app/robots.txt"
+    - "app/**/*.json"
+    - ".tmp/*/**/*.css"
+    - "app/**/*.tpl.html"
   temp: .tmp
   dest: dist
 
@@ -43,12 +54,14 @@ traceur:
   annotations: true
   typeAssertionModule: assert
   experimental: true
+  asyncFunctions: true
+  arrayComprehension: true
 
 # Require JS Bundler
 buildProfile:
-  mainConfigFile: app/config.js
+  mainConfigFile: app/require.config.js
   appDir: .tmp
-  baseUrl: scripts
+  baseUrl: '.'
   removeCombined: true
   findNestedDependencies: true
   dir: dist
@@ -60,14 +73,30 @@ buildProfile:
         - angular
     - name: bootstrap
       include:
-        - requireLib
+        - requirejs
       exclude:
         - vendor
+    - name: authorization/index
+    - name: benefit/index
+    - name: call/index
+    - name: claim/index
     - name: common/index
-    - name: home/index
     - name: drug/index
-    - name: provider/index
     - name: experiments/index
+    - name: home/index
+    - name: member/index
+    - name: provider/index
+
+# Require JS Config : bowerRequireJS
+AMD:
+  baseUrl: ""
+  transitive: true
+  "exclude-dev": false
+  config: app/require.config.js
+  exclude:
+    - bootstrap-sass-official
+    - bootstrap
+    - jquery
 
 # ----------------------------------------
 # TESTING PROPERTIES
@@ -81,26 +110,26 @@ karmaCommonConf:
     - traceur
   files:
     - test/test-main.js
-    - pattern: "app/scripts/**/*.js"
+    - pattern: "app/**/*.js"
       included: false
     - pattern: "test/unit/**/*.js"
       included: false
-    - pattern: ".tmp/scripts/di/*.js"
+    - pattern: ".tmp/di/*.js"
       included: false
-    - pattern: .tmp/scripts/assert.js
+    - pattern: .tmp/assert.js
       included: false
-    - pattern: .tmp/scripts/diary/diary.js
+    - pattern: .tmp/diary/diary.js
       included: false
   exclude:
-    - app/scripts/bootstrap.js
+    - app/bootstrap.js
   proxies:
-    /base/di/: /base/.tmp/scripts/di/
-    /base/assert.js: /base/.tmp/scripts/assert.js
-    /base/diary/diary.js: /base/.tmp/scripts/diary/diary.js
+    /base/di/: /base/bower_components/di/dist/amd/
+    /base/assert.js: /base/bower_components/assert/dist/amd/assert.js
+    /base/diary/diary.js: /base/bower_components/diary/dist/amd/diary.js
   reporters:
     - progress
   preprocessors:
-    "app/scripts/**/*.js":
+    "app/**/*.js":
       - traceur
     "test/unit/**/*.js":
       - traceur

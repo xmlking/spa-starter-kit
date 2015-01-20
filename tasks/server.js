@@ -4,7 +4,11 @@ let browserSync = require('browser-sync'),
   httpProxy = require('http-proxy');
 
 /* This configuration allow you to configure browser sync to proxy your backend */
-let proxyTarget = 'http://server/context/'; // The location of your backend
+// ML API Dev http://dbsrt0490:8010/
+// ML API Stage http://dbsrt0490:9010/  replica http://dbsrt0574:9010/
+// ML API Stage for iBaags http://dbsrt0490:9020/  replica http://dbsrt0574:9020/
+// JBoss API Dev http://apsed2427:8080/
+let proxyTarget = 'http://dbsrt0490:9020/'; // The location of your backend
 let proxyApiPrefix = 'api'; // The element in the URL which differentiate between API request and static file request
 
 let proxy = httpProxy.createProxyServer({
@@ -22,12 +26,13 @@ let proxyMiddleware = (req, res, next) => {
 let browserSyncInit = (baseDir, files, browser) => {
   browser = browser === undefined ? 'default' : browser;
 
-  browserSync.init(files, {
+  browserSync({
+    files,
     startPath: '/index.html',
     server: {
       baseDir: baseDir,
       routes: {
-        '/source': '/app/scripts'
+        '/source': '/app'
       },
       middleware: proxyMiddleware
     },
@@ -38,21 +43,25 @@ let browserSyncInit = (baseDir, files, browser) => {
 };
 
 export default function server(gulp, cfg, args) {
-  gulp.task('serve', ['watch'], () => {
-    browserSyncInit([
-      '.tmp',
-      'app',
-      './'
-    ], [
-      'app/*.html',
-      '.tmp/styles/**/*.css',
-      'app/scripts/**/*.js',
-      'app/views/**/*.html',
-      'app/images/**/*'
-    ]);
-  });
+  gulp.task('serve', gulp.parallel('watch', () => {
+    browserSyncInit(
+      [
+        '.tmp',
+        'app',
+        './'
+      ],
+      [
+        'app/**/*.html',
+        'app/common/images/*'
+      ]
+    );
+  }));
 
-  gulp.task('serve:dist', ['default'], () =>  {
+  gulp.task('serve:dist', gulp.series('default', () =>  {
+    browserSyncInit('dist');
+  }));
+
+  gulp.task('serve:dist-speed', () =>  {
     browserSyncInit('dist');
   });
 
@@ -60,7 +69,7 @@ export default function server(gulp, cfg, args) {
     browserSyncInit(['.tmp', 'app', './' ], null, []);
   });
 
-  gulp.task('serve:e2e-dist', ['watch'], () => {
+  gulp.task('serve:e2e-dist', gulp.parallel('watch', () => {
     browserSyncInit('dist', null, []);
-  });
+  }));
 }

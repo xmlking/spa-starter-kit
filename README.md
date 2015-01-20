@@ -15,6 +15,7 @@ This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are p
 * Adopts AngularJS Style Guides from [johnpapa](https://github.com/johnpapa/angularjs-styleguide/), [gocardless](https://github.com/gocardless/angularjs-style-guide)
 * Modular SASS inspired by [SMACSS](http://smacss.com/), CSS Autoprefixing
 * [Material Design](https://github.com/angular/material) UI Components
+* Watch source files and build incrementally
 * Source Maps for CSS & JS supported with Gulp-SourceMaps
 * Unit (karma) and e2e (protractor) tests works with your AMD/browserifyed code.
 * Cross Browser CSS & HTML Injection with BrowserSync [Action Sync, Code Sync]
@@ -134,12 +135,13 @@ elements
 git clone https://github.com/xmlking/spa-starter-kit
 
 # Install development tools at global location(one-time)
-brew install node   # `node -v && npm -v` verify node installation. 
+_iojs is preferred over node_
+brew install node   # `node -v && npm -v` verify node installation. Gulp tasks also works with (io.js)[https://iojs.org/] > 1.0.3
 brew install ruby   # only install if it not installed already. Mac may already have it at `/usr/bin/ruby` 
 
-npm install -g bower
-npm install -g gulp
-npm install -g karma-cli
+[sudo] npm install -g bower
+[sudo] npm install -g gulpjs/gulp#4.0
+[sudo] npm install -g karma-cli
 
 # Install the dev dependencies for project, such as Karma, Traceur, etc.
 npm install   # run  'npm install && npm prune' whenever you upgraded versions in package.json.
@@ -148,7 +150,7 @@ npm install   # run  'npm install && npm prune' whenever you upgraded versions i
 bower install # run 'bower install && bower prune' whenever you upgraded versions in bower.json.
 
 # Install SASS
-[sudo] gem install sass # verify  `sass --version` > 3.3.0
+[sudo] gem install sass # verify  `sass --version` > 3.4.10
 
 # Start the server and watch for file changes to transpile ES6 files, live reload pages etc. 
 gulp serve  # gulp --fatal=off serve # no errors should kill the live server.
