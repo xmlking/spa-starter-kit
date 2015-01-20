@@ -135,7 +135,7 @@ elements
 git clone https://github.com/xmlking/spa-starter-kit
 
 # Install development tools at global location(one-time)
-_iojs is preferred over node_
+# IOJS preferred over Node
 brew install node   # `node -v && npm -v` verify node installation. Gulp tasks also works with (io.js)[https://iojs.org/] > 1.0.3
 brew install ruby   # only install if it not installed already. Mac may already have it at `/usr/bin/ruby` 
 
