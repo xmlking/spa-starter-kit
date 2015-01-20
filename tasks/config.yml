@@ -76,15 +76,10 @@ buildProfile:
         - requirejs
       exclude:
         - vendor
-    - name: authorization/index
-    - name: benefit/index
-    - name: call/index
-    - name: claim/index
     - name: common/index
     - name: drug/index
     - name: experiments/index
     - name: home/index
-    - name: member/index
     - name: provider/index
 
 # Require JS Config : bowerRequireJS
