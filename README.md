@@ -229,9 +229,8 @@ The app was tested on:
  
   * Firefox (>= v31)
   * Chrome (>= v37)
-  * Chrome (<= v36), with the following flag enabled: `chrome://flags/#enable-javascript-harmony` (copy/paste into your address-bar)
   
-  * Node ***v0.10.32(stable)*** or ***v0.11.14(latest)***. skip ***v0.11.13***  [bug](https://github.com/isaacs/node-graceful-fs/issues/31)
+  * IOJS (>= v1.0.2) 
 
 ### Tips
 If you are behind firewall and want to force **Bower** to get files from `https://` instead of `git://`
