@@ -1,0 +1,15 @@
+<div  class="container" ui-view autoscroll="false">
+
+    <style scoped type="text/css">
+        @import "provider/index.css";
+    </style>
+
+    <section ui-view="filters" autoscroll="false" collapse="searchCollapsed"></section>
+
+    <br/>
+
+    <section ui-view="map" autoscroll="false" collapse="resultsCollapsed"></section>
+
+    <section class="slide-reveal" ui-view="details"  autoscroll="false"></section>
+
+</div>

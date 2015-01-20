@@ -7,16 +7,18 @@
         <title>Member Portal</title>
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <!-- build:css styles/vendor.css -->
+        <!-- build:css vendor.css -->
         <!-- bower:css -->
         <link rel="stylesheet" href="../bower_components/angular-growl-v2/build/angular-growl.css" />
+        <link rel="stylesheet" href="../bower_components/angular-motion/dist/angular-motion.css" />
         <link rel="stylesheet" href="../bower_components/angular-xeditable/dist/css/xeditable.css" />
         <link rel="stylesheet" href="../bower_components/ng-table/ng-table.css" />
+        <link rel="stylesheet" href="../bower_components/nvd3/src/nv.d3.css" />
         <!-- endbower -->
         <!-- endbuild -->
 
-        <!-- build:css({.tmp,app}) styles/main.css -->
-        <link rel="stylesheet" href="styles/main.css">
+        <!-- build:css({.tmp,app}) index.css -->
+        <link rel="stylesheet" href="index.css">
         <!-- endbuild -->
 
     </head>
@@ -25,14 +27,14 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <header id="header" ng-include src="'views/common/header.html'"></header>
+        <header id="header" ng-include src="'common/views/header.html'"></header>
         <div growl></div>
         <div id="spinner" ng-show="spinner" class="spinner center"></div>
 
-        <!--Page content should go in views/**/*.html-->
+        <!--Page content should go in <module>/views/**/*.html-->
         <ui-view class="slide-reveal" autoscroll="false">Loading ...</ui-view>
 
-        <footer id="footer" ng-include src="'views/common/footer.html'"></footer>
+        <footer id="footer" ng-include src="'common/views/footer.html'"></footer>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
@@ -44,9 +46,9 @@
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
 
-        <!-- build:js scripts/bootstrap.js data-main="scripts/bootstrap"-->
-        <script src="config.js"> </script>
-        <script data-main="scripts/bootstrap" src="../bower_components/requirejs/require.js"> </script>
+        <!-- build:js bootstrap.js data-main="bootstrap"-->
+        <script src="require.config.js"> </script>
+        <script data-main="bootstrap" src="../bower_components/requirejs/require.js"> </script>
         <!-- endbuild -->
     </body>
 </html>

@@ -1,0 +1,118 @@
+// Core variables mixins and functions
+@import "./common/styles/_variables";
+@import "./common/styles/_function";
+
+// bower:scss
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
+@import "../bower_components/compass-mixins/lib/_compass.scss";
+@import "../bower_components/animate.scss/animate.scss";
+@import "../bower_components/css-spinners/sass/spinner/spinner.scss";
+// endbower
+
+// Animations
+@import "./common/styles/_animations";
+// Components
+@import "./common/styles/components/_datepicker";
+
+/* angular scope debug  : enable it when needed
+-------------------------------------------------- */
+.ng-scope {
+  /*   border: 1px dashed red; */
+}
+
+/* angular form validation
+-------------------------------------------------- */
+input.ng-dirty.ng-invalid {
+  border: 1px solid red !important;
+}
+
+/* Browse Happy prompt
+-------------------------------------------------- */
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.container .text-muted {
+  margin: 20px 0;
+}
+
+body > ui-view> .container {
+  padding: 80px 15px 0;
+}
+
+#footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+.form-group {
+  &.has-no-label {
+
+    .form-control-feedback {
+      top: 0;
+    }
+  }
+}
+
+/*  LOGIN
+-------------------------------------------------- */
+
+.modal-login .modal-dialog {
+  width: 450px;
+}
+
+/* center spinner
+-------------------------------------------------- */
+.center {
+  position:fixed !important;
+  top: 30%;
+  left: 50%;
+  z-index: 50;
+}
+
+/* growl-top-right custom
+-------------------------------------------------- */
+.growl-container.growl-fixed.top-right {
+  top: 60px;
+  right: 15px;
+  width: 250px;
+}
+
+/* MEMBER
+-------------------------------------------------- */
+.table-wrap {
+  table-layout: fixed;
+  word-wrap: break-word;
+}

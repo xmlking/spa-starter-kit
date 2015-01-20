@@ -1,0 +1,53 @@
+<!-- Fixed navbar -->
+<div ng-class="['navbar', 'navbar-default','navbar-fixed-top']">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Member Portal</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
+        <li has-permission='ROLE_USER' ng-class="{active: $state.includes('providers.**')}"><a ui-sref="providers.search">Providers</a></li>
+        <li has-permission='ROLE_IT_ADMIN' ng-class="{active: $state.includes('**.drugs.**')}"><a ui-sref="drugs.list">Formulary</a></li>
+        <li ng-class="{active: $state.includes('todoMVC')}"><a ui-sref="todoMVC">ES6 Todo</a></li>
+        <li class="dropdown" dropdown>
+          <a href="#" class="dropdown-toggle" dropdown-toggle>Experiments <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-header">Experiments</li>
+            <li has-permission='ROLE_BUSINESS_ADMIN'><a href="#">Enabled for BA</a></li>
+            <li><a ui-sref="testAuth">Test Auth</a></li>
+            <li><a ui-sref="elements">Elements</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Dev Experiments</li>
+            <li><a ui-sref="slow">Slow Test</a></li>
+            <li><a ui-sref="messaging">Messaging</a></li>
+            <li><a ui-sref="terminal({containerId: 123})">Terminal</a></li>
+            <li><a ui-sref="experiments">Experiments</a></li>
+            <li has-permission='ROLE_IT_ADMIN'><a  tabindex="-1" ui-sref="home">Enabled for IA</a></li>
+            <li><a  ui-sref="translations">Translations</a></li>
+
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" ng-controller="LoginController as lc" ng-switch on="lc.isLoggedIn()">
+        <li><a ui-sref="about">About</a></li>
+        <li><a  ui-sref="contact">Contact</a></li>
+
+        <li class="dropdown" dropdown ng-switch-when="true">
+          <a href="#" class="dropdown-toggle" dropdown-toggle>{{lc.getUsername() | uppercase}} <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a ui-sref="settings">Settings</a></li>
+            <li><a ng-click="lc.logout()">Logout</a></li>
+          </ul>
+        </li>
+        <li ng-switch-default><a  ng-click="lc.login()">Login</a></li>
+
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
