@@ -251,7 +251,7 @@ Best way to mange node versions is through [N](https://github.com/visionmedia/n)
  npm install -g n
 ```
  
-### For Windows Users
+### Tips For Windows Users
 >Install [git](http://git-scm.com/downloads) client if needed.
 Install iojs/node and above mentioned global node modules, them  
 Make sure system path has nvmw and node binaries i.e., `C:\<nvmw root>\nvmw\ and C:\<nvmw root>\nvmw\iojs\latest`. 
@@ -263,6 +263,14 @@ mkdir junk
 robocopy junk node_modules /MIR
 ```
 >The (empty) ‘junk’ folder can then be deleted in the normal way
+
+### Tips For WebStrom/IntelliJ Users
+Goto: Files > Project Structure... >  Project Settings > Libraries
+    > mark `bower_components`, `node_modules` directories as `library`
+Goto: Files > Project Structure... >  Project Settings > Modules 
+    > mark `.idea`, `.sass-cache`, `.tmp`, `dist`, `bower_components`, `node_modules` directories as `Excluded`.
+    > mark `test` directory as `Test Resources Root`
+    > mark `app` directory as `Sources Root`
 
 ### TODO
 - [ ] Lazy Load Modules 
