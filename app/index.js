@@ -27,151 +27,148 @@ import templateModule from './templates';
 
 
 let mainModule = angular.module('spaApp',
-    [
-        // 3rd party modules
-        'ui.router',
-        'ui.bootstrap',
-        'ngAnimate',
-        'ngSanitize',
-        'restangular',
-        'pascalprecht.translate',
-        'angular-growl',
-        'xeditable',
-        'nvd3ChartDirectives',
-        'angular-data.DSCacheFactory',
-        'ui.router.tabs',
-        'mgcrea.ngStrap.datepicker',
-        'mgcrea.ngStrap.scrollspy',
-        'mgcrea.ngStrap.affix',
+  [
+    // 3rd party modules
+    'ui.router',
+    'ui.bootstrap',
+    'ngAnimate',
+    'ngSanitize',
+    'restangular',
+    'pascalprecht.translate',
+    'angular-growl',
+    'xeditable',
+    'nvd3ChartDirectives',
+    'angular-data.DSCacheFactory',
+    'ui.router.tabs',
+    'mgcrea.ngStrap.datepicker',
+    'mgcrea.ngStrap.scrollspy',
+    'mgcrea.ngStrap.affix',
 
-        // App sub-modules
-		commonModule,
-		homeModule
-    ]);
+    // App sub-modules
+    commonModule,
+    homeModule
+  ]);
 
 mainModule.config(($stateProvider, $urlRouterProvider, growlProvider, $httpProvider, $translateProvider, $translatePartialLoaderProvider, DSCacheFactoryProvider) => {
-    'use strict';
+  'use strict';
 
-    // enable html5Mode for pushstate ('#'-less URLs)
-    // $locationProvider.html5Mode(true);
+  // enable html5Mode for pushstate ('#'-less URLs)
+  // $locationProvider.html5Mode(true);
 
-    $httpProvider.defaults.withCredentials = true;
-    $httpProvider.defaults.useXDomain = true;
-    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+  $httpProvider.defaults.withCredentials = true;
+  $httpProvider.defaults.useXDomain = true;
+  delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
-    // This sets a global timeout for growl messages.
-    growlProvider.globalTimeToLive({success: 2000, error: 5000, warning: 2000, info: 2000});
-    //growlProvider.globalEnableHtml(true);
+  // This sets a global timeout for growl messages.
+  growlProvider.globalTimeToLive({success: 2000, error: 5000, warning: 2000, info: 2000});
+  //growlProvider.globalEnableHtml(true);
 
-    // load 'en_EN' table on startup
-    $translateProvider.preferredLanguage('en_EN');
-    $translateProvider.fallbackLanguage(['en_EN']);
-//      $translateProvider.useLocalStorage();
-
-    $translateProvider.useLoader('$translatePartialLoader', {
-        urlTemplate: '{part}/i18n/{lang}.json'
+  $translateProvider
+    // redirects some language keys to other language keys.
+    .registerAvailableLanguageKeys(['en_EN', 'de_DE'], {
+      'en_US': 'en_EN',
+      'en-us': 'en_EN',
+      'en_UK': 'en_EN',
+      'en-uk': 'en_EN',
+      'de_DE': 'de_DE',
+      'de_CH': 'de_DE'
+    })
+    // Gets the preferred language from the user's browser
+    .determinePreferredLanguage()
+    .fallbackLanguage(['en_EN'])
+    .useLoader('$translatePartialLoader', {
+      urlTemplate: '{part}/i18n/{lang}.json'
     });
-    $translatePartialLoaderProvider.addPart('home');
+  // Load home translations to prevent FOUC
+  $translatePartialLoaderProvider.addPart('home');
 
-    //load static translations to prevent FOUC
-    var staticTranslationsEn = { // jshint unused: false
-        'BUTTON_LANG_DE': 'german',
-        'BUTTON_LANG_EN': 'english'
-    };
-    var staticTranslationsDe = {
-        'BUTTON_LANG_DE': 'deutsch',
-        'BUTTON_LANG_EN': 'englisch'
-    };
-//        $translatePartialLoaderProvider.setPart('en_EN', 'home', staticTranslationsEn);
-//        $translatePartialLoaderProvider.setPart('de_DE', 'home', staticTranslationsDe);
+  // optionally set cache defaults
+  DSCacheFactoryProvider.setCacheDefaults({
+    maxAge: 3600000,
+    deleteOnExpire: 'aggressive'
+  });
 
-    // optionally set cache defaults
-    DSCacheFactoryProvider.setCacheDefaults({
-        maxAge: 3600000,
-        deleteOnExpire: 'aggressive'
-    });
-
-    // Logger
-    Diary.reporter( new ConsoleReporter({
-        console: window.console
-    }));
+  // Logger
+  Diary.reporter( new ConsoleReporter({
+    console: window.console
+  }));
 
 });
 
 mainModule.run(($rootScope, editableOptions, $http, $log, growl, $state, $stateParams, $translate, DSCacheFactory, AuthenticationService, AuthorizationService) => {
-    'use strict';
+  'use strict';
 
-    $rootScope.$on('$translatePartialLoaderStructureChanged', function () {
-        $translate.refresh(); //TODO do we still $translate.refresh() in resolvers ?
-    });
+  $rootScope.$on('$translatePartialLoaderStructureChanged', function () {
+    $translate.refresh(); //TODO do we still $translate.refresh() in resolvers ?
+  });
 
-    editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
 
-    console.table(DSCacheFactory.info());
+  console.table(DSCacheFactory.info());
 
-    // Create default cache
-    new DSCacheFactory('defaultCache', {
-        maxAge: 900000, // Items added to this cache expire after 15 minutes.
-        cacheFlushInterval: 6000000, // This cache will clear itself every hour.
-        deleteOnExpire: 'aggressive' // Items will be deleted from this cache right when they expire.
-    });
-    //$http.defaults.cache = DSCacheFactory.get('defaultCache');
+  // Create default cache
+  new DSCacheFactory('defaultCache', {
+    maxAge: 900000, // Items added to this cache expire after 15 minutes.
+    cacheFlushInterval: 6000000, // This cache will clear itself every hour.
+    deleteOnExpire: 'aggressive' // Items will be deleted from this cache right when they expire.
+  });
+  //$http.defaults.cache = DSCacheFactory.get('defaultCache');
 
-    $rootScope.$state = $state;
-    $rootScope.$stateParams = $stateParams;
+  $rootScope.$state = $state;
+  $rootScope.$stateParams = $stateParams;
 
-    // To access Underscore (Lodash) globally including templates
-    $rootScope._ = window._;
-    // To access moment globally including templates
-    $rootScope.moment = moment;
+  // To access Underscore (Lodash) globally including templates
+  $rootScope._ = window._;
+  // To access moment globally including templates
+  $rootScope.moment = moment;
 
-    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-        // angular.element('#spinner').removeClass('heartbeat').addClass('spinner');
+  $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+    // angular.element('#spinner').removeClass('heartbeat').addClass('spinner');
 
-        //For redirecting to view that is requested before 401/403 error fired.
-        $rootScope.destinationState = {state: toState, stateParams: toParams};
-        //To be used for UI back button //won't work when page is reloaded.
-        $rootScope.previousState = {state: fromState, stateParams: fromParams};
+    //For redirecting to view that is requested before 401/403 error fired.
+    $rootScope.destinationState = {state: toState, stateParams: toParams};
+    //To be used for UI back button //won't work when page is reloaded.
+    $rootScope.previousState = {state: fromState, stateParams: fromParams};
 
-        let allowAnonymous = (
-            typeof toState.access === 'undefined' ||
-            typeof toState.access.allowAnonymous === 'undefined') ? true : toState.access.allowAnonymous;
+    let allowAnonymous = (
+    typeof toState.access === 'undefined' ||
+    typeof toState.access.allowAnonymous === 'undefined') ? true : toState.access.allowAnonymous;
 
-        if (!allowAnonymous) {
-            let authorizedRoles = toState.access.roles;
-            if (!AuthorizationService.isAuthorized(authorizedRoles)) {
-                event.preventDefault();
-                if (AuthorizationService.isAuthenticated()) {
-                    // user is not allowed
-                    AuthenticationService.notAuthorized();
-                } else {
-                    // user is not logged in
-                    AuthenticationService.notAuthenticated();
-                }
-                return;
-            }
+    if (!allowAnonymous) {
+      let authorizedRoles = toState.access.roles;
+      if (!AuthorizationService.isAuthorized(authorizedRoles)) {
+        event.preventDefault();
+        if (AuthorizationService.isAuthenticated()) {
+          // user is not allowed
+          AuthenticationService.notAuthorized();
+        } else {
+          // user is not logged in
+          AuthenticationService.notAuthenticated();
         }
-        //has to be last statement in this event handler.
-        $rootScope.spinner = true;
-    });
+        return;
+      }
+    }
+    //has to be last statement in this event handler.
+    $rootScope.spinner = true;
+  });
 
-    $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) { // jshint unused: false
-        $rootScope.spinner = false;
-        $rootScope.destinationState = false;
+  $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) { // jshint unused: false
+    $rootScope.spinner = false;
+    $rootScope.destinationState = false;
 
-    });
+  });
 
-    $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
-        growl.error('State changed error :( =', {ttl: 10000});
-        $log.error('Some service has failed: ', error.config ? error.config.url : error);
-        // angular.element('#spinner').removeClass('spinner').addClass('heartbeat');
-    });
+  $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+    growl.error('State changed error :( =', {ttl: 10000});
+    $log.error('Some service has failed: ', error.config ? error.config.url : error);
+    // angular.element('#spinner').removeClass('spinner').addClass('heartbeat');
+  });
 
-    // back button function called from back button's ng-click='back()'
-    $rootScope.back = function () {
-        $state.go($rootScope.previousState.state.name, $rootScope.previousState.stateParams);
-        $rootScope.previousState = false;
-    };
+  // back button function called from back button's ng-click='back()'
+  $rootScope.back = function () {
+    $state.go($rootScope.previousState.state.name, $rootScope.previousState.stateParams);
+    $rootScope.previousState = false;
+  };
 });
 
 //remaining App sub-modules

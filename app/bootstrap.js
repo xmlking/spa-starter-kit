@@ -5,7 +5,6 @@
  */
 
 import ng from 'angular';
-import 'es6-shim';
 import 'traceur-runtime';
 import './index';
 

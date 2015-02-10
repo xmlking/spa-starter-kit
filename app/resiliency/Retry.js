@@ -16,7 +16,7 @@ export class Retry {
      * @param {Number} delayRatio - ratio for each delay between each try (in seconds). default 1
      * @param {Enum<BackoffStrategy>} backoffStrategy - algorithm for scaling of the delay between tries
      */
-     constructor( {maxTries = 1, maxDelay = Infinity, delayRatio = 1, backoffStrategy = BackoffStrategy.INCREMENTAL,intermediate = function() {}}) {
+     constructor( {maxTries = 1, maxDelay = Infinity, delayRatio = 1, backoffStrategy = BackoffStrategy.INCREMENTAL, intermediate = function() {}}) {
 
       //FIXME : type check short syntax
       let _maxTries : number = maxTries;
