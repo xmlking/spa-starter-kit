@@ -3,7 +3,7 @@ SPA Starter Kit
 =========
 
 **SPA Starter Kit** is a Single Page Application (SPA) Starter project build with **AngularJS** , **AMD** and **ES6**
-Demonstrate AngularJS Design Patterns and Best Practices.
+Demonstrate Front-end Design Patterns and Best Practices.
 
 ### Demo
 This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are produced by [Mocked Backend Workflow](#mocked-backend-workflow). 
@@ -14,27 +14,29 @@ This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are p
 * Flat and modular project structure for parallel development. 
 * Adopts AngularJS Style Guides from [johnpapa](https://github.com/johnpapa/angularjs-styleguide/), [gocardless](https://github.com/gocardless/angularjs-style-guide)
 * Modular SASS inspired by [SMACSS](http://smacss.com/), CSS Autoprefixing
-* [Material Design](https://github.com/angular/material) UI Components
-* Watch source files and build incrementally
-* Source Maps for CSS & JS supported with Gulp-SourceMaps
-* Unit (karma) and e2e (protractor) tests works with your AMD/browserifyed code.
+* [Material Design](https://github.com/angular/material) UI Components (W.I.P)
+* Watch source files (ES6, SASS) and build incrementally.
+* Source Maps for CSS & JS
+* Unit (karma) and e2e (protractor) tests works with your AMD/ES6 code.
 * Cross Browser CSS & HTML Injection with BrowserSync [Action Sync, Code Sync]
 * Build environment (DEV, TEST, CI, PROD) aware gulp tasks. 
-* Continue development and auto-testing.[gulp --env=TEST serve]
+* Incremental builds and auto-testing.[gulp --env=TEST serve]
 * _Mocked Backend Workflow_ - help with mocking your backend and backend-less development.
-* Produce optimized, production ready bundles for deployment. 
+* Produce optimized, production ready bundles for deployment. Can produce multiple bundles for lazy loading modules on demand.    
+* Your choice of Reusable Components - Angular Directives, Native Web Components, ReactJS all in ES6.  
 * Achieve some of the Angular 2.0 goals while still running on Angular 1.3.x
 * TypeScript style assertions are enabled in development env for run-time type checking. 
 * Animations for rich user experience. 
 
 ### Design Patterns 
-* Authentication and Fine-grained Authorization
+* Authentication and Fine-grained Authorization - OAuth, [JSON Web Tokens](http://jwt.io/) 
 * App-Wide Notifications: ability for any components consistently display error, warn, info messages to the user.
-* WebSockets, EventBus, EventStream for Streaming REST API
-* Reactive UX support with RX and Reactive Streams 
+* App-wide Translations and Localization.
+* _Functional Reactive Programming_: EventBus, EventStream and RxHTTP facades for Streaming REST API.
+* 3-way data binding with [Differential Synchronization](https://neil.fraser.name/writing/sync/) and [JSON Patch](http://jsonpatch.com/) over STOMP
 * Resiliency - Retry, Governor, Fallback, Circuit-breaker(W.I.P)
-* Caching as a Cross-Cutting Concern
-* Faceted Search
+* Caching as a Cross-Cutting Concern.
+* Hierarchical and Faceted Navigation.
 * Pagination and querying selective fields from REST API
 * Use ES6 Proxies and ES6+ annotations for AOP.
 
@@ -135,9 +137,11 @@ elements
 git clone https://github.com/xmlking/spa-starter-kit
 
 # Install development tools at global location(one-time)
-# IOJS preferred over Node
-brew install node   # `node -v && npm -v` verify node installation. Gulp tasks also works with (io.js)[https://iojs.org/] > 1.0.3
-brew install ruby   # only install if it not installed already. Mac may already have it at `/usr/bin/ruby` 
+brew install ruby   # only run if it's not already installed. Mac may already have it at `/usr/bin/ruby` 
+brew install nvm    # only run if it's not already installed. (For Windows : you can use `nvmw` or `nvm-windows` )
+nvm  install iojs   # run `node -v && npm -v` to verify node installation. (For Windows : `nvmw install iojs`)
+nvm alias default iojs-v1.X.X # make iojs-v1.X.X as your default node version.  (For Windows : `nvmw use iojs-v1.X.X`)
+
 
 [sudo] npm install -g bower
 [sudo] npm install -g gulpjs/gulp#4.0
@@ -155,7 +159,7 @@ bower install # run 'bower install && bower prune' whenever you upgraded version
 # Start the server and watch for file changes to transpile ES6 files, live reload pages etc. 
 gulp serve  # gulp --fatal=off serve # no errors should kill the live server.
 
-# Build project: creates  `dist` directory for deployment to Web Servers. 
+# Build project: creates `dist` directory for deployment to Web Servers. 
 gulp --env=PROD # or NODE_ENV=PROD gulp  # `set NODE_ENV=PROD` and `gulp` for windows
 
 # Other Gulp Commands
@@ -169,12 +173,12 @@ gulp protractor:dist    # to launch your e2e tests with Protractor on the dist f
 gulp deploy             # to deploy dist folder to gh-pages
 
 # Maintenance 
-npm update -g           #update all outdated global packages
-npm update --save-dev   #update all outdated local packages (run from project directory) 
-npm update npm -g       #self npm update
+npm update -g           # update all outdated global packages
+npm update --save-dev   # update all outdated local packages (run from project directory) 
+npm update npm -g       # self npm update
 brew update && brew doctor
-brew upgrade node       #update to latest node version
-npm shrinkwrap --dev    #Lock down dependency versions 
+brew upgrade nvm        # update to latest nvm version
+npm shrinkwrap --dev    # if you want to lock down all `package.json` dependency versions 
 ```
 
 ### Running the [tests](./test/)
@@ -222,6 +226,7 @@ By default `templateCache` is disabled and `SourceMaps`, `type assertions` are e
 gulp --env=PROD task   # or `NODE_ENV=PROD gulp task` : set `global.optimize = true`. This will disable SourceMaps,type assertions  and enable templateCache    
 gulp --env=TEST task   # TEST mode for backend-less testing in CI env. data from [fixtures](./test/fixtures) will be served.
 gulp --env=DEV  task   # DEV mode points to local backend URLs.
+gulp --env=TEST --optimize=true # Produce optimized build like `--env=PROD` and also include [fixtures](./test/fixtures) like `--env=TEST`
 ```
 
 ###Compatibility
@@ -230,8 +235,8 @@ The app was tested on:
   * Firefox (>= v31)
   * Chrome (>= v37)
   
-  * IOJS (>= v1.0.2) 
-
+  * iojs (>= v1.1.0)
+  
 ### Tips
 If you are behind firewall and want to force **Bower** to get files from `https://` instead of `git://`
 ```bash
@@ -248,8 +253,8 @@ Best way to mange node versions is through [N](https://github.com/visionmedia/n)
  
 ### For Windows Users
 >Install [git](http://git-scm.com/downloads) client if needed.
-Install node and above mentioned global node modules, them  
-make sure system path has `C:\Program Files\nodejs\;C:\Users\<username>\AppData\Roaming\npm\`. 
+Install iojs/node and above mentioned global node modules, them  
+Make sure system path has nvmw and node binaries i.e., `C:\<nvmw root>\nvmw\ and C:\<nvmw root>\nvmw\iojs\latest`. 
 Install [Ruby](http://rubyinstaller.org/downloads/) and make sure system path has it. 
 
 How to delete the `node_modules` folder when Windows complains that file or path names are too long?
@@ -264,6 +269,3 @@ robocopy junk node_modules /MIR
 [Pending Proposal](https://groups.google.com/forum/#!topic/angular/w0ZEBz02l8s)
 [ocLazyLoad](http://blog.getelementsbyidea.com/load-a-module-on-demand-with-angularjs/)
 - [ ] offline-first pattern with Service Worker
- 
-### Credits
-@nateabele @sindresorhus @silvenon @vojtajina @digisfera  @jonkemp @domenic @addyosmani @tvcutsem
