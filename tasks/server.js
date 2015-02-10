@@ -4,11 +4,9 @@ let browserSync = require('browser-sync'),
   httpProxy = require('http-proxy');
 
 /* This configuration allow you to configure browser sync to proxy your backend */
-// ML API Dev http://dbsrt0490:8010/
-// ML API Stage http://dbsrt0490:9010/  replica http://dbsrt0574:9010/
-// ML API Stage for iBaags http://dbsrt0490:9020/  replica http://dbsrt0574:9020/
-// JBoss API Dev http://apsed2427:8080/
-let proxyTarget = 'http://dbsrt0490:9020/'; // The location of your backend
+// API Dev http://devhost:8010/
+// API Stage http://stagehost:9010/
+let proxyTarget = 'http://localhost:9020/'; // The location of your backend
 let proxyApiPrefix = 'api'; // The element in the URL which differentiate between API request and static file request
 
 let proxy = httpProxy.createProxyServer({
@@ -25,6 +23,7 @@ let proxyMiddleware = (req, res, next) => {
 
 let browserSyncInit = (baseDir, files, browser) => {
   browser = browser === undefined ? 'default' : browser;
+  files = files === undefined ? [] : files;
 
   browserSync({
     files,
@@ -33,8 +32,8 @@ let browserSyncInit = (baseDir, files, browser) => {
       baseDir: baseDir,
       routes: {
         '/source': '/app'
-      },
-      middleware: proxyMiddleware
+      }
+      //middleware: proxyMiddleware
     },
     //ghostMode: false,
     browser: browser
@@ -61,15 +60,15 @@ export default function server(gulp, cfg, args) {
     browserSyncInit('dist');
   }));
 
-  gulp.task('serve:dist-speed', () =>  {
+  gulp.task('serve:dist-no-build', () =>  {
     browserSyncInit('dist');
   });
 
   gulp.task('serve:e2e', () => {
-    browserSyncInit(['.tmp', 'app', './' ], null, []);
+    browserSyncInit(['.tmp', 'app', './' ]);
   });
 
   gulp.task('serve:e2e-dist', gulp.parallel('watch', () => {
-    browserSyncInit('dist', null, []);
+    browserSyncInit('dist');
   }));
 }

@@ -21,6 +21,7 @@ export default function wiredep(gulp, cfg, env) {
             .pipe(gulp.dest('app'));
     });
 
+    //FIXME https://github.com/yeoman/bower-requirejs/issues/98
     gulp.task('wiredep-rjs', (cb) => {
         // exclude dev dependencies in optimized build.
         let AMDOptions = cfg.AMD;
