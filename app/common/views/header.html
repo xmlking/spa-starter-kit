@@ -14,7 +14,6 @@
         <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
         <li has-permission='ROLE_USER' ng-class="{active: $state.includes('providers.**')}"><a ui-sref="providers.search">Providers</a></li>
         <li has-permission='ROLE_IT_ADMIN' ng-class="{active: $state.includes('**.drugs.**')}"><a ui-sref="drugs.list">Formulary</a></li>
-        <li ng-class="{active: $state.includes('todoMVC')}"><a ui-sref="todoMVC">ES6 Todo</a></li>
         <li class="dropdown" dropdown>
           <a href="#" class="dropdown-toggle" dropdown-toggle>Experiments <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -22,6 +21,7 @@
             <li has-permission='ROLE_BUSINESS_ADMIN'><a href="#">Enabled for BA</a></li>
             <li><a ui-sref="testAuth">Test Auth</a></li>
             <li><a ui-sref="elements">Elements</a></li>
+            <li><a ui-sref="todoMVC">ES6 Todo</a></li>
             <li class="divider"></li>
             <li class="dropdown-header">Dev Experiments</li>
             <li><a ui-sref="slow">Slow Test</a></li>

@@ -8,16 +8,14 @@
                             <span class="glyphicon" ng-class="$parent.resultsCollapsed ? 'glyphicon-arrow-down': 'glyphicon-arrow-up'"></span>
                         </a>
                     </div>
-                    Provider 360 for {{pdc.selectedProvider.FST_NM  + ' ' + pdc.selectedProvider.MDL_NM + ' ' +pdc.selectedProvider.LST_NM}}
+                    {{pdc.selectedProvider.FST_NM  + ' ' + pdc.selectedProvider.MDL_NM + ' ' +pdc.selectedProvider.LST_NM}}
                     <div class="clearfix"></div>
                 </div>
             </div>
             <div class="panel-body" style='padding:1px'>
-
+            <h2>{{pdc.selectedProvider.FST_NM}}</h2>
             </div>
         </div>
-    </div>
-    <div class="col-md-4 slide-reveal" ng-if="pdc.selected && pdc.view" ng-include src="'provider/views/'+ pdc.view +'.html'">
     </div>
 </div>
 </div>

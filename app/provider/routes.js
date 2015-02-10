@@ -57,9 +57,6 @@ export default function routes($stateProvider) {
             resolve: {
                 provider:['ProviderService', '$stateParams', function(ProviderService, $stateParams){
                     return ProviderService.getProvider($stateParams.providerId);
-                }],
-                providerGraph:['GraphService', '$stateParams', function(GraphService, $stateParams){
-                    return GraphService.expand($stateParams.providerId,'provider');
                 }]
             },
             views: {
@@ -74,9 +71,6 @@ export default function routes($stateProvider) {
             resolve: {
                 provider:['ProviderService', '$stateParams', function(ProviderService, $stateParams){
                     return ProviderService.getProvider($stateParams.providerId);
-                }],
-                providerGraph:['GraphService', '$stateParams', function(GraphService, $stateParams){
-                    return GraphService.expand($stateParams.providerId,'provider');
                 }]
             },
             views: {

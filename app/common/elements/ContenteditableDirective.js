@@ -1,7 +1,6 @@
 import Directive from './Directive';
 
-export default
-class ContenteditableDirective extends Directive {
+export default class ContenteditableDirective extends Directive {
   constructor($sce) {
     super();
     this.sce = $sce;
@@ -33,16 +32,16 @@ class ContenteditableDirective extends Directive {
       var html = element.html();
       // When we clear the content editable the browser leaves a <br> behind
       // If strip-br attribute is provided then we strip this out
-      if (attrs.stripBr && html === '<br>') {
+      if ( attrs.stripBr && html == '<br>' ) {
         html = '';
       }
-      if (attrs.noLineBreaks) {
+      if ( attrs.noLineBreaks ){
         html = html.replace(/<div>/g, '').replace(/<br>/g, '').replace(/<\/div>/g, '');
       }
-      html = html.replace(/<br>/g, '<br/>')
-        .replace(/<col ([^>]*)>/g, '<col $1 />')
-        .replace(/<img ([^>]*)>/g, '<img $1 />')
-        .replace(/&nbsp/g, ' ');
+      html = html.replace( /<br>/g ,'<br/>')
+        .replace(/<col ([^>]*)>/g ,'<col $1 />')
+        .replace(/<img ([^>]*)>/g ,'<img $1 />')
+        .replace(/&nbsp/g ,' ');
 
       ngModel.$setViewValue(html);
     }
