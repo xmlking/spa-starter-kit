@@ -2,7 +2,8 @@
 SPA Starter Kit
 =========
 
-**SPA Starter Kit** is a Single Page Application (SPA) Starter project build with **AngularJS** , **AMD** and **ES6**
+**SPA Starter Kit** is a Single Page Application (SPA) Starter project built on **AngularJS** , **ReactJS** **AMD** and **ES6**
+
 Demonstrate Front-end Design Patterns and Best Practices.
 
 ### Demo
@@ -20,7 +21,7 @@ This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are p
 * Unit (karma) and e2e (protractor) tests works with your AMD/ES6 code.
 * Cross Browser CSS & HTML Injection with BrowserSync [Action Sync, Code Sync]
 * Build environment (DEV, TEST, CI, PROD) aware gulp tasks. 
-* Incremental builds and auto-testing.[gulp --env=TEST serve]
+* Incremental builds and auto-testing. [_gulp --env=TEST serve_]
 * _Mocked Backend Workflow_ - help with mocking your backend and backend-less development.
 * Produce optimized, production ready bundles for deployment. Can produce multiple bundles for lazy loading modules on demand.    
 * Your choice of Reusable Components - Angular Directives, Native Web Components, ReactJS all in ES6.  
@@ -246,12 +247,8 @@ In case you want to revert that global configuration change
 ```bash
 git config --global --unset url."https://".insteadOf
 ```
-Best way to mange node versions is through [N](https://github.com/visionmedia/n) 
-```bash
- npm install -g n
-```
  
-### Tips For Windows Users
+#### For Windows Users
 >Install [git](http://git-scm.com/downloads) client if needed.
 Install iojs/node and above mentioned global node modules, them  
 Make sure system path has nvmw and node binaries i.e., `C:\<nvmw root>\nvmw\ and C:\<nvmw root>\nvmw\iojs\latest`. 
@@ -264,7 +261,7 @@ robocopy junk node_modules /MIR
 ```
 >The (empty) ‘junk’ folder can then be deleted in the normal way
 
-### Tips For WebStrom/IntelliJ Users
+#### For WebStrom/IntelliJ Users
 Goto: Files > Project Structure... >  Project Settings > Libraries
     > mark `bower_components`, `node_modules` directories as `library`
 Goto: Files > Project Structure... >  Project Settings > Modules 
