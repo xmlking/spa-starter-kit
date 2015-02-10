@@ -91,9 +91,6 @@ var require = {
             ]
         },
         'harmony-reflect': {
-            deps: [
-                'es6-shim'
-            ],
             exports: 'Reflect'
         },
         nvd3: {
@@ -151,8 +148,6 @@ var require = {
     },
     map: {
         '*': {
-            text: 'requirejs-text',
-            'traceur-runtime': '../node_modules/traceur/bin/traceur-runtime',
             underscore: 'lodash'
         }
     },
@@ -196,17 +191,17 @@ var require = {
         'bower-sockjs-client': '../bower_components/bower-sockjs-client/sockjs',
         di: '../bower_components/di/dist/amd',
         diary: '../bower_components/diary/dist/amd',
-        'es6-shim': '../bower_components/es6-shim/es6-shim',
         'harmony-reflect': '../bower_components/harmony-reflect/reflect',
         lodash: '../bower_components/lodash/dist/lodash.compat',
         moment: '../bower_components/moment/moment',
-        'ng-table': '../bower_components/ng-table/ng-table',
+        'ng-table': '../bower_components/ng-table/dist/ng-table',
         'observe-polyfill': '../bower_components/observe-polyfill/Object.observe.poly',
         requirejs: '../bower_components/requirejs/require',
         'requirejs-plugins': '../bower_components/requirejs-plugins/src',
-        'requirejs-text': '../bower_components/requirejs-text/text',
         restangular: '../bower_components/restangular/dist/restangular',
         'stomp-websocket': '../bower_components/stomp-websocket/lib/stomp',
-        term: '../bower_components/term/src/term'
+        term: '../bower_components/term/src/term',
+        text: '../bower_components/text/text',
+        'traceur-runtime': '../bower_components/traceur-runtime/traceur-runtime'
     }
 };
