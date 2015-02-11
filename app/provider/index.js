@@ -39,9 +39,6 @@ providerModule.config(routes);
 providerModule.config( () => {
     'use strict';
     PROVIDER_SEARCH_CONFIG.BASE_API_URL ='http://apsed2427:8080/api';
-    //PROVIDER_SEARCH_CONFIG.BASE_API_URL= 'http://apsrd3351.uhc.com:8080/HBS';
-    PROVIDER_SEARCH_CONFIG.USERNAME= 'm360_stg_user';
-    PROVIDER_SEARCH_CONFIG.PASSWORD= 'm360_stg_user';
 });
 
 export default moduleName;
