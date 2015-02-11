@@ -205,6 +205,8 @@ gulp tdd
   
 ```bash
 gulp --env=TEST serve
+gulp --env=TEST --optimize=true # Produce optimized build like `--env=PROD` and also include [fixtures](./test/fixtures) like `--env=TEST`
+gulp deploy                     # to deploy dist folder to gh-pages
 ```
 
 ***however you can also use this pre-build Grails App [apiApp.war](https://github.com/xmlking/grails-batch-rest/releases) as backend for this SPA App.*** 
