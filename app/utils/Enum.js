@@ -45,7 +45,7 @@ export class Enum {
     }
 
     contains(sym) {
-        if (!sym instanceof EnumSymbol) return false;
+        if (!(sym instanceof EnumSymbol)) return false;
         return this[sym.name] === sym;
     }
 }
