@@ -35,7 +35,7 @@
     "stomp-websocket": "~2.3.4",
     "term": "chjj/term.js",
     "assert": "xmlking/assert",
-    "di": "angular/di.js",
+    "di": "xmlking/di.js",
     "diary": "xmlking/diary.js",
     "observe-polyfill": "jdarling/Object.observe",
     "angularjs-nvd3-directives": "~0.0.7",
