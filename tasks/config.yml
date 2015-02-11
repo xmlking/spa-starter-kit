@@ -51,11 +51,12 @@ traceur:
   modules: amd
   types: true
   typeAssertions: true
-  annotations: true
   typeAssertionModule: assert
+  annotations: true
   experimental: true
   asyncFunctions: true
   arrayComprehension: true
+  generatorComprehension: true
 
 # Require JS Bundler
 buildProfile:
