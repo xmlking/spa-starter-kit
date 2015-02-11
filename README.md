@@ -263,11 +263,14 @@ robocopy junk node_modules /MIR
 
 #### For WebStrom/IntelliJ Users
 Goto: Files > Project Structure... >  Project Settings > Libraries
-    > mark `bower_components`, `node_modules` directories as `library`
+>mark `bower_components`, `node_modules` directories as `library`
+
 Goto: Files > Project Structure... >  Project Settings > Modules 
-    > mark `.idea`, `.sass-cache`, `.tmp`, `dist`, `bower_components`, `node_modules` directories as `Excluded`.
-    > mark `test` directory as `Test Resources Root`
-    > mark `app` directory as `Sources Root`
+>mark `.idea`, `.sass-cache`, `.tmp`, `dist`, `bower_components`, `node_modules` directories as `Excluded`.
+
+>mark `test` directory as `Test Resources Root`
+
+>mark `app` directory as `Sources Root`
 
 ### TODO
 - [ ] Lazy Load Modules 
