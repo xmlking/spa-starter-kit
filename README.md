@@ -221,6 +221,10 @@ gulp --fatal=warning
 gulp --fatal=off      # no errors should kill the build
 alias g='gulp --fatal=off --env=DEV' // tip for smooth development.
 ```
+
+### Dev server (BrowserSync) Options
+Now you can customize BrowserSync dev server online at http://localhost:3001/
+
 ####Setting build environment variable for environment-specific gulp tasks: 
 Application is by default set with production environment specific settings which can be overridden 
 by adding environment specific angular modules (dev.env.js , test.env.js) to [index.js](./app/scripts/index.js) via Gulp command-line arguments.  
