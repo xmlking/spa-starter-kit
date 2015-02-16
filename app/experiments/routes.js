@@ -63,6 +63,11 @@ export default function routes($stateProvider) {
                 console.log('exit terminal');
             }
         })
+        .state('IoT', {
+            url: '/IoT',
+            templateUrl: 'experiments/views/IoT.html',
+            controller: 'IoTController as ic'
+        })
         .state('todoMVC', {
             url: '/todo',
             templateUrl: 'experiments/views/todo.html',
