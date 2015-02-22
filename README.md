@@ -141,8 +141,7 @@ git clone https://github.com/xmlking/spa-starter-kit
 brew install ruby   # only run if it's not already installed. Mac may already have it at `/usr/bin/ruby` 
 brew install nvm    # only run if it's not already installed. (For Windows : you can use `nvmw` or `nvm-windows` )
 nvm  install iojs   # run `node -v && npm -v` to verify node installation. (For Windows : `nvmw install iojs`)
-nvm alias default iojs-v1.X.X # make iojs-v1.X.X as your default node version.  (For Windows : `nvmw use iojs-v1.X.X`)
-
+nvm alias default iojs-v1.X.X # replace X.X with current version # make iojs-v1.X.X as your default node version.  (For Windows : `nvmw use iojs-v1.X.X`)
 
 [sudo] npm install -g bower
 [sudo] npm install -g gulpjs/gulp#4.0
