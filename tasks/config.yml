@@ -113,18 +113,21 @@ karmaCommonConf:
       included: false
     - pattern: "test/unit/**/*.js"
       included: false
-    - pattern: ".tmp/di/*.js"
+    - pattern: "./bower_components/di/dist/amd/*.js"
       included: false
-    - pattern: .tmp/assert.js
+    - pattern: ./bower_components/assert/dist/amd/assert.js
       included: false
-    - pattern: .tmp/diary/diary.js
+    - pattern: ./bower_components/diary/dist/amd/diary.js
+      included: false
+    - pattern: ./bower_components/harmony-reflect/reflect.js
       included: false
   exclude:
     - app/bootstrap.js
   proxies:
     /base/di/: /base/bower_components/di/dist/amd/
     /base/assert.js: /base/bower_components/assert/dist/amd/assert.js
-    /base/diary/diary.js: /base/bower_components/diary/dist/amd/diary.js
+    /base/diary.js: /base/bower_components/diary/dist/amd/diary.js
+    /base/harmony-reflect.js: /base/bower_components/harmony-reflect/reflect.js
   reporters:
     - progress
   preprocessors:

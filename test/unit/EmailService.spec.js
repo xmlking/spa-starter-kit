@@ -33,7 +33,7 @@ describe('EmailService', function () {
     it('should fail with invalid arguments', function () {
         expect(() => EmailService.add(1, 'invalid'))
             .toThrowError('Invalid arguments given!\n' +
-                '  - 2nd argument has to be an instance of number, got "invalid"');
+                '  - 2nd argument has to be an instance of {name: "number"}, got "invalid"');
     });
 
 });

@@ -1,5 +1,5 @@
 import {EnumSymbol, Enum} from '../utils/Enum';
-import Reflect from 'harmony-reflect'; //FIXME comment this line to unit-test Retry.spec.js
+import Reflect from 'harmony-reflect';
 
 // enum
 const  [INCREMENTAL, EXPONENTIAL, FIBONACCI] = [{},{},{}];

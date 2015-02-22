@@ -1,7 +1,5 @@
 import {BackoffStrategy, Retry} from '../../../app/resiliency/Retry';
 
-//FIXME comment out 'import Reflect from 'reflect';' in  Retry.js to unit test this.
-
 describe('resiliency.Retry', function () {
     'use strict';
 
