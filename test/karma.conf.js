@@ -10,16 +10,16 @@ module.exports = function(config) {
 
     files: [
       'test-main.js',
-      {pattern: '../app/scripts/**/*.js', included: false},
+      {pattern: '../app/**/*.js', included: false},
       {pattern: 'unit/**/*.js', included: false}
     ],
 
     exclude: [
-      '../app/scripts/bootstrap.js'
+      '../app/bootstrap.js'
     ],
 
     preprocessors: {
-      '../app/scripts/**/*.js' : ['traceur'],
+      '../app/**/*.js' : ['traceur'],
       'unit/**/*.js': ['traceur']
     },
 

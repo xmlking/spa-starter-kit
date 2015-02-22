@@ -1,4 +1,4 @@
-import EmailService from '../../app/scripts/experiments/services/EmailService';
+import EmailService from '../../app/experiments/services/EmailService';
 
 //jasmine.DEFAULT_TIMEOUT_INTERVAL = 30000;
 

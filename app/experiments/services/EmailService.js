@@ -2,7 +2,7 @@ import {Diary} from 'diary';
 
 export default class EmailService {
 
-	constructor(): void {
+	constructor() {
         this.logger = Diary.logger('EmailService');
         this.logger.info('in EmailService....');
 

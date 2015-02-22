@@ -49,14 +49,17 @@ autoprefixer:
 # traceur
 traceur:
   modules: amd
+  atscript: true
   types: true
   typeAssertions: true
   typeAssertionModule: assert
   annotations: true
-  experimental: true
+  memberVariables: true
   asyncFunctions: true
+  asyncGenerators: true
   arrayComprehension: true
   generatorComprehension: true
+  experimental: true
 
 # Require JS Bundler
 buildProfile:
@@ -134,9 +137,15 @@ karmaCommonConf:
   traceurPreprocessor:
     options:
       modules: amd
+      atscript: true
       types: true
       typeAssertions: true
-      annotations: true
       typeAssertionModule: assert
+      annotations: true
+      memberVariables: true
+      asyncFunctions: true
+      asyncGenerators: true
+      arrayComprehension: true
+      generatorComprehension: true
       experimental: true
       sourceMap: false
