@@ -57,6 +57,7 @@ traceur:
   memberVariables: true
   asyncFunctions: true
   asyncGenerators: true
+  forOn: true
   arrayComprehension: true
   generatorComprehension: true
   experimental: true
@@ -148,7 +149,7 @@ karmaCommonConf:
       memberVariables: true
       asyncFunctions: true
       asyncGenerators: true
+      forOn: true
       arrayComprehension: true
       generatorComprehension: true
       experimental: true
-      sourceMap: false

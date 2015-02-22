@@ -3,22 +3,20 @@
  * http://www.2ality.com/2014/12/es6-symbols.html
  */
 export class EnumSymbol {
-    // constructor(name: string, {value} = {}, value: number) { //FIXME https://github.com/google/traceur-compiler/issues/1197
-    // constructor(name: string, {value} : {value: number}) { //traceur recommended, but still not implemented
-    constructor(name: string, {value}, value: number) { //workaround with /xmlking/assert
+    name: string;
+    value = Symbol(name);
+    description: string;
+
+    constructor(name, {value, description}) {
         this.name  = name;
-
-        // this.value = (value === Infinity) ? Symbol(name) : value; //workaround
-        this.value = (value !== undefined) ? value: Symbol(name); //workaround with /xmlking/assert //  miss Elvis Operator
-
-        delete arguments[1].value;
-        Object.assign(this, arguments[1]);
+        if(value) this.value  = value;
+        if(description) this.description  = description;
 
         Object.freeze(this);
     }
 
     toString() {
-        return this.name;
+        return this.description || this.name;
     }
 
     valueOf() {
@@ -40,7 +38,6 @@ export class Enum {
     }
 
     keys() {
-        //return [for (key of Object.keys(this)) key];
         return Object.keys(this);
     }
 

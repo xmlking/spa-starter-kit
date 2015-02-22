@@ -1,12 +1,16 @@
 import {EnumSymbol, Enum} from '../utils/Enum';
 import Reflect from 'harmony-reflect';
 
-// enum
 const  [INCREMENTAL, EXPONENTIAL, FIBONACCI] = [{},{},{}];
 export const BackoffStrategy = new Enum({INCREMENTAL, EXPONENTIAL, FIBONACCI});
 
-//const intermediate = Symbol('intermediate', true);
 export class Retry {
+
+  maxTries: number = 1;
+  maxDelay: number = Infinity;
+  delayRatio: number = 1;
+  backoffStrategy: EnumSymbol = BackoffStrategy.INCREMENTAL;
+  intermediate: Function = function() {};
 
   /**
    * Retry Class in Resiliency Framework
@@ -14,34 +18,34 @@ export class Retry {
    * @param {Number} maxTries - max number of tries. default 1
    * @param {Number} maxDelay - If backoff strategy reaches a point which is above this number, then each successive retry will top-out at 'maxDelay' seconds.
    * @param {Number} delayRatio - ratio for each delay between each try (in seconds). default 1
-   * @param {Enum<BackoffStrategy>} backoffStrategy - algorithm for scaling of the delay between tries
+   * @param {EnumSymbol<BackoffStrategy>} backoffStrategy - algorithm for scaling of the delay between tries
    */
-  constructor({maxTries = 1, maxDelay = Infinity, delayRatio = 1, backoffStrategy = BackoffStrategy.INCREMENTAL, intermediate = function() {}}) {
+  constructor({maxTries , maxDelay, delayRatio, backoffStrategy, intermediate}) {
 
-    // FIXME : typeCheck + default values not supported yet.
-    //let _maxDelay : number = maxDelay;
-    //let _delayRatio : number = delayRatio;
-    //let _backoffStrategy : EnumSymbol = backoffStrategy;
-    //if(!BackoffStrategy.contains(_backoffStrategy)) throw Error('backoffStrategy value should be of Enum<BackoffStrategy>  type');
-    //let _intermediate : Function = intermediate;
+    if(maxTries) this.maxTries = maxTries;
+    if(maxDelay) this.maxDelay = maxDelay;
+    if(delayRatio) this.delayRatio = delayRatio;
+    if(backoffStrategy) {
+      if (BackoffStrategy.contains(backoffStrategy)) {
+        this.backoffStrategy = backoffStrategy;
+      } else {
+        throw Error('backoffStrategy value should be of EnumSymbol<BackoffStrategy>  type');
+      }
+    }
+    if(intermediate) this.intermediate = intermediate;
 
-    this.maxTries = maxTries;
-    this.maxDelay = maxDelay;
-    this.delayRatio = delayRatio;
-    this.intermediate = intermediate;
-
-    switch(backoffStrategy){
+    switch(this.backoffStrategy) {
       case BackoffStrategy.INCREMENTAL:
-        this.backoffStrategy = this.incremental();
+        this._backoffStrategy = this.incremental();
         break;
       case BackoffStrategy.EXPONENTIAL:
-        this.backoffStrategy = this.exponential();
+        this._backoffStrategy = this.exponential();
         break;
       case BackoffStrategy.FIBONACCI:
-        this.backoffStrategy = this.fibonacci();
+        this._backoffStrategy = this.fibonacci();
         break;
       default:
-        this.backoffStrategy = this.incremental();
+        this._backoffStrategy = this.incremental();
         break;
     }
 
@@ -86,7 +90,7 @@ export class Retry {
   }
 
   _calculateDelay(remainingTries: number) : number {
-    let delay = this.delayRatio * this.backoffStrategy.next().value;
+    let delay = this.delayRatio * this._backoffStrategy.next().value;
     return Math.min(delay, this.maxDelay);
   }
 
