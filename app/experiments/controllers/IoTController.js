@@ -10,16 +10,14 @@ export default class IoTController {
     var syncStream = api.sync({stale:1});
     syncStream.on('data', (data) => {
       console.log('data',data);
-      growl.info(`type: ${data.type}, scout: ${data.scout}, value: ${data.value}`,{title: data.type, ttl: 20000});
+      growl.info(`type: ${data.type}, scout: ${data.scout}, value: ${data.value}`,{title: data.type, ttl: 10000});
       if (data.type === 'temp' && data.troop === '1' && data.scout === '4') {
         $scope.$apply(() => {
           this.temp = data.value.c;
         });
       }
       if (data.type === 'announce' && data.troop === '1' && data.scout === '4') {
-        $scope.$apply(() => {
-          this.move = data.value.report[1];
-        });
+        growl.error(data.value.report[1],{title: data.type, ttl: 40000});
       }
     });
   }

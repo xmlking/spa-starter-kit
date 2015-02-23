@@ -68,6 +68,11 @@ export default function routes($stateProvider) {
             templateUrl: 'experiments/views/IoT.html',
             controller: 'IoTController as ic'
         })
+        .state('async', {
+          url: '/async',
+          templateUrl: 'experiments/views/async.html',
+          controller: 'AsyncController as ac'
+        })
         .state('todoMVC', {
             url: '/todo',
             templateUrl: 'experiments/views/todo.html',

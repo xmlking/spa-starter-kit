@@ -9,6 +9,7 @@ import ExperimentController from './controllers/ExperimentController';
 import ElementsController from './controllers/ElementsController';
 import GrowlTranslateDemoController from './controllers/GrowlTranslateDemoController';
 import IoTController from './controllers/IoTController';
+import AsyncController from './controllers/AsyncController';
 
 import MyElement from './elements/myElement/MyElement';
 import CustomButton from './elements/customButton/CustomButton';
@@ -29,6 +30,7 @@ experimentsModule.controller('ExperimentController', ExperimentController);
 experimentsModule.controller('ElementsController', ElementsController);
 experimentsModule.controller('GrowlTranslateDemoController', GrowlTranslateDemoController);
 experimentsModule.controller('IoTController', IoTController);
+experimentsModule.controller('AsyncController', AsyncController);
 
 experimentsModule.config(routes);
 
