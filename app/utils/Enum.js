@@ -1,26 +1,28 @@
-/**
- * TODO implement Enum with ES6 symbols
- * http://www.2ality.com/2014/12/es6-symbols.html
- */
+//TODO: extend or mixin with Symbol
+
 export class EnumSymbol {
-    name: string;
-    value = Symbol(name);
+    sym = Symbol.for(name);
+    value: number;
     description: string;
 
-    constructor(name, {value, description}) {
-        this.name  = name;
-        if(value) this.value  = value;
+    constructor(name: string, {value, description}) {
+
+        if(!Object.is(value, undefined)) this.value  = value;
         if(description) this.description  = description;
 
         Object.freeze(this);
     }
 
+    get display() {
+        return this.description || Symbol.keyFor(this.sym);
+    }
+
     toString() {
-        return this.description || this.name;
+        return this.sym;
     }
 
     valueOf() {
-        return this.value;  //TODO Symbol.for Symbol.keyFor
+        return this.value;
     }
 }
 
@@ -43,6 +45,6 @@ export class Enum {
 
     contains(sym) {
         if (!(sym instanceof EnumSymbol)) return false;
-        return this[sym.name] === sym;
+        return this[Symbol.keyFor(sym.sym)] === sym;
     }
 }

@@ -38,7 +38,7 @@ This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are p
 * Resiliency - Retry, Governor, Fallback, Circuit-breaker(W.I.P)
 * Caching as a Cross-Cutting Concern.
 * Hierarchical and Faceted Navigation.
-* Pagination and querying selective fields from REST API
+* Pagination and composable queries to express data dependencies and avoid over/under fetching data from REST API.
 * Use ES6 Proxies and ES6+ annotations for AOP.
 
 
@@ -238,10 +238,10 @@ gulp --env=TEST --optimize=true # Produce optimized build like `--env=PROD` and 
 ###Compatibility
 The app was tested on:
  
-  * Firefox (>= v31)
+  * Firefox (>= v36)
   * Chrome (>= v37)
   
-  * iojs (>= v1.1.0)
+  * iojs (>= v1.2.0)
   
 ### Tips
 If you are behind firewall and want to force **Bower** to get files from `https://` instead of `git://`
