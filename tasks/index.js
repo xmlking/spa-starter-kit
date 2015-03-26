@@ -9,7 +9,7 @@ import build    from './build';
 import server   from './server';
 import unitTests from './unit';
 import e2eTests from './e2e';
-import deploy   from './deploy';
+import gpdeploy   from './gpdeploy';
 
 let gulp = require('gulp');
 let config = require('js-yaml').safeLoad(require('fs').readFileSync('tasks/config.yml', 'utf8'));
@@ -32,4 +32,4 @@ build(gulp, config, args);
 server(gulp, config, args);
 unitTests(gulp, config, args);
 e2eTests(gulp, config, args);
-deploy(gulp, config, args);
+gpdeploy(gulp, config, args);
