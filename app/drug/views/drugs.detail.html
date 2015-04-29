@@ -106,13 +106,13 @@
         <table class="table table-hover table-responsive">
             <thead>
             <tr>
-                <td ng-repeat="(key, value) in selectedDrug.recordTypePs[0] track by key | filter:{key :!errors}"
+                <td ng-repeat="(key, value) in selectedDrug.recordTypePs[0] track by key "
                     ng-hide="key === 'class' || key === 'drug'">{{key}}
                 </td>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="recordType in selectedDrug.recordTypePs track by recordType.id | filter:{key :!errors} ">
+            <tr ng-repeat="recordType in selectedDrug.recordTypePs track by recordType.id  ">
                 <td ng-repeat="(key, value) in recordType track by key" ng-hide="key === 'class' || key === 'drug'">
                     {{value}}
                 </td>
@@ -130,13 +130,13 @@
         <table class="table table-hover table-responsive">
             <thead>
             <tr>
-                <td ng-repeat="(key, value) in selectedDrug.recordTypeQs[0] track by key | filter:{key :!errors}"
+                <td ng-repeat="(key, value) in selectedDrug.recordTypeQs[0] track by key "
                     ng-hide="key === 'class' || key === 'drug'">{{key}}
                 </td>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="recordType in selectedDrug.recordTypeQs track by recordType.id | filter:{key :!errors} ">
+            <tr ng-repeat="recordType in selectedDrug.recordTypeQs track by recordType.id  ">
                 <td ng-repeat="(key, value) in recordType track by key" ng-hide="key === 'class' || key === 'drug'">
                     {{value}}
                 </td>
@@ -154,13 +154,13 @@
         <table class="table table-hover table-responsive">
             <thead>
             <tr>
-                <td ng-repeat="(key, value) in selectedDrug.recordTypeRs[0] track by key | filter:{key :!errors}"
+                <td ng-repeat="(key, value) in selectedDrug.recordTypeRs[0] track by key "
                     ng-hide="key === 'class' || key === 'drug'">{{key}}
                 </td>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="recordType in selectedDrug.recordTypeRs track by recordType.id | filter:{key :!errors} ">
+            <tr ng-repeat="recordType in selectedDrug.recordTypeRs track by recordType.id  ">
                 <td ng-repeat="(key, value) in recordType track by key" ng-hide="key === 'class' || key === 'drug'">
                     {{value}}
                 </td>
@@ -178,13 +178,13 @@
         <table class="table table-hover table-responsive">
             <thead>
             <tr>
-                <td ng-repeat="(key, value) in selectedDrug.recordTypeSs[0] track by key | filter:{key :!errors}"
+                <td ng-repeat="(key, value) in selectedDrug.recordTypeSs[0] track by key "
                     ng-hide="key === 'class' || key === 'drug'">{{key}}
                 </td>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="recordType in selectedDrug.recordTypeSs track by recordType.id | filter:{key :!errors} ">
+            <tr ng-repeat="recordType in selectedDrug.recordTypeSs track by recordType.id  ">
                 <td ng-repeat="(key, value) in recordType track by key" ng-hide="key === 'class' || key === 'drug'">
                     {{value}}
                 </td>
@@ -202,13 +202,13 @@
         <table class="table table-hover table-responsive">
             <thead>
             <tr>
-                <td ng-repeat="(key, value) in selectedDrug.recordTypeTs[0] track by key | filter:{key :!errors}"
+                <td ng-repeat="(key, value) in selectedDrug.recordTypeTs[0] track by key "
                     ng-hide="key === 'class' || key === 'drug'">{{key}}
                 </td>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="recordType in selectedDrug.recordTypeTs track by recordType.id | filter:{key :!errors} ">
+            <tr ng-repeat="recordType in selectedDrug.recordTypeTs track by recordType.id  ">
                 <td ng-repeat="(key, value) in recordType track by key" ng-hide="key === 'class' || key === 'drug'">
                     {{value}}
                 </td>
@@ -226,13 +226,13 @@
         <table class="table table-hover table-responsive">
             <thead>
             <tr>
-                <td ng-repeat="(key, value) in selectedDrug.recordTypeCs[0] track by key | filter:{key :!errors}"
+                <td ng-repeat="(key, value) in selectedDrug.recordTypeCs[0] track by key "
                     ng-hide="key === 'class' || key === 'drug'">{{key}}
                 </td>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="recordType in selectedDrug.recordTypeCs track by recordType.id | filter:{key :!errors} ">
+            <tr ng-repeat="recordType in selectedDrug.recordTypeCs track by recordType.id  ">
                 <td ng-repeat="(key, value) in recordType track by key" ng-hide="key === 'class' || key === 'drug'">
                     {{value}}
                 </td>
