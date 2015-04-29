@@ -192,7 +192,7 @@ var require = {
         di: '../bower_components/di/dist/amd',
         diary: '../bower_components/diary/dist/amd',
         'harmony-reflect': '../bower_components/harmony-reflect/reflect',
-        lodash: '../bower_components/lodash/dist/lodash.compat',
+        lodash: '../bower_components/lodash/lodash',
         moment: '../bower_components/moment/moment',
         'ng-table': '../bower_components/ng-table/dist/ng-table',
         'observe-polyfill': '../bower_components/observe-polyfill/Object.observe.poly',

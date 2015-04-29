@@ -144,7 +144,7 @@ nvm  install iojs   # run `node -v && npm -v` to verify node installation. (For 
 nvm alias default iojs-v1.X.X # replace X.X with current version # make iojs-v1.X.X as your default node version.  (For Windows : `nvmw use iojs-v1.X.X`)
 
 [sudo] npm install -g bower
-[sudo] npm install -g gulpjs/gulp#4.0
+[sudo] npm install -g gulpjs/gulp-cli#4.0 
 [sudo] npm install -g karma-cli
 
 # Install the dev dependencies for project, such as Karma, Traceur, etc.
