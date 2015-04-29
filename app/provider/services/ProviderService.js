@@ -47,14 +47,14 @@ let providerRestangular = Symbol('providerRestangular', true);
 
 export class ProviderService {
 
-    constructor($q, $sanitize, ProviderRestangular, DSCacheFactory) {
+    constructor($q, $sanitize, ProviderRestangular, CacheFactory) {
         console.info('in ProviderService....');
 
         this[q] = $q;
         this[sanitize] = $sanitize;
         this[providerRestangular] = ProviderRestangular;
 
-        this[_providerCache] = new DSCacheFactory('providerCache', {
+        this[_providerCache] = new CacheFactory('providerCache', {
             maxAge: 600000, // items expire after ten min
             deleteOnExpire: 'passive', //  Items will be deleted if they are requested after they have expired, resulting in a miss.
             onExpire: function (key, value) {

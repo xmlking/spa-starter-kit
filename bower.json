@@ -25,7 +25,7 @@
     "angular-translate": "~2.6.1",
     "angular-translate-loader-partial": "~2.6.1",
     "angular-xeditable": ">=0.1.9",
-    "angular-cache": "~3.2.5",
+    "angular-cache": "~4.2.0",
     "ng-table": "~0.5.4",
     "AngularGM": "~1.0.0",
     "angular-truncate": "sparkalow/angular-truncate",

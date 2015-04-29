@@ -53,13 +53,13 @@ const _drugCache = Symbol('drugs', true);
 
 export class DrugService {
 
-	constructor($q, DrugRestangular, DSCacheFactory) {
+	constructor($q, DrugRestangular, CacheFactory) {
 		console.info('in DrugService....');
 
 		this.$q = $q;
 		this.DrugRestangular = DrugRestangular;
 
-		this[_drugCache] = new DSCacheFactory('drugCache', {
+		this[_drugCache] = new CacheFactory('drugCache', {
 			maxAge: 600000, // items expire after ten min
 			deleteOnExpire: 'passive', //  Items will be deleted if they are requested after they have expired, resulting in a miss.
 			onExpire: function (key, value) {

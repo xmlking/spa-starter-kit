@@ -9,12 +9,12 @@ const _userCache = Symbol('user', true);
 
 export default class UserService {
 
-	constructor($q, $log, Restangular, DSCacheFactory) {
+	constructor($q, $log, Restangular, CacheFactory) {
 		this.$q = $q;
 		this.Restangular = Restangular;
         this.logger = Diary.logger('UserService');
 
-		this[_userCache] = new DSCacheFactory('userCache', {
+		this[_userCache] = new CacheFactory('userCache', {
 			capacity: 5, // This cache can hold 5 items
 			storageMode: 'sessionStorage', // This cache will sync itself with sessionStorage
 			verifyIntegrity: true  // Full synchronization with sessionStorage on every operation

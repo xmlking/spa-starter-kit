@@ -38,7 +38,7 @@ let mainModule = angular.module('spaApp',
     'angular-growl',
     'xeditable',
     'nvd3ChartDirectives',
-    'angular-data.DSCacheFactory',
+    'angular-cache',
     'ui.router.tabs',
     'mgcrea.ngStrap.datepicker',
     'mgcrea.ngStrap.scrollspy',
@@ -49,7 +49,7 @@ let mainModule = angular.module('spaApp',
     homeModule
   ]);
 
-mainModule.config(($stateProvider, $urlRouterProvider, growlProvider, $httpProvider, $translateProvider, $translatePartialLoaderProvider, DSCacheFactoryProvider) => {
+mainModule.config(($stateProvider, $urlRouterProvider, growlProvider, $httpProvider, $translateProvider, $translatePartialLoaderProvider, CacheFactoryProvider) => {
   'use strict';
 
   // enable html5Mode for pushstate ('#'-less URLs)
@@ -83,10 +83,7 @@ mainModule.config(($stateProvider, $urlRouterProvider, growlProvider, $httpProvi
   $translatePartialLoaderProvider.addPart('home');
 
   // optionally set cache defaults
-  DSCacheFactoryProvider.setCacheDefaults({
-    maxAge: 3600000,
-    deleteOnExpire: 'aggressive'
-  });
+  angular.extend(CacheFactoryProvider.defaults, { maxAge: 15 * 60 * 1000, deleteOnExpire: 'aggressive' });
 
   // Logger
   Diary.reporter( new ConsoleReporter({
@@ -95,7 +92,7 @@ mainModule.config(($stateProvider, $urlRouterProvider, growlProvider, $httpProvi
 
 });
 
-mainModule.run(($rootScope, editableOptions, $http, $log, growl, $state, $stateParams, $translate, DSCacheFactory, AuthenticationService, AuthorizationService) => {
+mainModule.run(($rootScope, editableOptions, $http, $log, growl, $state, $stateParams, $translate, CacheFactory, AuthenticationService, AuthorizationService) => {
   'use strict';
 
   $rootScope.$on('$translatePartialLoaderStructureChanged', function () {
@@ -104,15 +101,14 @@ mainModule.run(($rootScope, editableOptions, $http, $log, growl, $state, $stateP
 
   editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
 
-  console.table(DSCacheFactory.info());
+  console.table(CacheFactory.info());
 
-  // Create default cache
-  new DSCacheFactory('defaultCache', {
-    maxAge: 900000, // Items added to this cache expire after 15 minutes.
-    cacheFlushInterval: 6000000, // This cache will clear itself every hour.
-    deleteOnExpire: 'aggressive' // Items will be deleted from this cache right when they expire.
-  });
-  //$http.defaults.cache = DSCacheFactory.get('defaultCache');
+  // Using angular-cache with $http
+  //$http.defaults.cache = CacheFactory('defaultCache', {
+  //  maxAge: 15 * 60 * 1000, // Items added to this cache expire after 15 minutes
+  //  cacheFlushInterval: 60 * 60 * 1000, // This cache will clear itself every hour
+  //  deleteOnExpire: 'aggressive' // Items will be deleted from this cache when they expire
+  //});
 
   $rootScope.$state = $state;
   $rootScope.$stateParams = $stateParams;
