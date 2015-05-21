@@ -5,6 +5,7 @@
  */
 
 import './vendor';
+import './grails/module';
 import {Diary} from 'diary';
 import {ConsoleReporter} from 'diary/reporters/console';
 import moment from 'moment';
@@ -13,6 +14,7 @@ import commonModule from './common/index';
 import homeModule from './home/index';
 import drugModule from './drug/index';
 import providerModule from './provider/index';
+import iproviderModule from './iprovider/index';
 import experimentsModule from './experiments/index';
 
 // @if env='TEST'
@@ -33,6 +35,7 @@ let mainModule = angular.module('spaApp',
     'ui.bootstrap',
     'ngAnimate',
     'ngSanitize',
+    'grails',
     'restangular',
     'pascalprecht.translate',
     'angular-growl',
@@ -92,7 +95,7 @@ mainModule.config(($stateProvider, $urlRouterProvider, growlProvider, $httpProvi
 
 });
 
-mainModule.run(($rootScope, editableOptions, $http, $log, growl, $state, $stateParams, $translate, CacheFactory, AuthenticationService, AuthorizationService) => {
+mainModule.run(($rootScope, editableOptions, editableThemes, $http, $log, growl, $state, $stateParams, $translate, CacheFactory, AuthenticationService, AuthorizationService) => {
   'use strict';
 
   $rootScope.$on('$translatePartialLoaderStructureChanged', function () {
@@ -100,8 +103,10 @@ mainModule.run(($rootScope, editableOptions, $http, $log, growl, $state, $stateP
   });
 
   editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+  editableThemes['bs3'].controlsTpl =   '<div class="editable-controls" ng-class="{\'has-error\': $error}"></div>';
+  editableThemes['bs3'].noformTpl =     '<span></span>';
 
-  console.table(CacheFactory.info());
+    console.table(CacheFactory.info());
 
   // Using angular-cache with $http
   //$http.defaults.cache = CacheFactory('defaultCache', {
@@ -170,6 +175,7 @@ mainModule.run(($rootScope, editableOptions, $http, $log, growl, $state, $stateP
 //remaining App sub-modules
 mainModule.requires.push(drugModule);
 mainModule.requires.push(providerModule);
+mainModule.requires.push(iproviderModule);
 mainModule.requires.push(experimentsModule);
 
 // @if env='TEST'

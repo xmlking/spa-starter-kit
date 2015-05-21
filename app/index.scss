@@ -4,6 +4,7 @@
 
 // bower:scss
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "../bower_components/fontawesome/scss/font-awesome.scss";
 @import "../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
 @import "../bower_components/compass-mixins/lib/_compass.scss";
 @import "../bower_components/animate.scss/animate.scss";
@@ -23,9 +24,9 @@
 
 /* angular form validation
 -------------------------------------------------- */
-input.ng-dirty.ng-invalid {
-  border: 1px solid red !important;
-}
+//input.ng-dirty.ng-invalid {
+//  border: 1px solid red !important;
+//}
 
 /* Browse Happy prompt
 -------------------------------------------------- */

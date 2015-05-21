@@ -1,0 +1,165 @@
+<div class="clearfix">
+  <h2 class="pull-left">
+    <span ng-hide="ctrl.provider.id">Create Provider</span>
+    <span ng-show="ctrl.provider.id">Edit Provider</span>
+  </h2>
+
+</div>
+
+<tabset justified="true">
+  <tab heading="General">
+    <br/>
+    <form editable-form name="form" class="form-horizontal" shown="true">
+
+      <div field-container label="First Name" invalid="form.firstName.$invalid">
+        <span e-name="firstName" editable-text="ctrl.provider.firstName" e-required>{{ ctrl.provider.firstName}}</span>
+      </div>
+
+      <div field-container label="Middle Name" invalid="form.middleName.$invalid">
+        <span e-name="middleName"   editable-text="ctrl.provider.middleName">{{ ctrl.provider.middleName}}</span>
+      </div>
+
+      <div field-container label="Last Name" invalid="form.lastName.$invalid">
+        <span e-name="lastName"   editable-text="ctrl.provider.lastName" e-required>{{ ctrl.provider.lastName}}</span>
+      </div>
+
+      <div field-container label="Gender" invalid="form.gender.$invalid">
+        <span e-name="gender"   editable-select="ctrl.provider.gender" onshow="ctrl.loadGenderTypes()"
+              e-ng-options="item.name as item.value for item in ctrl.genderTypes"
+              e-required>{{ ctrl.provider.gender }}</span>
+      </div>
+
+      <div field-container label="Type" invalid="form.type.$invalid">
+        <span e-name="type"   editable-select="ctrl.provider.type" onshow="ctrl.loadProviderTypes()"
+              e-ng-options="item.name as item.value for item in ctrl.providerTypes"
+              e-required>{{ ctrl.provider.type }}</span>
+      </div>
+
+      <div field-container label="Date Of Birth" invalid="form.dateOfBirth.$invalid">
+        <span e-name="dateOfBirth"   editable-date="ctrl.provider.dateOfBirth"
+              e-required>{{ ctrl.provider.dateOfBirth | date:"yyyy-MM-dd" }}</span>
+      </div>
+
+      <div field-container label="Effective Date" invalid="form.effectiveDate.$invalid">
+        <span e-name="effectiveDate"   editable-date="ctrl.provider.effectiveDate"
+              e-required>{{ ctrl.provider.effectiveDate | date:"yyyy-MM-dd" }}</span>
+      </div>
+      <div field-container label="Cancellation Date" invalid="form.cancellationDate.$invalid">
+        <span e-name="cancellationDate"   editable-date="ctrl.provider.cancellationDate"
+              e-required>{{ ctrl.provider.cancellationDate | date:"yyyy-MM-dd" }}</span>
+      </div>
+
+      <div field-container label="NPI" invalid="form.npi.$invalid">
+        <span e-name="npi"   editable-text="ctrl.provider.npi" e-maxlength="12" e-required>{{ ctrl.provider.npi }}</span>
+      </div>
+
+      <div field-container label="Image" invalid="form.image.$invalid">
+        <span editable-url="ctrl.provider.image"  >{{ ctrl.provider.image }}</span>
+      </div>
+
+      <div field-container label="Rating" invalid="form.rating.$invalid">
+        <span e-name="rating"   editable-range="ctrl.provider.rating" e-step="1" e-min="0" e-max="10">{{ ctrl.provider.rating }}</span>
+      </div>
+
+      <div class="buttons">
+        <!--<button type="button" class="btn btn-default" ng-click="form.$show()" ng-show="!form.$visible"><span class="fa fa-pencil"></span> Edit</button>-->
+        <button crud-button="save" item="ctrl.provider" is-disabled="form.$invalid || form.$waiting"  ng-show="!form.$visible"></button>
+        <button crud-button="delete" item="ctrl.provider" ng-show="ctrl.provider.id && !form.$visible"></button>
+        <span ng-show="form.$visible">
+          <button type="submit" ng-disabled="form.$invalid || form.$waiting" class="btn btn-primary">L Save</button>
+          <button type="button" class="btn btn-default" ng-disabled="form.$waiting" ng-click="form.$cancel()">Cancel</button>
+        </span>
+      </div>
+    </form>
+
+  </tab>
+  <tab heading="Contacts">
+    <br/>
+    <table class="table table-bordered table-hover table-condensed">
+      <tr style="font-weight: bold">
+        <td style="width:25%">Street</td>
+        <td style="width:20%">City</td>
+        <td style="width:20%">State</td>
+        <td style="width:10%">Zip</td>
+        <td style="width:25%">Edit</td>
+      </tr>
+      <tr ng-repeat="contact in ctrl.provider.contacts">
+        <td>
+          <span e-name="street" e-form="contactForm" editable-text="contact.address.street" e-required>{{ contact.address.street }}</span>
+        </td>
+        <td>
+          <span e-name="city" e-form="contactForm" editable-text="contact.address.city" e-required>{{ contact.address.city }}</span>
+        </td>
+        <td>
+          <span e-name="state" e-form="contactForm" editable-text="contact.address.state" e-required>{{ contact.address.state }}</span>
+        </td>
+        <td>
+          <span e-name="zip" e-form="contactForm" editable-number="contact.address.zip" e-maxlength="5"
+                e-required>{{ contact.address.zip }}</span>
+        </td>
+        <td style="white-space: nowrap">
+          <form editable-form name="contactForm" ng-show="contactForm.$visible" class="form-buttons form-inline" shown="ctrl.insertedC == contact">
+            <button type="submit" ng-disabled="contactForm.$waiting" class="btn btn-primary">save</button>
+            <button type="button" ng-disabled="contactForm.$waiting" ng-click="contactForm.$cancel()" class="btn btn-default">cancel</button>
+          </form>
+          <div class="buttons" ng-show="!contactForm.$visible">
+            <button class="btn btn-primary" ng-click="contactForm.$show()">edit</button>
+            <button class="btn btn-danger" ng-click="ctrl.removeContact($index)">del</button>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <button class="btn btn-default" ng-click="ctrl.addContact()">Add row</button>
+
+  </tab>
+  <tab heading="Specialties">
+    <br/>
+    <table class="table table-bordered table-hover table-condensed">
+      <tr style="font-weight: bold">
+        <td style="width:15%">Id</td>
+        <td style="width:5%">Code</td>
+        <td style="width:5%">Image</td>
+        <td style="width:15%">Name</td>
+        <td style="width:20%">Description</td>
+        <td style="width:15%">Parent</td>
+        <td style="width:25%">Edit</td>
+      </tr>
+      <tr ng-repeat="speciality in ctrl.provider.specialties">
+        <td>
+          <span>{{ speciality.id }}</span>
+        </td>
+        <td>
+          <span e-name="code" e-form="specialityForm" editable-text="speciality.code">{{ speciality.code }}</span>
+        </td>
+        <td>
+          <span e-name="image" e-form="specialityForm" editable-text="speciality.image">{{ speciality.image }}</span>
+        </td>
+        <td>
+          <span e-name="name" e-form="specialityForm" editable-text="speciality.name"
+                e-required>{{ speciality.name }}</span>
+        </td>
+        <td>
+          <span e-name="description" e-form="specialityForm" editable-text="speciality.description" e-required>{{ speciality.description }}</span>
+        </td>
+        <td>
+          <span>{{ speciality.parent.id }}</span>
+        </td>
+        <td style="white-space: nowrap">
+          <form editable-form name="specialityForm" ng-show="specialityForm.$visible" class="form-buttons form-inline" shown="ctrl.insertedS == speciality">
+            <button type="submit" ng-disabled="specialityForm.$waiting" class="btn btn-primary">save</button>
+            <button type="button" ng-disabled="specialityForm.$waiting" ng-click="specialityForm.$cancel()" class="btn btn-default">cancel</button>
+          </form>
+          <div class="buttons" ng-show="!specialityForm.$visible">
+            <button class="btn btn-primary" ng-click="specialityForm.$show()">edit</button>
+            <button class="btn btn-danger" ng-click="ctrl.removeSpeciality($index)">del</button>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <button class="btn btn-default" ng-click="ctrl.addSpeciality()">Add row</button>
+  </tab>
+</tabset>
+
+

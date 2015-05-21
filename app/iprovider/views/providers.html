@@ -1,0 +1,71 @@
+<div  class="container">
+
+
+  <style scoped type="text/css">
+    @import "iprovider/index.css";
+  </style>
+
+  <div flash-message ></div>
+
+<div class="clearfix">
+	<h2 class="pull-left">Provider List</h2>
+	<div class="pull-right"><button crud-button="create" ></button></div>
+</div>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><i class="fa fa-filter"></i> Filter List</h3>
+  </div>
+  <div class="panel-body">
+<div class="row">
+<form class="form">
+	<div class="form-group col-md-3">
+		<label for="filter.firstName">First Name</label>
+		<input type="text" class='form-control' ng-model="ctrl.seatchParams.filter.firstName" ng-model-options="{ debounce: 300 }"  />
+    </div>
+	<div class="form-group col-md-3">
+		<label for="filter.lastName">Last Name</label>
+		<input type="text" class='form-control' ng-model="ctrl.seatchParams.filter.lastName" ng-model-options="{ debounce: 300 }"  />
+    </div>
+  <div class="form-group col-md-3">
+    <label for="filter.gender">Type</label>
+    <select class="form-control" ng-model="ctrl.seatchParams.filter.type" ng-options="item.name as item.value for item in ctrl.providerTypes" ng-model-options="{ debounce: 300 }"  ><option value="">-- Select Type --</option></select>
+  </div>
+	<div class="form-group col-md-3">
+		<label for="filter.gender">Gender</label>
+		<select class="form-control" ng-model="ctrl.seatchParams.filter.gender" ng-options="item.name as item.value for item in ctrl.genderTypes" ng-model-options="{ debounce: 300 }"  ><option value="">-- Select Gender --</option></select>
+  </div>
+
+</form>
+</div>
+  </div>
+</div>
+
+<table id="list" class="table table-striped table-bordered table-hover">
+
+    <thead sort-header ng-model="ctrl.seatchParams.sort" on-sort="ctrl.reload()">
+        <th sortable-column title="Id" property="id"></th>
+        <th sortable-column title="Type" property="type"></th>
+		    <th sortable-column title="First Name" property="firstName"></th>
+		    <th sortable-column title="Last Name" property="lastName"></th>
+		    <th sortable-column title="Gender" property="gender"></th>
+        <th sortable-column title="Date Of Birth" property="dateOfBirth"></th>
+    </thead>
+    <tbody>
+        <tr class="animate-repeat" ng-repeat="item in ctrl.providerList">
+            <td><a ui-sref=".show({ id: item.id })">{{item.id}}</a></td>
+            <td>{{ item.type }}</td>
+            <td>{{ item.firstName }}</td>
+            <td>{{ item.lastName }}</td>
+            <td>{{ item.gender }}</td>
+            <td>{{ item.dateOfBirth | date: 'MMM d, yyyy'}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div pagination total-items="ctrl.providerList.totalCount" items-per-page="ctrl.seatchParams.pageSize" ng-model="ctrl.seatchParams.page" ng-change="ctrl.load()"></div>
+
+<section class="slide-reveal" ui-view  autoscroll="false"></section>
+
+</div>

@@ -13,6 +13,7 @@
       <ul class="nav navbar-nav">
         <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
         <li has-permission='ROLE_USER' ng-class="{active: $state.includes('providers.**')}"><a ui-sref="providers.search">Providers</a></li>
+        <li has-permission='ROLE_USER' ng-class="{active: $state.includes('iproviders.**')}"><a ui-sref="iproviders">iProviders</a></li>
         <li has-permission='ROLE_IT_ADMIN' ng-class="{active: $state.includes('**.drugs.**')}"><a ui-sref="drugs.list">Formulary</a></li>
         <li class="dropdown" dropdown>
           <a href="#" class="dropdown-toggle" dropdown-toggle>Experiments <b class="caret"></b></a>
