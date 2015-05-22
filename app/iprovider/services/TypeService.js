@@ -1,10 +1,12 @@
+import {IProviderRestangular} from '../services/IProviderService';
+
 let _typeCache = Symbol('types', true);
 
 export default class TypeService {
 
-  constructor($http, CacheFactory, ProviderRestangular) {
+  constructor($http, CacheFactory, IProviderRestangular) {
     this.$http = $http;
-    this.ProviderRestangular = ProviderRestangular;
+    this.ProviderRestangular = IProviderRestangular;
 
     this[_typeCache] = new CacheFactory('typeCache', {
       maxAge: 3600000,

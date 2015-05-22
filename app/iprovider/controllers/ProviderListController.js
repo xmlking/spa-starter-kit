@@ -1,8 +1,8 @@
-import {IPROVIDER_SEARCH_CONFIG, IPROVIDER_SEARCH_PARAMS, ProviderRestangular, ProviderService} from '../services/ProviderService';
+import {IPROVIDER_SEARCH_CONFIG, IPROVIDER_SEARCH_PARAMS, IProviderRestangular, IProviderService} from '../services/IProviderService';
 
 export default class ProviderListController {
 
-  constructor($scope, providerList, providerTypes, genderTypes, ProviderRestangular, ProviderService) {
+  constructor($scope, providerList, providerTypes, genderTypes, IProviderRestangular, IProviderService) {
     this.providerList = providerList;
     this.providerTypes = providerTypes;
     this.genderTypes = genderTypes;
@@ -10,8 +10,8 @@ export default class ProviderListController {
     console.log('this.seatchParams', this.seatchParams);
     this.specialities = ['PEDIATRICS', 'CARDIOLOGY', 'NEPHROLOGY', 'CHIROPRACTIC MEDICINE'];
 
-    this.providerRestangular = ProviderRestangular;
-    this.providerService = ProviderService;
+    this.providerRestangular = IProviderRestangular;
+    this.providerService = IProviderService;
 
     $scope.$watchCollection(() => {  return this.seatchParams.filter }, () => { this.reload(); });
   }

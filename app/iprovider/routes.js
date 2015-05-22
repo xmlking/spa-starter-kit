@@ -7,8 +7,8 @@ export default function routes($urlRouterProvider, $stateProvider) {
       controller: 'ProviderListController as ctrl',
       templateUrl: 'iprovider/views/providers.html',
       resolve: {
-        providerList: function($stateParams, ProviderService) {
-          return ProviderService.list($stateParams);
+        providerList: function($stateParams, IProviderService) {
+          return IProviderService.list($stateParams);
         },
         providerTypes: function(TypeService) {
           return TypeService.getProviderTypes();
@@ -23,8 +23,8 @@ export default function routes($urlRouterProvider, $stateProvider) {
       controller: 'ProviderCreateEditController as ctrl',
       templateUrl: 'iprovider/views/providers.create-edit.html',
       resolve: {
-        provider: function(ProviderService) {
-          return ProviderService.create();
+        provider: function(IProviderService) {
+          return IProviderService.create();
         }
       }
     })
@@ -33,8 +33,8 @@ export default function routes($urlRouterProvider, $stateProvider) {
       controller: 'ProviderCreateEditController as ctrl',
       templateUrl: 'iprovider/views/providers.create-edit.html',
       resolve: {
-        provider: function($stateParams, ProviderService) {
-          return ProviderService.get($stateParams.id);
+        provider: function($stateParams, IProviderService) {
+          return IProviderService.get($stateParams.id);
         }
       }
     })
@@ -43,8 +43,8 @@ export default function routes($urlRouterProvider, $stateProvider) {
       controller: 'ProviderShowController as ctrl',
       templateUrl: 'iprovider/views/providers.show.html',
       resolve: {
-        provider: function($stateParams, ProviderService) {
-          return ProviderService.get($stateParams.id);
+        provider: function($stateParams, IProviderService) {
+          return IProviderService.get($stateParams.id);
         }
       }
     });

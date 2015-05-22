@@ -5,7 +5,7 @@ export const IPROVIDER_SEARCH_CONFIG =
   pageSize: 3//33
 };
 
-export function ProviderRestangular(Restangular) {
+export function IProviderRestangular(Restangular) {
   'use strict';
   return Restangular.withConfig(function(RestangularConfigurer) {
     RestangularConfigurer.setBaseUrl(IPROVIDER_SEARCH_CONFIG.BASE_API_URL);
@@ -30,13 +30,14 @@ export const IPROVIDER_SEARCH_PARAMS =
   facets:'PROV_GDR_CD,ADR_CTY_NM,SPCL_TYP_FULL_DESC'
 };
 
-export class ProviderService {
+export class IProviderService {
 
-  constructor(ProviderRestangular) {
-    this.providerRestangular = ProviderRestangular;
+  constructor(IProviderRestangular) {
+    this.providerRestangular = IProviderRestangular;
   }
 
   list(params = IPROVIDER_SEARCH_PARAMS) {
+    console.log('in list')
 
     var copy = Object.assign({}, params);
     delete copy.filter;

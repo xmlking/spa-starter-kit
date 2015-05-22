@@ -1,4 +1,5 @@
-import {IPROVIDER_SEARCH_CONFIG, ProviderService} from '../services/ProviderService';
+import {IPROVIDER_SEARCH_CONFIG, IProviderService} from '../services/IProviderService';
+import TypeService from '../services/TypeService';
 
 export default class ProviderCreateEditController {
 

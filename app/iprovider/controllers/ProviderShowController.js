@@ -1,9 +1,8 @@
-
-import {IPROVIDER_SEARCH_CONFIG, ProviderRestangular, ProviderService} from '../services/ProviderService';
+import {IPROVIDER_SEARCH_CONFIG, IProviderRestangular, IProviderService} from '../services/IProviderService';
 
 export default class ProviderShowController {
 
-  constructor(ProviderRestangular, ProviderService, provider) {
+  constructor(IProviderRestangular, IProviderService, provider) {
     "use strict";
     this.provider = provider;
   }
