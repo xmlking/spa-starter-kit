@@ -18,6 +18,13 @@
   }
 }
 
+[gm-info-window] {
+  display: none;
+}
+.map [gm-info-window] {
+  display: block;
+}
+
 .search_btn_over_map {
   position: absolute;
   top: 40px;

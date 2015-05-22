@@ -47,7 +47,7 @@
         <div gm-info-window="mouseOverInfoWindow" gm-info-window-options="pmc.mouseOverInfoWindowOptions">
             <!-- TODO: show mouse over provider data, not selectedProvider -->
             <div>{{pmc.selectedProvider.FST_NM  + ' ' + pmc.selectedProvider.MDL_NM + ' ' +pmc.selectedProvider.LST_NM| characters:12 :true}}</div>
-            <div>{{pmc.selectedProvider.specialties[0].SPCL_TYP_FULL_DES}}</div>
+            <div>{{pmc.selectedProvider.specialties[0].SPCL_TYP_FULL_DESC}}</div>
         </div>
         <ui-view name="results" autoscroll="false"></ui-view>
         <aside class="search_btn_over_map">
