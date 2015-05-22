@@ -1,0 +1,18 @@
+[
+  {
+    "id": "555faae17d846ef469615881",
+    "dateOfBirth": "2015-05-26T14:00:00Z",
+    "firstName": "sdfsfsf",
+    "gender": "FEMALE",
+    "lastName": "fsdfsf",
+    "type": "DENTIST"
+  },
+  {
+    "id": "555fab187d846ef469615882",
+    "dateOfBirth": "2015-05-14T14:00:00Z",
+    "firstName": "fsdfsfs",
+    "gender": "FEMALE",
+    "lastName": "sdfds",
+    "type": "CLINIC"
+  }
+]

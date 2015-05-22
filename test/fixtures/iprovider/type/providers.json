@@ -1,0 +1,26 @@
+[
+  {
+    "name": "PHYSICIAN",
+    "value": "physician"
+  },
+  {
+    "name": "DENTIST",
+    "value": "dentist"
+  },
+  {
+    "name": "NURSE",
+    "value": "nurse"
+  },
+  {
+    "name": "HOSPITAL",
+    "value": "hospital"
+  },
+  {
+    "name": "CLINIC",
+    "value": "clinic"
+  },
+  {
+    "name": "PHARMACY",
+    "value": "pharmacy"
+  }
+]
