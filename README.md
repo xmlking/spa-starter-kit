@@ -2,16 +2,23 @@
 SPA Starter Kit
 =========
 
-**SPA Starter Kit** is a Single Page Application (SPA) Starter project built on **AngularJS** , **ReactJS** **AMD** and **ES6**
+**SPA Starter Kit** is a Single Page Application (SPA) Starter project built on **AngularJS** , **AMD** and **ES6**
 
 Demonstrate Front-end Design Patterns and Best Practices.
 
 ### Demo
-This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are produced by [Mocked Backend Workflow](#mocked-backend-workflow). 
+This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are produced by [Mocked Backend Workflow](../../wiki/ wiki/Mocked-Backend-Workflow). 
 
+### Wiki
+ Documentation [wiki](../../wiki/ wiki/home)
+ 
+### Backend 
+Backend [Grails App with MongoDB](https://github.com/xmlking/grails-batch-rest)
+ 
 ### Features
 
-* Use ES6 and AMD everywhere to build a modular application.
+* Use ES2015 and AMD to build a modular application.
+* Demonstrate simple CRUD SPA applications (Grails-Angular-MongoDB)
 * Flat and modular project structure for parallel development. 
 * Adopts AngularJS Style Guides from [johnpapa](https://github.com/johnpapa/angularjs-styleguide/), [gocardless](https://github.com/gocardless/angularjs-style-guide)
 * Modular SASS inspired by [SMACSS](http://smacss.com/), CSS Autoprefixing
@@ -23,9 +30,9 @@ This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are p
 * Build environment (DEV, TEST, CI, PROD) aware gulp tasks. 
 * Incremental builds and auto-testing. [_gulp --env=TEST serve_]
 * _Mocked Backend Workflow_ - help with mocking your backend and backend-less development.
-* Produce optimized, production ready bundles for deployment. Can produce multiple bundles for lazy loading modules on demand.    
+* Produce optimized, production ready bundles for deployment. Can produce multiple bundles for lazy loading modules on demand. 
 * Your choice of Reusable Components - Angular Directives, Native Web Components, ReactJS all in ES6.  
-* Achieve some of the Angular 2.0 goals while still running on Angular 1.3.x
+* Achieve some of the Angular 2.0 goals while still running on Angular 1.3.x/1.4.x
 * TypeScript style assertions are enabled in development env for run-time type checking. 
 * Animations for rich user experience. 
 
@@ -40,11 +47,6 @@ This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are p
 * Hierarchical and Faceted Navigation.
 * Pagination and composable queries to express data dependencies and avoid over/under fetching data from REST API.
 * Use ES6 Proxies and ES6+ annotations for AOP.
-
-
-### Directory Structure
-
- [Directory Structure wiki](../../wiki/Directory-Structure)
 
 ### Getting Started
 
@@ -105,13 +107,6 @@ Karma will watch the source code and run the tests anytime you save a change.
 ```bash
 gulp tdd
 ```
-
-### Mocked Backend Workflow 
-
- [Mocked-Backend-Workflow wiki](../../wiki/ wiki/Mocked-Backend-Workflow)
-
-
-***however you can also use this pre-build Grails App [apiApp.war](https://github.com/xmlking/grails-batch-rest/releases) as backend for this SPA App.*** 
 
 ### Options
 By default, plugin errors will cause Gulp to halt. Errors and warnings are fatal. 
