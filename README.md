@@ -7,7 +7,7 @@ SPA Starter Kit
 Demonstrate Front-end Design Patterns and Best Practices.
 
 ### Demo
-This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are produced by [Mocked Backend Workflow](../../wiki/ wiki/Mocked-Backend-Workflow). 
+This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are produced by [Mocked Backend Workflow](../../wiki/Mocked-Backend-Workflow)
 
 ### Wiki
  Documentation [wiki](../../wiki/ wiki/home)
