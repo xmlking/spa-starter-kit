@@ -31,6 +31,7 @@ export default function build(gulp, cfg, args) {
       .pipe(assets.restore())
       .pipe(useref())
       .pipe(replace('../../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap', 'common/fonts'))
+      .pipe(replace('../../../bower_components/fontawesome/fonts', 'common/fonts'))
       .pipe(gulp.dest('dist'));
   }));
 

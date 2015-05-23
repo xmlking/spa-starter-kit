@@ -5,7 +5,7 @@
  */
 
 import './vendor';
-import './grails/module';
+import './grails/index';
 import {Diary} from 'diary';
 import {ConsoleReporter} from 'diary/reporters/console';
 import moment from 'moment';

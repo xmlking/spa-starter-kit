@@ -16,7 +16,7 @@ function fieldContainer() {
             var field = ($element.find('input').length > 0) ? $element.find('input') : $element.find('select');
             field.addClass('form-control');
         },
-        templateUrl: 'grails/templates/directives/fields/field-container.html'
+        templateUrl: 'grails/templates/directives/fields/field-container.tpl.html'
     }
 }
 
@@ -28,7 +28,7 @@ function displayField() {
             label: '@',
             value: '='
         },
-        templateUrl: 'grails/templates/directives/fields/display-field.html'
+        templateUrl: 'grails/templates/directives/fields/display-field.tpl.html'
     }
 }
 
@@ -42,7 +42,7 @@ function dateField() {
             };
 
         },
-        templateUrl: 'grails/templates/directives/fields/date-field.html'
+        templateUrl: 'grails/templates/directives/fields/date-field.tpl.html'
     }
 }
 

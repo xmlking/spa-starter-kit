@@ -36,7 +36,7 @@ function flashMessage(FlashService) {
 
 			loadMessage();
         },
-        templateUrl: 'grails/templates/directives/flash-message.html'
+        templateUrl: 'grails/templates/directives/flash-message.tpl.html'
     }
 }
 

@@ -84,7 +84,9 @@ buildProfile:
     - name: common/index
     - name: drug/index
     - name: experiments/index
+    - name: grails/index
     - name: home/index
+    - name: iprovider/index
     - name: provider/index
 
 # Require JS Config : bowerRequireJS

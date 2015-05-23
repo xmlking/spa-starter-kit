@@ -89,13 +89,13 @@ function crudButton($state, $location, defaultCrudResource, FlashService) {
     templateUrl: function (element, attrs) {
       switch (attrs.crudButton) {
         case "create":
-          return "grails/templates/directives/buttons/create-button.html";
+          return "grails/templates/directives/buttons/create-button.tpl.html";
         case "edit":
-          return "grails/templates/directives/buttons/edit-button.html";
+          return "grails/templates/directives/buttons/edit-button.tpl.html";
         case "delete":
-          return "grails/templates/directives/buttons/delete-button.html";
+          return "grails/templates/directives/buttons/delete-button.tpl.html";
         case "save":
-          return "grails/templates/directives/buttons/save-button.html";
+          return "grails/templates/directives/buttons/save-button.tpl.html";
       }
 
     }

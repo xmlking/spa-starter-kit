@@ -8,7 +8,7 @@ function crudBreadcrumbs(defaultCrudResource) {
 		link: function($scope) {
 			$scope.resourceName = defaultCrudResource.getResourceName();
 		},
-        templateUrl: 'grails/templates/directives/crud-breadcrumbs.html'
+        templateUrl: 'grails/templates/directives/crud-breadcrumbs.tpl.html'
     }
 }
 
