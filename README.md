@@ -108,20 +108,8 @@ gulp tdd
 
 ### Mocked Backend Workflow 
 
-####Advantages####
-  * Parallel development with backend
-  * Frontend can have a hand in defining API
-  * Control over responses
-  * Minimal impact on code
-  * Backend-less development (continue development even when backend not available)
-  * Useful for e2e tests
-  * Useful for demoing UI work without backend
-  
-```bash
-gulp --env=TEST serve
-gulp --env=TEST --optimize=true # Produce optimized build like `--env=PROD` and also include [fixtures](./test/fixtures) like `--env=TEST`
-gulp deploy                     # to deploy dist folder to gh-pages
-```
+ [Mocked-Backend-Workflow wiki](../../wiki/ wiki/Mocked-Backend-Workflow)
+
 
 ***however you can also use this pre-build Grails App [apiApp.war](https://github.com/xmlking/grails-batch-rest/releases) as backend for this SPA App.*** 
 
