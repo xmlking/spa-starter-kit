@@ -10,7 +10,7 @@ Demonstrate Front-end Design Patterns and Best Practices.
 This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are produced by [Mocked Backend Workflow](../../wiki/Mocked-Backend-Workflow)
 
 ### Wiki
- Documentation [wiki](../../wiki/ wiki/home)
+ Documentation [wiki](../../wiki/home)
  
 ### Backend 
 Backend [Grails App with MongoDB](https://github.com/xmlking/grails-batch-rest)
