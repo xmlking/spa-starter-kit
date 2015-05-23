@@ -7,8 +7,8 @@ export default function routes($urlRouterProvider, $stateProvider) {
       controller: 'ProviderListController as ctrl',
       templateUrl: 'iprovider/views/providers.html',
       resolve: {
-        providerList: function($stateParams, IProviderService) {
-          return IProviderService.list($stateParams);
+        providerList: function(IProviderService) {
+          return IProviderService.list();
         },
         providerTypes: function(TypeService) {
           return TypeService.getProviderTypes();

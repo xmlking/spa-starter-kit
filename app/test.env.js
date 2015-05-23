@@ -15,6 +15,16 @@ import 'text!../test/fixtures/drug/drug_1.json';
 import 'text!../test/fixtures/drug/drug_2.json';
 import 'text!../test/fixtures/drug/drug_3.json';
 
+
+import 'text!../test/fixtures/iprovider/providers_0.json';
+import 'text!../test/fixtures/iprovider/providers_1.json';
+import 'text!../test/fixtures/iprovider/providers_create.json';
+import 'text!../test/fixtures/iprovider/providers_post.json';
+import 'text!../test/fixtures/iprovider/provider_555ed6047d84df97baf4086c.json';
+import 'text!../test/fixtures/iprovider/provider_555ecf587d84df97baf3e193.json';
+import 'text!../test/fixtures/iprovider/type/providers.json';
+import 'text!../test/fixtures/iprovider/type/genders.json';
+
 import 'text!../test/fixtures/provider/providers_0.json';
 import 'text!../test/fixtures/provider/providers_100.json';
 import 'text!../test/fixtures/provider/provider_2652254.json';
@@ -139,6 +149,64 @@ testEnvModule.run( ($httpBackend) => {
       }
       return [200, require(`text!../test/fixtures/drug/drug_${id}.json`)];
     });
+
+  //*********************** iProvider ******************************//
+
+  $httpBackend.whenGET(/http:\/\/localhost:8080\/apiApp\/api\/providers\?facets*/ )
+    .respond( (method, url) => {
+      console.log('url',url);
+      if(url.includes('page=1')) {
+        return [200, require('text!../test/fixtures/iprovider/providers_0.json'), {'Content-Range': '1-3/5'}];
+      } else if(url.includes('page=2')) {
+        return [200, require('text!../test/fixtures/iprovider/providers_1.json'), {'Content-Range': '4-5/5'}];
+      } else {
+        return [200, require('text!../test/fixtures/iprovider/providers_0.json')];
+      }
+    });
+
+  $httpBackend.whenGET(/\http:\/\/localhost:8080\/apiApp\/api\/type\/providers/)
+    .respond( (method, url) => {
+      return [200, require(`text!../test/fixtures/iprovider/type/providers.json`)];
+    });
+
+  $httpBackend.whenGET(/\http:\/\/localhost:8080\/apiApp\/api\/type\/genders/)
+    .respond( (method, url) => {
+      return [200, require(`text!../test/fixtures/iprovider/type/genders.json`)];
+    });
+
+
+  $httpBackend.whenGET(/\http:\/\/localhost:8080\/apiApp\/api\/providers\/(\d+)/)
+    .respond( (method, url) => {
+      console.log('url',url);
+      let id = parseParamFromURL(url);
+      if( ['555ecf587d84df97baf3e193','555ed6047d84df97baf4086c'].indexOf(id) < 0) {
+        id = '555ecf587d84df97baf3e193';
+      }
+      return [200, require(`text!../test/fixtures/iprovider/provider_${id}.json`)];
+    });
+
+  $httpBackend.whenGET(/\http:\/\/localhost:8080\/apiApp\/api\/providers\/create/)
+    .respond( (method, url) => {
+      return [200, require(`text!../test/fixtures/iprovider/providers_create.json`)];
+    });
+
+  $httpBackend.whenPOST(/\http:\/\/localhost:8080\/apiApp\/api\/providers/)
+    .respond( (method, url) => {
+      return [201, {id:'555ecf587d84df97baf3e193'}];
+    });
+  $httpBackend.whenPUT(/\http:\/\/localhost:8080\/apiApp\/api\/providers\/(\d+)/)
+    .respond( (method, url) => {
+      let id = parseParamFromURL(url);
+      return [201, {id:id}];
+    });
+
+  $httpBackend.whenDELETE(/\http:\/\/localhost:8080\/apiApp\/api\/providers\/(\d+)/)
+    .respond( (method, url) => {
+      return [204];
+    });
+
+
+  //*********************** Provider ******************************//
 
   $httpBackend.whenGET(/http:\/\/apsed2427:8080\/api\/providers\?facets*/ )
     .respond( (method, url) => {
