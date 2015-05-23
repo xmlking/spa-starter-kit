@@ -147,44 +147,6 @@ The app was tested on:
   * iojs (>= v1.2.0)
   
 ### Tips
-If you are behind firewall and want to force **Bower** to get files from `https://` instead of `git://`
-```bash
-git config --global url."https://".insteadOf git://
-```
-In case you want to revert that global configuration change
-```bash
-git config --global --unset url."https://".insteadOf
-```
- 
-#### For Windows Users
->Install [git](http://git-scm.com/downloads) client if needed.
-Install iojs/node and above mentioned global node modules, them  
-Make sure system path has nvmw and node binaries i.e., `C:\<nvmw root>\nvmw\ and C:\<nvmw root>\nvmw\iojs\latest`. 
-Install [Ruby](http://rubyinstaller.org/downloads/) and make sure system path has it. 
-if you get SSL error while installing __gem__ modules [check here](http://stackoverflow.com/questions/19150017/ssl-error-when-installing-rubygems-unable-to-pull-data-from-https-rubygems-o/27298259#27298259)
-
-
-How to delete the `node_modules` folder when Windows complains that file or path names are too long?
-```bash
-mkdir junk
-robocopy junk node_modules /MIR
-```
->The (empty) ‘junk’ folder can then be deleted in the normal way
-
-#### For WebStrom/IntelliJ Users
-Goto: Files > Languages & Frameworks > JavaScript 
-
-  1. JavaScript language version > select AtScript
- 
-Goto: Files > Project Structure... >  Project Settings > Libraries
-
-  1. mark `bower_components`, `node_modules` directories as `library`
-  
-Goto: Files > Project Structure... >  Project Settings > Modules 
-
-  1. mark `.idea`, `.sass-cache`, `.tmp`, `dist`, `bower_components`, `node_modules` directories as `Excluded`.
-  2. mark `test` directory as `Test Resources Root`
-  3. mark `app` directory as `Sources Root`
 
 ### TODO
 - [ ] Lazy Load Modules 
