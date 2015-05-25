@@ -2,16 +2,23 @@
 SPA Starter Kit
 =========
 
-**SPA Starter Kit** is a Single Page Application (SPA) Starter project built on **AngularJS** , **ReactJS** **AMD** and **ES6**
+**SPA Starter Kit** is a Single Page Application (SPA) Starter project built on **AngularJS** , **AMD** and **ES6**
 
 Demonstrate Front-end Design Patterns and Best Practices.
 
 ### Demo
-This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are produced by [Mocked Backend Workflow](#mocked-backend-workflow). 
+This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are produced by [Mocked Backend Workflow](../../wiki/Mocked-Backend-Workflow)
 
+### Wiki
+ Documentation [wiki](../../wiki/home)
+ 
+### Backend 
+Backend [Grails App with MongoDB](https://github.com/xmlking/grails-batch-rest)
+ 
 ### Features
 
-* Use ES6 and AMD everywhere to build a modular application.
+* Use ES2015 and AMD to build a modular application.
+* Demonstrate simple CRUD SPA applications (Grails-Angular-MongoDB)
 * Flat and modular project structure for parallel development. 
 * Adopts AngularJS Style Guides from [johnpapa](https://github.com/johnpapa/angularjs-styleguide/), [gocardless](https://github.com/gocardless/angularjs-style-guide)
 * Modular SASS inspired by [SMACSS](http://smacss.com/), CSS Autoprefixing
@@ -23,9 +30,9 @@ This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are p
 * Build environment (DEV, TEST, CI, PROD) aware gulp tasks. 
 * Incremental builds and auto-testing. [_gulp --env=TEST serve_]
 * _Mocked Backend Workflow_ - help with mocking your backend and backend-less development.
-* Produce optimized, production ready bundles for deployment. Can produce multiple bundles for lazy loading modules on demand.    
+* Produce optimized, production ready bundles for deployment. Can produce multiple bundles for lazy loading modules on demand. 
 * Your choice of Reusable Components - Angular Directives, Native Web Components, ReactJS all in ES6.  
-* Achieve some of the Angular 2.0 goals while still running on Angular 1.3.x
+* Achieve some of the Angular 2.0 goals while still running on Angular 1.3.x/1.4.x
 * TypeScript style assertions are enabled in development env for run-time type checking. 
 * Animations for rich user experience. 
 
@@ -40,96 +47,6 @@ This **[Demo](http://xmlking.github.io/spa-starter-kit/)** static gh-pages are p
 * Hierarchical and Faceted Navigation.
 * Pagination and composable queries to express data dependencies and avoid over/under fetching data from REST API.
 * Use ES6 Proxies and ES6+ annotations for AOP.
-
-
-### Directory Structure
-
-Since a large AngularJS application has many modules and components it's best to structure it in a directory hierarchy.
- 
-_Creating high-level divisions by functionality and lower-level divisions by component types._
-
-In this way the directory structure will look like:
-
-```
-.
-├── app
-│   ├── index.html
-│   ├── index.js
-│   ├── index.scss
-│   ├── config.yml
-│   ├── common
-│   │   ├── controllers
-│   │   ├── elements
-│   │   ├── filters
-│   │   ├── services
-│   │   ├── utils
-│   │   ├── views
-│   │   ├── i18n
-│   │   ├── fonts
-│   │   ├── images
-│   │   ├── styles
-│   │   │   ├── components
-│   │   │   ├── mixins
-│   │   │   ├── _variables.scss
-│   │   │   └── _functions.scss
-│   │   ├── index.js
-│   │   └── routes.js
-│   ├── home
-│   │   ├── controllers
-│   │   │   ├── FirstController.js
-│   │   │   └── SecondController.js
-│   │   ├── elements
-│   │   │   ├── FirstElement.js
-│   │   │   └── SecondElement.js
-│   │   ├── filters
-│   │   │   ├── UniqueFilter.js
-│   │   │   └── LimitFilter.js
-│   │   ├── models
-│   │   │   ├── TodoItem.js
-│   │   │   └── TodoList.js
-│   │   ├── services
-│   │   │   ├── FirstService.js
-│   │   │   └── SecondService.js
-│   │   ├── views
-│   │   │   ├── contacts.html
-│   │   │   └── contact.details.html
-│   │   ├── index.js
-│   │   ├── index.scss
-│   │   └── routes.js
-│   ├── about
-│   │   ├── controllers
-│   │   │   └── ThirdController.js
-│   │   ├── services
-│   │   │   └── ThirdService.js
-│   │   ├── i18n
-│   │   │   ├── de_DE.json
-│   │   │   └── en_EN.json
-│   │   ├── views
-│   │   │   ├── about.html
-│   │   │   └── about.map.html
-│   │   ├── index.js
-│   │   ├── index.scss
-│   │   └── routes.js
-├── .tmp
-├── dist
-├── lib
-├── tasks
-└── test
-```
-
-_When creating directives/CustomElements it may be useful to put all the files associated with the given CustomElement's files (i.e. templates, CSS/SASS files, JavaScript) in a single folder._
-
-```
-elements
-├── element1
-│   ├── element1.tpl.html
-│   ├── element1.js
-│   └── element1.scss
-└── element2
-    ├── element2.tpl.html
-    ├── element2.js
-    └── element2.scss
-```
 
 ### Getting Started
 
@@ -191,25 +108,6 @@ Karma will watch the source code and run the tests anytime you save a change.
 gulp tdd
 ```
 
-### Mocked Backend Workflow 
-
-####Advantages####
-  * Parallel development with backend
-  * Frontend can have a hand in defining API
-  * Control over responses
-  * Minimal impact on code
-  * Backend-less development (continue development even when backend not available)
-  * Useful for e2e tests
-  * Useful for demoing UI work without backend
-  
-```bash
-gulp --env=TEST serve
-gulp --env=TEST --optimize=true # Produce optimized build like `--env=PROD` and also include [fixtures](./test/fixtures) like `--env=TEST`
-gulp deploy                     # to deploy dist folder to gh-pages
-```
-
-***however you can also use this pre-build Grails App [apiApp.war](https://github.com/xmlking/grails-batch-rest/releases) as backend for this SPA App.*** 
-
 ### Options
 By default, plugin errors will cause Gulp to halt. Errors and warnings are fatal. 
 If you want to keep Gulp running, use the --fatal=off flag. 
@@ -244,44 +142,6 @@ The app was tested on:
   * iojs (>= v1.2.0)
   
 ### Tips
-If you are behind firewall and want to force **Bower** to get files from `https://` instead of `git://`
-```bash
-git config --global url."https://".insteadOf git://
-```
-In case you want to revert that global configuration change
-```bash
-git config --global --unset url."https://".insteadOf
-```
- 
-#### For Windows Users
->Install [git](http://git-scm.com/downloads) client if needed.
-Install iojs/node and above mentioned global node modules, them  
-Make sure system path has nvmw and node binaries i.e., `C:\<nvmw root>\nvmw\ and C:\<nvmw root>\nvmw\iojs\latest`. 
-Install [Ruby](http://rubyinstaller.org/downloads/) and make sure system path has it. 
-if you get SSL error while installing __gem__ modules [check here](http://stackoverflow.com/questions/19150017/ssl-error-when-installing-rubygems-unable-to-pull-data-from-https-rubygems-o/27298259#27298259)
-
-
-How to delete the `node_modules` folder when Windows complains that file or path names are too long?
-```bash
-mkdir junk
-robocopy junk node_modules /MIR
-```
->The (empty) ‘junk’ folder can then be deleted in the normal way
-
-#### For WebStrom/IntelliJ Users
-Goto: Files > Languages & Frameworks > JavaScript 
-
-  1. JavaScript language version > select AtScript
- 
-Goto: Files > Project Structure... >  Project Settings > Libraries
-
-  1. mark `bower_components`, `node_modules` directories as `library`
-  
-Goto: Files > Project Structure... >  Project Settings > Modules 
-
-  1. mark `.idea`, `.sass-cache`, `.tmp`, `dist`, `bower_components`, `node_modules` directories as `Excluded`.
-  2. mark `test` directory as `Test Resources Root`
-  3. mark `app` directory as `Sources Root`
 
 ### TODO
 - [ ] Lazy Load Modules 
