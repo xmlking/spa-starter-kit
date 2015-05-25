@@ -31,7 +31,6 @@ function crudButton($state, FlashService) {
       };
 
       var saveFn = function () {
-        console.log('$scope.item save', $scope.item);
         var resourceName = $scope.item.route.replace(/s$/g,"");
 
         $scope.item.save()
