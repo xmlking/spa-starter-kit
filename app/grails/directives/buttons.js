@@ -1,4 +1,4 @@
-function crudButton($state, $location, defaultCrudResource, FlashService) {
+function crudButton($state, FlashService) {
   return {
     restrict: 'EA',
     replace: true,
@@ -9,7 +9,6 @@ function crudButton($state, $location, defaultCrudResource, FlashService) {
       afterAction: '&'
     },
     link: function ($scope) {
-      var resourceName = defaultCrudResource.getResourceName();
 
       var createFn = function () {
         if($state.current.name.endsWith('.show')
@@ -33,6 +32,8 @@ function crudButton($state, $location, defaultCrudResource, FlashService) {
 
       var saveFn = function () {
         console.log('$scope.item save', $scope.item);
+        var resourceName = $scope.item.route.replace(/s$/g,"");
+
         $scope.item.save()
           .then((response) => {
             if ($scope.afterAction) {
@@ -53,6 +54,8 @@ function crudButton($state, $location, defaultCrudResource, FlashService) {
       };
 
       var deleteFn = function () {
+        var resourceName = $scope.item.route.replace(/s$/g,"");
+
         $scope.item.remove()
           .then(() => {
             if ($scope.afterAction) {
