@@ -1,5 +1,5 @@
 
-SPA Starter Kit
+SPA Starter Kit (Original Angular 1 Branch)
 =========
 
 **SPA Starter Kit** is a Single Page Application (SPA) Starter project built on **AngularJS** , **AMD** and **ES6**
@@ -52,7 +52,8 @@ Backend [Grails App with MongoDB](https://github.com/xmlking/grails-batch-rest)
 
 ```bash
 # Clone this repo
-git clone https://github.com/xmlking/spa-starter-kit
+# To clone original Angular 1 Branch 
+git clone -b ng1 --single-branch https://github.com/xmlking/spa-starter-kit.git ng1-starter-kit
 
 # Install development tools at global location(one-time)
 brew install ruby   # only run if it's not already installed. Mac may already have it at `/usr/bin/ruby` 
