@@ -17,7 +17,7 @@ Build
 npm run build
 ``` 
  
- ### Generating other scaffolds
+### Generating other scaffolds
  
  Add a new component with:
  ```bash
