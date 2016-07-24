@@ -8,8 +8,12 @@ Live [Demo](http://xmlking.github.io/spa-starter-kit/)
 
 ###  Setup
 
+####  Fork
+
 On GitHub, navigate to the [xmlking/spa-starter-kit](https://github.com/xmlking/spa-starter-kit) repository.
 Fork buttonIn the top-right corner of the page, click Fork.
+
+####  Clone
 
  ```bash
 npm install -g typings angular-cli@1.0.0-beta.8
@@ -17,13 +21,13 @@ git clone -b master --single-branch https://github.com/<your-github-id>/spa-star
 cd spa-starter-kit
 npm install
  ```
+ 
 > Apply [patch] (./patch.md)
 
 ### Run 
 
 #### Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
-
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 The app will automatically reload if you change any of the source files.
 
 
