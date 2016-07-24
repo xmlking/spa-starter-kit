@@ -1,0 +1,31 @@
+// Core variables and mixins
+@import '../../app/shared/styles/variables';
+@import "/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+
+// Reset and dependencies
+@import "/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+
+// Core CSS
+@import "/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+
+// Components FIXME - shouldn't need this
+@import "/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/jumbotron";
+
+
+/* Sticky footer/header styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  /* Padding for fixed top nav*/
+  padding-top: 70px;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+

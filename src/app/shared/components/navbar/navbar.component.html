@@ -1,0 +1,44 @@
+<ng-content></ng-content>
+<!-- Fixed navbar -->
+<div class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" (click)="isCollapsed = !isCollapsed" aria-expanded="false"
+            aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="index.html">SPA</a>
+  </div>
+  <div id="navbar" class="navbar-collapse" [collapse]="isCollapsed">
+    <ul class="nav navbar-nav">
+      <li [class.active]="router.url === '/home'"><a [routerLink]="['/']">Home</a>
+      <li [class.active]="router.url === '/dashboard'"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+      <li dropdown [class.active]="router.url.includes('heroes')">
+        <a href="#" dropdownToggle aria-expanded="false" aria-haspopup="true">Experiments <span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="experiments-dropdown">
+          <li class="dropdown-header">Basic</li>
+          <li><a [routerLink]="['/heroes']" class="dropdown-item">Heroes</a></li>
+          <li><a [routerLink]="['/sample2']" class="dropdown-item">Sample 2</a></li>
+          <li class="divider"></li>
+          <li class="dropdown-header">Advanced</li>
+          <li><a [routerLink]="['/sample3']" class="dropdown-item">Sample 3</a></li>
+          <li><a [routerLink]="['/sample4']" class="dropdown-item">Sample 4</a></li>
+          <li><a class="dropdown-item">Sample 5</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li [class.active]="router.url === '/about'"><a [routerLink]="['/about']">About</a></li>
+
+      <li dropdown>
+        <a href="#" dropdownToggle aria-expanded="false" aria-haspopup="true">Sumanth <span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="user-dropdown">
+          <li><a [routerLink]="['/dashboard']">Settings</a></li>
+          <li><a [routerLink]="['/']">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div><!--/.nav-collapse -->
+</div>

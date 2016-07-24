@@ -1,25 +1,23 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# Project
 NOTES.md
-/gulp/
-gulpfile.js
-.DS_Store
-
-# IDE
-/.idea
-.iml
-
-
-# Typing #
-/typings/
+TODO.md
 
 # compiled output
 /dist
 /tmp
-/.tmp
 
 # dependencies
 /node_modules
+/bower_components
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+*.launch
+.settings/
 
 # misc
 /.sass-cache
@@ -28,4 +26,12 @@ gulpfile.js
 /libpeerconnection.log
 npm-debug.log
 testem.log
-.ori
+/typings
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+#System Files
+.DS_Store
+Thumbs.db

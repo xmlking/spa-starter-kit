@@ -1,23 +1,14 @@
-# This file is for unifying the coding style for different editors and IDEs.
-# More information at http://editorconfig.org
-
-# top-most EditorConfig file
+# Editor configuration, see http://editorconfig.org
 root = true
 
-# Unix-style newlines with a newline ending every file.
-# Tab for indentation, whitespace trimming and UTF-8 encoding
 [*]
+charset = utf-8
 indent_style = space
 indent_size = 2
-charset = utf-8
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
 [*.md]
-insert_final_newline = false
-trim_trailing_whitespace = false
-
-[*.json]
-insert_final_newline = false
+max_line_length = 0
 trim_trailing_whitespace = false
