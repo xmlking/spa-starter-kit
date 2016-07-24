@@ -1,0 +1,208 @@
+{
+  "Name": "Carpark",
+  "TotalBays": 8273,
+  "OccupiedBays": 2883,
+  "Zones": [
+    {
+      "Name": "A1",
+      "TotalBays": 1455,
+      "OccupiedBays": 666,
+      "Zones": [
+        {
+          "Name": "Level 4",
+          "TotalBays": 438,
+          "OccupiedBays": 147
+        },
+        {
+          "Name": "Level 3",
+          "TotalBays": 334,
+          "OccupiedBays": 269,
+          "Zones": [
+            {
+              "Name": "ADA",
+              "TotalBays": 25,
+              "OccupiedBays": 18
+            },
+            {
+              "Name": "L3 Zone Counted",
+              "TotalBays": 309,
+              "OccupiedBays": 251
+            }]
+        },
+        {
+          "Name": "Level 2",
+          "TotalBays": 420,
+          "OccupiedBays": 199
+        },
+        {
+          "Name": "Level 1",
+          "TotalBays": 263,
+          "OccupiedBays": 51,
+          "Zones": [
+            {
+              "Name": "2HR",
+              "TotalBays": 25,
+              "OccupiedBays": 0
+            },
+            {
+              "Name": "L1 Zone Counted",
+              "TotalBays": 238,
+              "OccupiedBays": 51
+            }]
+        }]
+    },
+    {
+      "Name": "A2",
+      "TotalBays": 1589,
+      "OccupiedBays": 470,
+      "Zones": [
+        {
+          "Name": "Level 3",
+          "TotalBays": 518,
+          "OccupiedBays": 256,
+          "Zones": [
+            {
+              "Name": "ADA",
+              "TotalBays": 4,
+              "OccupiedBays": 3
+            },
+            {
+              "Name": "L3 Zone Counted",
+              "TotalBays": 514,
+              "OccupiedBays": 253
+            }]
+        },
+        {
+          "Name": "Level 2",
+          "TotalBays": 581,
+          "OccupiedBays": 130
+        },
+        {
+          "Name": "Level 1",
+          "TotalBays": 490,
+          "OccupiedBays": 84,
+          "Zones": [
+            {
+              "Name": "ADA",
+              "TotalBays": 22,
+              "OccupiedBays": 3
+            },
+            {
+              "Name": "L1 Zone Counted",
+              "TotalBays": 468,
+              "OccupiedBays": 81
+            }]
+        }]
+    },
+    {
+      "Name": "B2",
+      "TotalBays": 1353,
+      "OccupiedBays": 644,
+      "Zones": [
+        {
+          "Name": "Level 3",
+          "TotalBays": 489,
+          "OccupiedBays": 315,
+          "Zones": [
+            {
+              "Name": "ADA",
+              "TotalBays": 6,
+              "OccupiedBays": 2
+            },
+            {
+              "Name": "L3 Zone Counted",
+              "TotalBays": 483,
+              "OccupiedBays": 313
+            }]
+        },
+        {
+          "Name": "Level 2",
+          "TotalBays": 551,
+          "OccupiedBays": 243
+        },
+        {
+          "Name": "Level 1",
+          "TotalBays": 313,
+          "OccupiedBays": 86,
+          "Zones": [
+            {
+              "Name": "2HR",
+              "TotalBays": 25,
+              "OccupiedBays": 0
+            },
+            {
+              "Name": "ADA",
+              "TotalBays": 19,
+              "OccupiedBays": 3
+            },
+            {
+              "Name": "L1 Zone Counted",
+              "TotalBays": 269,
+              "OccupiedBays": 83
+            }]
+        }]
+    },
+    {
+      "Name": "C",
+      "TotalBays": 1974,
+      "OccupiedBays": 525,
+      "Zones": [
+        {
+          "Name": "Level 5",
+          "TotalBays": 434,
+          "OccupiedBays": 45
+        },
+        {
+          "Name": "Level 4",
+          "TotalBays": 433,
+          "OccupiedBays": 83
+        },
+        {
+          "Name": "Level 3",
+          "TotalBays": 358,
+          "OccupiedBays": 247,
+          "Zones": [
+            {
+              "Name": "ADA",
+              "TotalBays": 15,
+              "OccupiedBays": 5
+            },
+            {
+              "Name": "L3 Zone Counted",
+              "TotalBays": 343,
+              "OccupiedBays": 242
+            }]
+        },
+        {
+          "Name": "Level 2",
+          "TotalBays": 434,
+          "OccupiedBays": 63
+        },
+        {
+          "Name": "Level 1",
+          "TotalBays": 315,
+          "OccupiedBays": 87,
+          "Zones": [
+            {
+              "Name": "2HR",
+              "TotalBays": 24,
+              "OccupiedBays": 0
+            },
+            {
+              "Name": "ADA",
+              "TotalBays": 16,
+              "OccupiedBays": 1
+            },
+            {
+              "Name": "L1 Zone Counted",
+              "TotalBays": 275,
+              "OccupiedBays": 86
+            }]
+        }]
+    },
+    {
+      "Name": "Main Street",
+      "TotalBays": 1902,
+      "OccupiedBays": 578
+    }]
+}
