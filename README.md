@@ -8,7 +8,7 @@ Live [Demo](http://xmlking.github.io/spa-starter-kit/)
 
 ###  Setup
 
-On GitHub, navigate to the [xmlking/spa-starter-kit](/xmlking/spa-starter-kit) repository.
+On GitHub, navigate to the [xmlking/spa-starter-kit](https://github.com/xmlking/spa-starter-kit) repository.
 Fork buttonIn the top-right corner of the page, click Fork.
 
  ```bash
