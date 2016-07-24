@@ -11,6 +11,7 @@ Live [Demo](http://xmlking.github.io/spa-starter-kit/)
 ####  Fork
 
 On GitHub, navigate to the [xmlking/spa-starter-kit](https://github.com/xmlking/spa-starter-kit) repository.
+
 Fork buttonIn the top-right corner of the page, click Fork.
 
 ####  Clone
@@ -28,6 +29,7 @@ npm install
 
 #### Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
+
 The app will automatically reload if you change any of the source files.
 
 
