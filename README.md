@@ -4,7 +4,7 @@ SPA-Starter-Kit
 This project was generated with [angular-cli](https://github.com/angular/angular-cli)
 
 ### Demo
-This **[Demo](http://xmlking.github.io/spa-starter-kit/)
+Live [Demo](http://xmlking.github.io/spa-starter-kit/)
 
 ###  Setup
  ```bash
