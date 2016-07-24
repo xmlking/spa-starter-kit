@@ -7,9 +7,13 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 Live [Demo](http://xmlking.github.io/spa-starter-kit/)
 
 ###  Setup
+
+On GitHub, navigate to the [xmlking/spa-starter-kit](/xmlking/spa-starter-kit) repository.
+Fork buttonIn the top-right corner of the page, click Fork.
+
  ```bash
 npm install -g typings angular-cli@1.0.0-beta.8
-git clone -b master --single-branch https://github.com/xmlking/spa-starter-kit
+git clone -b master --single-branch https://github.com/<your-github-id>/spa-starter-kit
 cd spa-starter-kit
 npm install
  ```
