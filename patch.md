@@ -3,7 +3,7 @@ Patch
 
 1. Apply this patch (needed until Angular-CLI migrated to `core-js` from `es6-shim`) 
 
-  edit `node_modules/angular-cli/lib/broccoli/angular2-app.js`
+  Edit `node_modules/angular-cli/lib/broccoli/angular2-app.js`
   
   at line *36*, replace 
   ```js
@@ -14,7 +14,7 @@ Patch
   ```
   
   with
-  ```ks
+  ```js
     'vendor/core-js/client/shim.min.js',
     'vendor/systemjs/dist/system.src.js',
     'vendor/zone.js/dist/zone.js'
@@ -22,7 +22,7 @@ Patch
 
 2. Remove typings
 
-  edit `node_modules/angular-cli/lib/broccoli/angular2-app.js`
+  Edit `node_modules/angular-cli/lib/broccoli/angular2-app.js`
   
   at line *92*, comment out this line
   
@@ -30,6 +30,6 @@ Patch
   // new BroccoliFunnel('typings', { destDir: 'typings' }),
   ```
 
-3. Remove nested old typescript
+3. Remove nested old typescript directory 
 
   `node_modules/angular-cli/node_modules/typescript`
