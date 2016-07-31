@@ -12,6 +12,7 @@ Live [Demo](http://xmlking.github.io/spa-starter-kit/)
 
 1. Node v6.2.2 or higher
 2. angular-cli
+
  ```bash
  npm install -g angular-cli@latest
  ```
