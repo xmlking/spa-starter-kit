@@ -1,23 +1,25 @@
 /* tslint:disable:no-unused-variable */
 
 import {
-  beforeEach, beforeEachProviders,
-  describe, xdescribe,
-  expect, it, xit,
-  async, inject
+  inject,
+  async,
+  addProviders
 } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
-beforeEachProviders(() => [AppComponent]);
-
 describe('App: SPA', () => {
-  it('should create the app',
-      inject([AppComponent], (app: AppComponent) => {
+
+  beforeEach(() => {
+    addProviders([AppComponent]);
+  });
+
+  it('should create the app', inject([AppComponent], (app: AppComponent) => {
+    // actual test
     expect(app).toBeTruthy();
   }));
 
-  // it('should have as title \'app works!\'',
-  //     inject([AppComponent], (app: AppComponent) => {
-  //   expect(app.title).toEqual('app works!');
-  // }));
+  it('should have as title \'app works!\'', inject([AppComponent], (app: AppComponent) => {
+    expect(app.title).toEqual('app works!');
+  }));
+
 });

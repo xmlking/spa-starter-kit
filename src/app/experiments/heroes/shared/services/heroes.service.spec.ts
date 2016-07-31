@@ -1,8 +1,5 @@
 import {
-  beforeEach, beforeEachProviders,
-  describe, xdescribe,
-  expect, it, xit,
-  async, inject,
+  inject,
   addProviders
 } from '@angular/core/testing';
 

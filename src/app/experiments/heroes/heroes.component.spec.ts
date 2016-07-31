@@ -1,20 +1,35 @@
 /* tslint:disable:no-unused-variable */
 
-import { By }           from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
 import {
-  beforeEach, beforeEachProviders,
-  describe, xdescribe,
-  expect, it, xit,
-  async, inject
+  inject,
+  async,
+  addProviders
 } from '@angular/core/testing';
-
+import { Router } from '@angular/router';
+import { Subject } from 'rxjs/Rx';
+import { APP_ROUTER_PROVIDERS } from '../../index';
+import { provide } from '@angular/core';
 import { HeroesComponent } from './heroes.component';
+import { HeroesService } from './shared/services/heroes.service';
+export class MockRouter {
+  public events = new Subject();
+  public navigate(commands: any[]) {
+  }
+
+}
 
 describe('Component: Heroes', () => {
-  it('should create an instance', () => {
-    // let component = new HeroesComponent();
-    // expect(component).toBeTruthy();
+
+  beforeEach(() => {
+    addProviders([HeroesComponent]);
+    addProviders([HeroesService]);
+    addProviders(APP_ROUTER_PROVIDERS);
+    addProviders([provide(Router, {useValue: new MockRouter()})]);
   });
+
+  it('should create an instance', inject([HeroesComponent], (comp: HeroesComponent) => {
+    // actual test
+    expect(comp).toBeTruthy();
+  }));
+
 });

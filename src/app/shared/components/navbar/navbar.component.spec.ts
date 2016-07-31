@@ -1,9 +1,4 @@
 import {
-  beforeEach,
-  beforeEachProviders,
-  describe,
-  expect,
-  it,
   inject,
   async,
   addProviders

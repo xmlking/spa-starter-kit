@@ -13,4 +13,6 @@ import { AlertComponent } from 'ng2-bootstrap/components/alert';
   directives: [ROUTER_DIRECTIVES,HeaderComponent,FooterComponent,AlertComponent],
 })
 
-export class AppComponent { }
+export class AppComponent {
+  title = 'app works!'
+}
