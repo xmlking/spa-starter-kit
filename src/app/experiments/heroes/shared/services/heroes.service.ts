@@ -3,7 +3,7 @@ import { HEROES } from './../mock/MockHeroes';
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class HeroService {
+export class HeroesService {
     getHeroes():any {
         return Promise.resolve(HEROES);
     }

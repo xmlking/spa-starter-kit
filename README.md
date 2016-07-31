@@ -1,7 +1,7 @@
 SPA-Starter-Kit
 ---------------
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli)
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.10.
 
 ### Demo
 Live [Demo](http://xmlking.github.io/spa-starter-kit/)
@@ -17,7 +17,7 @@ Fork buttonIn the top-right corner of the page, click Fork.
 ####  Clone
 
  ```bash
-npm install -g typings angular-cli@1.0.0-beta.8
+npm install -g angular-cli@latest
 git clone -b master --single-branch https://github.com/<your-github-id>/spa-starter-kit
 cd spa-starter-kit
 npm install

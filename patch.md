@@ -29,7 +29,3 @@ Patch
   ```js
   // new BroccoliFunnel('typings', { destDir: 'typings' }),
   ```
-
-3. Remove nested old typescript directory 
-
-  `node_modules/angular-cli/node_modules/typescript`

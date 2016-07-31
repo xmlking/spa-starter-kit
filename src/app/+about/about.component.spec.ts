@@ -4,43 +4,24 @@ import {
   describe,
   expect,
   it,
+  async,
   inject,
+  addProviders
 } from '@angular/core/testing';
-import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
-import { Component } from '@angular/core';
-import { By } from '@angular/platform-browser';
+
+import { TestComponentBuilder } from '@angular/compiler/testing';
+
 import { AboutComponent } from './about.component';
 
-describe('Component: About', () => {
-  let builder: TestComponentBuilder;
+describe('About Component', () => {
+  beforeEach(() => {
+    addProviders([]);
+  });
 
-  beforeEachProviders(() => [AboutComponent]);
-  beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
-    builder = tcb;
-  }));
+  it('should ...', async(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+    tcb.createAsync(AboutComponent).then((fixture) => {
+      fixture.detectChanges();
+    });
+  })));
 
-  it('should inject the component', inject([AboutComponent],
-      (component: AboutComponent) => {
-    expect(component).toBeTruthy();
-  }));
-
-  it('should create the component', inject([], () => {
-    return builder.createAsync(AboutComponentTestController)
-      .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(AboutComponent));
-        expect(query).toBeTruthy();
-        expect(query.componentInstance).toBeTruthy();
-      });
-  }));
 });
-
-@Component({
-  selector: 'test',
-  template: `
-    <air-about></air-about>
-  `,
-  directives: [AboutComponent]
-})
-class AboutComponentTestController {
-}
-

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  Router, ROUTER_DIRECTIVES } from '@angular/router';
-import {HeroService} from './shared/services/HeroService';
+import {HeroesService} from './shared/services/heroes.service';
 import { Hero } from './shared/models/Hero';
 
 
@@ -9,7 +9,7 @@ import { Hero } from './shared/models/Hero';
   selector: 'air-heroes',
   templateUrl: 'heroes.component.html',
   styleUrls: ['heroes.component.css'],
-  providers:  [HeroService],
+  providers:  [HeroesService],
   directives: [ROUTER_DIRECTIVES]
 })
 export class HeroesComponent implements OnInit {
@@ -18,11 +18,11 @@ export class HeroesComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private heroService: HeroService
+    private heroesService: HeroesService
   ) { }
 
   getHeroes():void {
-    this.heroService.getHeroes().then((heroes:Hero[]) => this.heroes = heroes);
+    this.heroesService.getHeroes().then((heroes:Hero[]) => this.heroes = heroes);
   }
 
   ngOnInit():void {

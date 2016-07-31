@@ -5,42 +5,49 @@ import {
   expect,
   it,
   inject,
+  async,
+  addProviders
 } from '@angular/core/testing';
-import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
-import { Component } from '@angular/core';
-import { By } from '@angular/platform-browser';
+import { provide } from '@angular/core';
 import { NavbarComponent } from './navbar.component';
+import { Router } from '@angular/router';
+import { Subject } from 'rxjs/Rx';
+import { APP_ROUTER_PROVIDERS } from '../../../index';
 
-describe('Component: Navbar', () => {
-  let builder: TestComponentBuilder;
+export class MockRouter {
 
-  beforeEachProviders(() => [NavbarComponent]);
-  beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
-    builder = tcb;
-  }));
+  public events = new Subject();
 
-  it('should inject the component', inject([NavbarComponent],
-      (component: NavbarComponent) => {
-    expect(component).toBeTruthy();
-  }));
+  public navigate(commands: any[]) {
+  }
 
-  it('should create the component', inject([], () => {
-    return builder.createAsync(NavbarComponentTestController)
-      .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(NavbarComponent));
-        expect(query).toBeTruthy();
-        expect(query.componentInstance).toBeTruthy();
-      });
-  }));
-});
-
-@Component({
-  selector: 'test',
-  template: `
-    <air-navbar></air-navbar>
-  `,
-  directives: [NavbarComponent]
-})
-class NavbarComponentTestController {
 }
 
+describe('Component: Executives', () => {
+
+  beforeEach(() => {
+    addProviders([NavbarComponent]);
+    addProviders(APP_ROUTER_PROVIDERS);
+    addProviders([provide(Router, {useValue: new MockRouter()})]);
+  });
+
+  it('should create an instance', inject([NavbarComponent], (comp: NavbarComponent) => {
+    // actual test
+    expect(comp).toBeTruthy();
+  }));
+
+  // describe('.handle', () => {
+  //   it('handles 401 response', () => {
+  //     errorHandler.handle({status: 401});
+  //     expect(loginService.logout).toHaveBeenCalled();
+  //     expect(router.navigate).toHaveBeenCalledWith(['login']);
+  //   });
+  //
+  //   it('does not handle other errors', () => {
+  //     errorHandler.handle({status: 400});
+  //     expect(loginService.logout).not.toHaveBeenCalled();
+  //     expect(router.navigate).not.toHaveBeenCalled();
+  //   });
+  // }); // .handle
+
+});
