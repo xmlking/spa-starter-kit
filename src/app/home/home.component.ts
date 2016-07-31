@@ -3,7 +3,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
   moduleId: module.id,
-  selector: 'div[air-home]',
+  selector: 'div[app-home]',
   host: { class: 'container' },
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.css'],

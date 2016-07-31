@@ -3,7 +3,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
   moduleId: module.id,
-  selector: 'air-experiments',
+  selector: 'app-experiments',
   templateUrl: 'experiments.component.html',
   styleUrls: ['experiments.component.css'],
   directives: [ROUTER_DIRECTIVES]

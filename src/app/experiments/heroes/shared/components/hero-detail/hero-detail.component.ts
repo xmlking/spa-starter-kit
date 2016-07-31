@@ -6,7 +6,7 @@ import { HeroesService } from './../../services/heroes.service';
 
 @Component({
   moduleId: module.id,
-  selector: 'air-hero-detail',
+  selector: 'app-hero-detail',
   templateUrl: 'hero-detail.component.html',
   styleUrls: ['hero-detail.component.css'],
   providers:  [HeroesService],

@@ -3,7 +3,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
   moduleId: module.id,
-  selector: 'air-side-nav',
+  selector: 'app-side-nav',
   templateUrl: 'side-nav.component.html',
   styleUrls: ['side-nav.component.css'],
   directives: [ROUTER_DIRECTIVES]

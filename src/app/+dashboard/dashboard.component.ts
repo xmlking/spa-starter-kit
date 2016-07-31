@@ -5,7 +5,7 @@ import { CAROUSEL_DIRECTIVES } from 'ng2-bootstrap/components/carousel';
 
 @Component({
   moduleId: module.id,
-  selector: 'div[air-dashboard]',
+  selector: 'div[app-dashboard]',
   host: {
     class: 'container'
   },

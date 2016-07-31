@@ -3,7 +3,7 @@ import {SideNavComponent} from '../side-nav';
 
 @Component({
   moduleId: module.id,
-  selector: 'div[air-dashboard-layout]',
+  selector: 'div[app-dashboard-layout]',
   directives: [SideNavComponent],
   templateUrl: 'dashboard.layout.html',
   styleUrls: ['dashboard.layout.css']

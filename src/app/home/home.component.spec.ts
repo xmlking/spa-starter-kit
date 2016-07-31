@@ -37,7 +37,7 @@ describe('Component: Home', () => {
 @Component({
   selector: 'test',
   template: `
-    <air-home></air-home>
+    <app-home></app-home>
   `,
   directives: [HomeComponent]
 })

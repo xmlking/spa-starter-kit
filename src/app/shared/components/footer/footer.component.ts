@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 
 @Component({
   moduleId: module.id,
-  selector: 'footer[air-footer]',
+  selector: 'footer[app-footer]',
   templateUrl: 'footer.component.html',
   styleUrls: ['footer.component.css']
 })

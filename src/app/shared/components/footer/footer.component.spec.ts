@@ -37,7 +37,7 @@ describe('Component: Footer', () => {
 @Component({
   selector: 'test',
   template: `
-    <air-footer></air-footer>
+    <app-footer></app-footer>
   `,
   directives: [FooterComponent]
 })

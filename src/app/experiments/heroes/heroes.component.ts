@@ -6,7 +6,7 @@ import { Hero } from './shared/models/Hero';
 
 @Component({
   moduleId: module.id,
-  selector: 'air-heroes',
+  selector: 'app-heroes',
   templateUrl: 'heroes.component.html',
   styleUrls: ['heroes.component.css'],
   providers:  [HeroesService],
