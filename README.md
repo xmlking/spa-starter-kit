@@ -8,16 +8,23 @@ Live [Demo](http://xmlking.github.io/spa-starter-kit/)
 
 ###  Setup
 
+####  Prerequisites
+
+1. Node v6.2.2 or higher
+2. angular-cli
+ ```bash
+ npm install -g angular-cli@latest
+ ```
+ 
 ####  Fork
 
 On GitHub, navigate to the [xmlking/spa-starter-kit](https://github.com/xmlking/spa-starter-kit) repository.
 
-Fork buttonIn the top-right corner of the page, click Fork.
+Click Fork  button in the top-right corner of the page.
 
 ####  Clone
 
  ```bash
-npm install -g angular-cli@latest
 git clone -b master --single-branch https://github.com/<your-github-id>/spa-starter-kit
 cd spa-starter-kit
 npm install
