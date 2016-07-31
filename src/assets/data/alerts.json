@@ -1,0 +1,30 @@
+[
+  {
+    "description": "Weather conditions at LGA Airport have caused flight disruptions. Check with your airline to determine the status of your flight.",
+    "pubDate": "Sat, 30 Jul 2016 18:23:58 GMT",
+    "guid": "5994BC7B-EE4A-4ADE-8E4C-BBE89CFB9FAA",
+    "timeStamp": "1469903038",
+    "timeAgo": "22 hours ago"
+  },
+  {
+    "description": "Due to heavy traffic around LGA, roadways may be congested. Please allow extra time when traveling to the airport.",
+    "pubDate": "Fri, 29 Jul 2016 21:05:37 GMT",
+    "guid": "D9F44D58-91AE-48D8-B4E7-D8AF0FCEAE56",
+    "timeStamp": "1469826337",
+    "timeAgo": "Yesterday"
+  },
+  {
+    "description": "Due to minor motor vehicle accident between 94th street and LaGuardia Road, roadways may be congested. Please allow extra time when traveling to the airport.",
+    "pubDate": "Fri, 29 Jul 2016 18:09:49 GMT",
+    "guid": "02E51030-76C4-4B28-8C84-5A53255CE243",
+    "timeStamp": "1469815789",
+    "timeAgo": "Yesterday"
+  },
+  {
+    "description": "Due to heavy traffic around LGA, roadways may be congested. Please allow extra time when traveling to the airport.",
+    "pubDate": "Fri, 29 Jul 2016 17:54:22 GMT",
+    "guid": "24E5F68A-3049-4CFF-8062-FF487CAD8D31",
+    "timeStamp": "1469814862",
+    "timeAgo": "Yesterday"
+  }
+]

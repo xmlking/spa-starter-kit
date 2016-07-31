@@ -1,0 +1,109 @@
+{
+  "links": {
+    "info": "http:\/\/laguardiaairport.com\/getting-to-from\/by-car\/",
+    "reservations": "https:\/\/reservation.abm.com\/default.aspx\/LGA"
+  },
+  "overall": {
+    "percentage": 116,
+    "count": 3154,
+    "capacity": 2719
+  },
+  "lots": [
+    {
+      "lotId": 1,
+      "lotName": "Terminal B Parking",
+      "lotTitle": "Terminal B Parking",
+      "lotDescription": "",
+      "occupancyPercentage": 100,
+      "occupancyCount": 1,
+      "totalCapacity": 1,
+      "reservationsDisabled": false,
+      "lotClosed": true,
+      "manualLot": false
+    },
+    {
+      "lotId": 2,
+      "lotName": "Terminal B Parking",
+      "lotTitle": "Terminal B Parking",
+      "lotDescription": "Covered parking facility at the Terminal. Lot P2 is closed for airport construction. Please leave additional travel time.",
+      "occupancyPercentage": 100,
+      "occupancyCount": 1,
+      "totalCapacity": 1,
+      "reservationsDisabled": false,
+      "lotClosed": true,
+      "manualLot": false
+    },
+    {
+      "lotId": 3,
+      "lotName": "Long Term Parking",
+      "lotTitle": "Long Term Parking",
+      "lotDescription": "LaGuardia's long-term Lot 3 is closing June 1, 2016 for airport construction. A new long-term lot P10 is opening this summer with reserved parking.",
+      "occupancyPercentage": 100,
+      "occupancyCount": 1,
+      "totalCapacity": 1,
+      "reservationsDisabled": false,
+      "lotClosed": true,
+      "manualLot": false
+    },
+    {
+      "lotId": 4,
+      "lotName": "Terminal C Parking",
+      "lotTitle": "Hourly Parking",
+      "lotDescription": "Covered parking garage located closest to Terminal C.",
+      "occupancyPercentage": 80,
+      "occupancyCount": 1159,
+      "totalCapacity": 1445,
+      "reservationsDisabled": false,
+      "lotClosed": false,
+      "manualLot": false
+    },
+    {
+      "lotId": 5,
+      "lotName": "Terminal D Parking",
+      "lotTitle": "Hourly Parking",
+      "lotDescription": "Parking lot located closest to Terminal D.",
+      "occupancyPercentage": 48,
+      "occupancyCount": 389,
+      "totalCapacity": 817,
+      "reservationsDisabled": true,
+      "lotClosed": false,
+      "manualLot": false
+    },
+    {
+      "lotId": 6,
+      "lotName": "Terminal A Parking",
+      "lotTitle": "Hourly Parking",
+      "lotDescription": "Parking lot located closest to Terminal A.",
+      "occupancyPercentage": 48,
+      "occupancyCount": 109,
+      "totalCapacity": 229,
+      "reservationsDisabled": true,
+      "lotClosed": false,
+      "manualLot": false
+    },
+    {
+      "lotId": 7,
+      "lotName": "Terminal A Parking",
+      "lotTitle": "Terminal A Parking",
+      "lotDescription": "",
+      "occupancyPercentage": 664,
+      "occupancyCount": 1494,
+      "totalCapacity": 225,
+      "reservationsDisabled": false,
+      "lotClosed": true,
+      "manualLot": false
+    },
+    {
+      "lotId": 10,
+      "lotName": "Long-term Parking",
+      "lotTitle": "Long-term Parking",
+      "lotDescription": "Long-term all-valet parking closest to Terminal A with shuttle service to all terminals.",
+      "occupancyPercentage": false,
+      "occupancyCount": false,
+      "totalCapacity": false,
+      "reservationsDisabled": true,
+      "lotClosed": false,
+      "manualLot": true
+    }
+  ]
+}

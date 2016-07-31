@@ -1,0 +1,25 @@
+{
+  "latitude": 40.7769271,
+  "longitutde": -73.8739659,
+  "timezone": "America\/New_York",
+  "currentConditions": {
+    "time": 1469982603,
+    "summary": "Light Rain",
+    "icon": "rain",
+    "nearestStormDistance": 0,
+    "precipIntensity": 0.0287,
+    "precipIntensityError": 0.0032,
+    "precipProbability": 1,
+    "precipType": "rain",
+    "temperature": 76.91,
+    "apparentTemperature": 76.91,
+    "dewPoint": 71.24,
+    "humidity": 0.83,
+    "windSpeed": 7.71,
+    "windBearing": 105,
+    "visibility": 8.02,
+    "cloudCover": 0.61,
+    "pressure": 1015.54,
+    "ozone": 291.03
+  }
+}
