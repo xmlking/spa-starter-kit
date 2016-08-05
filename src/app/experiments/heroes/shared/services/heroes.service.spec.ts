@@ -4,7 +4,7 @@ import {
 } from '@angular/core/testing';
 
 import {HeroesService} from './heroes.service';
-import { HEROES } from './../mock/MockHeroes';
+import { HEROES } from './heroes.mock';
 
 describe('HeroService', () => {
 
